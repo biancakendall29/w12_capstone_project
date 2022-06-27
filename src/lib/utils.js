@@ -33,4 +33,8 @@ const shuffle = (array) => {
     return array;
 }
 
-module.exports = {createDeck,shuffle}
+const drawCard = (deck,dest) => {
+    dest.push(deck.pop())
+}
+
+module.exports = {createDeck, shuffle, drawCard}

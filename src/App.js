@@ -1,5 +1,5 @@
 import './App.css';
-const {createDeck} = require('./utils/createDeck.js')
+const {createDeck} = require('./lib/utils.js')
 
 function App() {
   return (
