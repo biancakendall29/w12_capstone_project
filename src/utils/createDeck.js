@@ -1,8 +1,8 @@
 const suits = ["Spades", "Hearts", "Clubs", "Diamonds"];
 const values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
-const deck = new Array();
 
 const createDeck = () => {
+    const deck = [];
     for(let i = 0 ; i < suits.length; i++){
 
         for(let j = 0; j < values.length;j++){
@@ -12,9 +12,8 @@ const createDeck = () => {
             deck.push(card)
         }
     }
+    return deck
 }
-createDeck()
-console.log(deck);
 
 const shuffle = (array) => {
     let m = array.length, t, i;
@@ -34,8 +33,4 @@ const shuffle = (array) => {
     return array;
 }
 
-const shuffledDeck = shuffle(deck)
-
-console.log(shuffledDeck);
-
-//export default createDeck;
+module.exports = {createDeck,shuffle}
