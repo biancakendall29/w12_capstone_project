@@ -1,19 +1,17 @@
 import { drawCard } from "../../lib/utils";
 import PlayerCards from '../components/PlayerCards'
 
-const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerBust,setPlayerCards, deck}) => {
+const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerBust, setPlayerCards, deck, setIsDealersTurn, drawPlayerCard}) => {
 
     const handleHit = () => {
         const playerHand = [...playerCards];
-        drawCard(deck, playerHand);
-        setPlayerCards(playerHand);
-        const count = playerCount;
-        setPlayerCount(count + playerHand[playerHand.length-1].weight)
+        drawPlayerCard(deck, playerHand);
+        setPlayerCards(playerHand);    
     }
 
     const handleStick = () => {
-        
-    }
+        setIsDealersTurn(true);
+   }
 
     return (
         <>

@@ -2,18 +2,20 @@ import { useEffect } from "react";
 import { drawCard } from "../../lib/utils"
 import DealerCards from "../components/DealerCards";
 
-const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCards, deck, isDealerBust, setIsDealerBust}) => {
+const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCards, deck, isDealerBust, setIsDealerBust, isDealerTurn}) => {
 
     useEffect(() => {
-        if(dealerCount < 17){
+        if(isDealerTurn && dealerCount < 17){
             const dealerHand = [...dealerCards]
-            drawCard(deck,dealerHand)
+            drawCard(deck, dealerHand)
             setDealerCards(dealerHand)
+
         }
-        if(dealerCount > 21){
+
+        if(isDealerTurn && dealerCount > 21){
             setIsDealerBust(true)
         }
-    }, [dealerCount])
+    })
 
     return (
         <>

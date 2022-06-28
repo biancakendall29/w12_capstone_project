@@ -20,13 +20,13 @@ const BlackjackContainer = () => {
         const dealerHand = []
         const playerHand = []
 
-        drawCard(deck,dealerHand);
-        drawCard(deck,dealerHand);
-        drawCard(deck,playerHand);
-        drawCard(deck,playerHand);
+        // drawCard(deck,dealerHand);
+        // drawCard(deck,dealerHand);
+        drawPlayerCard();
+        drawPlayerCard();
 
-        setDealerCards(dealerHand);
-        setPlayerCards(playerHand);
+        // setDealerCards(dealerHand);
+        // setPlayerCards(playerHand);
     }
 
     const [playerCount, setPlayerCount] = useState(0);
@@ -38,10 +38,37 @@ const BlackjackContainer = () => {
     const [isPlayerBust, setIsPlayerBust] = useState(false);
     const [isDealerBust, setIsDealerBust] = useState(false);
 
+    useEffect(() => {
+        let count = 0;
+        for (let i = 0; i < dealerCards.length; i++) {
+            count += dealerCards[i].weight;
+        }   
+        setDealerCount(count); 
+
+    },[dealerCards])
+
+    useEffect(() => {
+        let count = 0;
+        for (let i = 0; i < playerCards.length; i++) {
+            count += playerCards[i].weight;
+        }   
+        setPlayerCount(count); 
+    },[playerCards])
+
+    const drawPlayerCard = () => {
+        const nextCard = deck[deck.length-1]
+        setPlayerCards([...playerCards, nextCard]) 
+    }
+
     return(
         <>
-        <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}/>
-        <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} dealerCount={dealerCount} setDealerCount={setDealerCount} deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}/>
+        <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
+                        setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
+                        setIsDealersTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard}/>
+        <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} 
+                        dealerCount={dealerCount} setDealerCount={setDealerCount} 
+                        deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
+                        isDealerTurn={isDealerTurn}/>
         <button onClick={startRound}>Reset</button>
         </>
     )

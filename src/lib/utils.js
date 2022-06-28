@@ -36,7 +36,7 @@ const shuffle = (array) => {
     return array;
 }
 
-const drawCard = (deck,dest) => {
+const drawCard = (deck, dest) => {
     dest.push(deck.pop())
 }
 
