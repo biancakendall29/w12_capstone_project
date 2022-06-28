@@ -16,13 +16,13 @@ const BlackjackContainer = () => {
     const [isDealerTurn, setIsDealerTurn] = useState(false);
     const [isPlayerBust, setIsPlayerBust] = useState(false);
     const [isDealerBust, setIsDealerBust] = useState(false);
+    const [result, setResult] = useState("");
 
     const startRound = () => {
         setPlayerCards([]);
         setPlayerCount(0);
         setDealerCards([]);
         setDealerCount(0);
-
 
         // setDeck(shuffle(createDeck()));
         setIsDealerTurn(false);
@@ -31,8 +31,6 @@ const BlackjackContainer = () => {
         
         drawPlayerCard(2);
         drawDealerCard(2);
-
-
     }
 
     useEffect(() => {
@@ -85,16 +83,29 @@ const BlackjackContainer = () => {
             setDeck(shuffle(createDeck()));
         }
     }, [deck])
-    
+
+    useEffect(() => {
+
+        if (playerCards.length === 2 && playerCount === 21 && dealerCount !== 21) setResult("Player wins - BlackJack!")
+        else if (dealerCards.length === 2 && dealerCount === 21 && playerCount !== 21) setResult("Dealer wins - BlackJack!")
+        else if (dealerCards.length === 2 && dealerCount === 21 && playerCount === 21 && playerCards.length === 2) setResult("Push!")
+        else if (isPlayerBust) setResult("Dealer wins - player bust!")
+        else if (isDealerBust) setResult("Player wins - dealer bust!")
+        else if (playerCount > dealerCount) setResult("Player wins on points!")
+        else if (dealerCount > playerCount) setResult("Dealer wins on points!")
+        else if (dealerCount == playerCount) setResult("Push")
+    }, [playerCount, dealerCount, isPlayerBust, isDealerBust]);
+
     return(
         <>
         <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
                         setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
-                        setIsDealersTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard}/>
+                        setIsDealersTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust}   isDealerTurn={isDealerTurn}/>
         <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} 
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
-                        isDealerTurn={isDealerTurn}/>
+                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard}/>
+        {result}
         <button onClick={startRound}>Start Round</button>
         </>
     )

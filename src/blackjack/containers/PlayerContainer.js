@@ -1,24 +1,31 @@
+import { useEffect } from "react";
 import { drawCard } from "../../lib/utils";
 import PlayerCards from '../components/PlayerCards'
 
-const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerBust, setPlayerCards, deck, setIsDealersTurn, drawPlayerCard}) => {
+const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerBust, setPlayerCards, deck, setIsDealersTurn, drawPlayerCard, isPlayerBust, isDealerTurn}) => {
 
     const handleHit = () => {
-        const playerHand = [...playerCards];
         drawPlayerCard();
-        setPlayerCards(playerHand);    
     }
 
     const handleStick = () => {
         setIsDealersTurn(true);
    }
 
+   useEffect(() => {
+        if(playerCount > 21){
+            setIsPlayerBust(true);
+            setIsDealersTurn(true);
+        }
+   })
+
     return (
         <>
             <PlayerCards playerCards={playerCards}/>
             <p>Player Count: {playerCount}</p>
-            <button onClick={handleHit}>Hit me</button>
-            <button onClick={handleStick}>Stick</button>
+            {isPlayerBust ? <p>You are bust</p> : <></>}
+            {isDealerTurn ? <></> : <button onClick={handleHit}>Hit me</button>}
+            {isDealerTurn ? <></> : <button onClick={handleStick}>Stick</button>}
         </>
     );
 }

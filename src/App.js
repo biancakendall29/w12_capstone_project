@@ -4,8 +4,8 @@ import BlackjackContainer from './blackjack/containers/BlackjackContainer';
 function App() {
   return (
     <div>
-      <h1>Hello World!</h1>
-      <p>Gamblin is cool</p>
+      <h1>House of Cardzzzzzz</h1>
+      <p>Gamblin is k00l</p>
       <BlackjackContainer />
     </div>
   );
