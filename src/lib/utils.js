@@ -8,8 +8,8 @@ const createDeck = () => {
         for(let j = 0; j < values.length;j++){
             
             let weight = parseInt(values[j])
-            if (values[j] == "J" || values[j] == "Q" || values[j] == "K"){ weight = 10}
-            if (values[j] == "A"){ weight = 11}
+            if (values[j] === "J" || values[j] === "Q" || values[j] === "K"){ weight = 10}
+            if (values[j] === "A"){ weight = 11}
             let code =  suits[i].substring(0,1) + values[j];
             let card = { suit: suits[i], value: values[j] , code: code, weight: weight};
             deck.push(card)

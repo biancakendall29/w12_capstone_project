@@ -5,7 +5,7 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
 
     const handleHit = () => {
         const playerHand = [...playerCards];
-        drawPlayerCard(deck, playerHand);
+        drawPlayerCard();
         setPlayerCards(playerHand);    
     }
 

@@ -7,27 +7,6 @@ const {createDeck, shuffle, drawCard} = require('../../lib/utils.js')
 
 const BlackjackContainer = () => {
 
-    const startRound = () => {
-        setPlayerCards([]);
-        setPlayerCount(0);
-        setDealerCards([]);
-        setDealerCount(0);
-        setDeck(shuffle(createDeck()));
-        setIsDealerTurn(false);
-        setIsDealerBust(false);
-        setIsPlayerBust(false);
-
-        const dealerHand = []
-        const playerHand = []
-
-        // drawCard(deck,dealerHand);
-        // drawCard(deck,dealerHand);
-        drawPlayerCard();
-        drawPlayerCard();
-
-        // setDealerCards(dealerHand);
-        // setPlayerCards(playerHand);
-    }
 
     const [playerCount, setPlayerCount] = useState(0);
     const [dealerCount, setDealerCount] = useState(0);
@@ -38,13 +17,25 @@ const BlackjackContainer = () => {
     const [isPlayerBust, setIsPlayerBust] = useState(false);
     const [isDealerBust, setIsDealerBust] = useState(false);
 
+    const startRound = () => {
+        setPlayerCards([]);
+        setPlayerCount(0);
+        setDealerCards([]);
+        setDealerCount(0);
+        setDeck(shuffle(createDeck()));
+        setIsDealerTurn(false);
+        setIsDealerBust(false);
+        setIsPlayerBust(false);
+        
+        drawPlayerCard(2);
+    }
+
     useEffect(() => {
         let count = 0;
         for (let i = 0; i < dealerCards.length; i++) {
             count += dealerCards[i].weight;
         }   
         setDealerCount(count); 
-
     },[dealerCards])
 
     useEffect(() => {
@@ -55,9 +46,12 @@ const BlackjackContainer = () => {
         setPlayerCount(count); 
     },[playerCards])
 
-    const drawPlayerCard = () => {
-        const nextCard = deck[deck.length-1]
-        setPlayerCards([...playerCards, nextCard]) 
+
+    const drawPlayerCard = (numOfCards = 1) => {
+        const nextCards = deck.splice(deck.length-(numOfCards));        
+        setDeck(deck);
+        setPlayerCards(prevPlayerCards => ([...prevPlayerCards, ...nextCards]));
+        console.log(deck);
     }
 
     return(
@@ -70,6 +64,8 @@ const BlackjackContainer = () => {
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
                         isDealerTurn={isDealerTurn}/>
         <button onClick={startRound}>Reset</button>
+        {/* <button onClick={initialDeal}>Deal</button>
+        <button onClick={logDeck}>Print Deck to console</button> */}
         </>
     )
 
