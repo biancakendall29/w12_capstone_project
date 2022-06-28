@@ -15,7 +15,7 @@ const createDeck = () => {
             deck.push(card)
         }
     }
-    return deck
+    return deck;
 }
 
 const shuffle = (array) => {
