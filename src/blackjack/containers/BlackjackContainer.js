@@ -105,7 +105,7 @@ const BlackjackContainer = () => {
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
                         isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard}/>
-        {result}
+         {isDealerTurn ? result : <></>}
         <button onClick={startRound}>Start Round</button>
         </>
     )
