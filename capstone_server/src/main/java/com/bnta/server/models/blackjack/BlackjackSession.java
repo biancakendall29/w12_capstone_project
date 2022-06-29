@@ -1,6 +1,8 @@
 package com.bnta.server.models.blackjack;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class BlackjackSession {
     private boolean isSessionFinished;
 
     @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"session"})
     private List<BlackjackSave> saves;
 
     @Column(name = "session_timestamp")
@@ -25,6 +28,7 @@ public class BlackjackSession {
 
     @ManyToOne
     @JoinColumn(name= "blackjack_stat_id", nullable = false)
+    @JsonIgnoreProperties({"sessions"})
     private BlackjackStats stats;
 
     public BlackjackSession(boolean isSessionFinished,

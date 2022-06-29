@@ -1,6 +1,7 @@
 package com.bnta.server.models.blackjack;
 
 import com.bnta.server.models.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class BlackjackStats {
     private Long id;
 
     @OneToMany(mappedBy = "stats", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"stats"})
     private List<BlackjackSession> sessions;
 
     @Column
@@ -31,6 +33,7 @@ public class BlackjackStats {
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
+    @JsonIgnoreProperties({"user"})
     private User user;
 
     public BlackjackStats(int wins,

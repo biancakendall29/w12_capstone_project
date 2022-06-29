@@ -1,6 +1,7 @@
 package com.bnta.server.models;
 
 import com.bnta.server.models.blackjack.BlackjackStats;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class User {
     private Long wallet;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"user"})
     private List<BlackjackStats> blackjackStats;
 
     public User(String name,

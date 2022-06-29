@@ -1,5 +1,7 @@
 package com.bnta.server.models.blackjack;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -35,6 +37,7 @@ public class BlackjackSave {
 
     @ManyToOne
     @JoinColumn(name="blackjack_sessions_id", nullable = false)
+    @JsonIgnoreProperties({"saves", "stats"})
     private BlackjackSession session;
 
     public BlackjackSave(LocalDate timestamp,
