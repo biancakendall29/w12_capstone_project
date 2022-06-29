@@ -20,7 +20,7 @@ public class BlackjackSession {
     private boolean isSessionFinished;
 
     @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({"session"})
+    @JsonIgnoreProperties({"session","user"})
     private List<BlackjackSave> saves;
 
     @Column(name = "session_timestamp")
@@ -28,7 +28,7 @@ public class BlackjackSession {
 
     @ManyToOne
     @JoinColumn(name= "blackjack_stat_id", nullable = false)
-    @JsonIgnoreProperties({"sessions"})
+    @JsonIgnoreProperties({"sessions","user"})
     private BlackjackStats stats;
 
     public BlackjackSession(boolean isSessionFinished,
