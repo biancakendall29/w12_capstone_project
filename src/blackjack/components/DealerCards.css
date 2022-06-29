@@ -1,0 +1,8 @@
+#dealer-cards {
+    padding: 20px;
+    background-color: black;
+}
+
+#dealer-cards > img:nth-of-type(2) {
+    border-radius: 50%;
+}

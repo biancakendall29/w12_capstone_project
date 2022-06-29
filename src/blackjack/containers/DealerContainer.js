@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { drawCard } from "../../lib/utils"
 import DealerCards from "../components/DealerCards";
 
+
 const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCards, deck, isDealerBust, setIsDealerBust, isDealerTurn, isPlayerBust, drawDealerCard, displayImages}) => {
 
     useEffect(() => {
@@ -25,10 +26,10 @@ const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCar
     }, [dealerCount, isDealerTurn])
 
     return (
-        <>
+        <div id="dealer-container">
         <DealerCards dealerCards={dealerCards} displayImages={displayImages}/>
         <p>Dealer Count: {isDealerTurn ? dealerCount : dealerCount}</p>
-    </>
+        </div>
 
     )
 }
