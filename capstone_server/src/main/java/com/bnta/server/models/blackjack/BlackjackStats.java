@@ -16,7 +16,7 @@ public class BlackjackStats {
     private Long id;
 
     @OneToMany(mappedBy = "stats", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({"stats"})
+    @JsonIgnoreProperties({"stats","user"})
     private List<BlackjackSession> sessions;
 
     @Column
