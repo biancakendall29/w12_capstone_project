@@ -19,7 +19,7 @@ const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCar
     return (
         <>
         <DealerCards dealerCards={dealerCards}/>
-        <p>Dealer Count: {dealerCount}</p>
+        <p>Dealer Count: {isDealerTurn ? dealerCount : "?"}</p>
     </>
 
     )
