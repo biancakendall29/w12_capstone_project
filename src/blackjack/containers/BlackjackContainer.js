@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import DealerContainer from "./DealerContainer.js";
 import PlayerContainer from "./PlayerContainer.js";
-const {createDeck, shuffle, drawCard} = require('../../lib/utils.js')
-
-
+// const {createDeck, shuffle, displayImages} = require('../../lib/utils.js')
+import {createDeck, shuffle, displayImages} from "../../lib/utils.js";
 
 const BlackjackContainer = () => {
 
@@ -100,11 +99,11 @@ const BlackjackContainer = () => {
         <>
         <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
                         setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
-                        setIsDealersTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust}   isDealerTurn={isDealerTurn}/>
+                        setIsDealersTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} displayImages = {displayImages}/>
         <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} 
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
-                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard}/>
+                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages}/>
          {isDealerTurn ? result : <></>}
         <button onClick={startRound}>Start Round</button>
         </>

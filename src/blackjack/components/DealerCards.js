@@ -1,4 +1,4 @@
-const DealerCards = ({dealerCards}) => {
+const DealerCards = ({dealerCards, displayImages}) => {
     return(
 
         <>

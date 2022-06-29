@@ -1,7 +1,7 @@
-const PlayerCards = ({playerCards}) => {
+const PlayerCards = ({playerCards, displayImages}) => {
     return (
         <>
-        <p>{JSON.stringify(playerCards)}</p>
+        {displayImages(playerCards)}
         </> 
     );
 }

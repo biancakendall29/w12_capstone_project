@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { drawCard } from "../../lib/utils"
 import DealerCards from "../components/DealerCards";
 
-const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCards, deck, isDealerBust, setIsDealerBust, isDealerTurn, isPlayerBust, drawDealerCard}) => {
+const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCards, deck, isDealerBust, setIsDealerBust, isDealerTurn, isPlayerBust, drawDealerCard, displayImages}) => {
 
     useEffect(() => {
 
@@ -18,7 +18,7 @@ const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCar
 
     return (
         <>
-        <DealerCards dealerCards={dealerCards}/>
+        <DealerCards dealerCards={dealerCards} displayImages={displayImages}/>
         <p>Dealer Count: {isDealerTurn ? dealerCount : "?"}</p>
     </>
 
