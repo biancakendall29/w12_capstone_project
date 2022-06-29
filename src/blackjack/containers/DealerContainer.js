@@ -6,11 +6,19 @@ const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCar
 
     useEffect(() => {
 
-        if(isDealerTurn && dealerCount < 17 && !isPlayerBust) {
+        let arr = [];
+        for (let i=0; i<dealerCards.length; i++) {
+            arr.push(dealerCards[i].weight);
+        }
+        if(arr.includes(1) && dealerCount < 12){
+            setDealerCount(prevDealerCount => prevDealerCount + 10);
+        }
+
+        else if(isDealerTurn && dealerCount < 17 && !isPlayerBust) {
             drawDealerCard(1);
         }
 
-        if(isDealerTurn && dealerCount > 21) {
+        else if(isDealerTurn && dealerCount > 21) {
             setIsDealerBust(true)
         }
 
@@ -19,7 +27,7 @@ const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCar
     return (
         <>
         <DealerCards dealerCards={dealerCards} displayImages={displayImages}/>
-        <p>Dealer Count: {isDealerTurn ? dealerCount : "?"}</p>
+        <p>Dealer Count: {isDealerTurn ? dealerCount : dealerCount}</p>
     </>
 
     )

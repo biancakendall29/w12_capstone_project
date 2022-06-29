@@ -85,9 +85,16 @@ const BlackjackContainer = () => {
 
     useEffect(() => {
 
-        if (playerCards.length === 2 && playerCount === 21 && dealerCount !== 21) setResult("Player wins - BlackJack!")
+        if (playerCards.length === 2 && playerCount === 21 && dealerCount !== 21) {
+            setResult("Player wins - BlackJack!"); 
+            setIsDealerTurn(true);
+        }
+       
         else if (dealerCards.length === 2 && dealerCount === 21 && playerCount !== 21) setResult("Dealer wins - BlackJack!")
-        else if (dealerCards.length === 2 && dealerCount === 21 && playerCount === 21 && playerCards.length === 2) setResult("Push!")
+        else if (dealerCards.length === 2 && dealerCount === 21 && playerCount === 21 && playerCards.length === 2) {
+            setResult("Push!");
+            setIsDealerTurn(true);
+        }
         else if (isPlayerBust) setResult("Dealer wins - player bust!")
         else if (isDealerBust) setResult("Player wins - dealer bust!")
         else if (playerCount > dealerCount) setResult("Player wins on points!")

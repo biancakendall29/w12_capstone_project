@@ -13,22 +13,19 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
    }
 
    useEffect(() => {
-        if(playerCards.length === 2 && playerCards[0].value === "A" && playerCards[1].value === "A"){
-            playerCards[1].weight = 1;
-        }
-        
-        // // if(playerCards.length > 2 && playerCount > 21){
-        //     for (let playerCard of playerCards) {
-        //         if (playerCard.value=== "A" && playerCards.length > 2 && playerCount > 21){
-        //            setPlayerCount(prevPlayerCount => prevPlayerCount-10) 
-        //         }
-        //     }
-        // }
 
-        else if(playerCount > 21){
-            setIsPlayerBust(true);
-            setIsDealersTurn(true);
-        }
+    let arr = [];
+    for (let i=0; i<playerCards.length; i++) {
+        arr.push(playerCards[i].weight);
+    }
+    if(arr.includes(1) && playerCount < 12){
+        setPlayerCount(prevPlayerCount => prevPlayerCount + 10);
+    }
+
+    if(playerCount > 21){
+        setIsPlayerBust(true);
+        setIsDealersTurn(true);
+    }
    })
 
     return (
