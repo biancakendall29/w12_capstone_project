@@ -108,6 +108,198 @@ const displayImages = (cards) => {
             case "H4":
                 findImage = H4;
             break;
+
+            case "H5":
+                findImage = H5;
+            break;
+
+            case "H6":
+                findImage = H6;
+            break;
+
+            case "H7":
+                findImage = H7;
+            break;
+
+            case "H8":
+                findImage = H8;
+            break;
+
+            case "H9":
+                findImage = H9;
+            break;
+
+            case "H10":
+                findImage = H10;
+            break;
+
+            case "HJ":
+                findImage = HJ;
+            break;
+
+            case "HQ":
+                findImage = HQ;
+            break;
+
+            case "HK":
+                findImage = HK;
+            break;
+
+            case "CA":
+                findImage = CA;
+            break;
+
+            case "C2":
+                findImage = C2;
+            break;
+
+            case "C3":
+                findImage = C3;
+            break;
+
+            case "C4":
+                findImage = C4;
+            break;
+
+            case "C5":
+                findImage = C5;
+            break;
+
+            case "C6":
+                findImage = C6;
+            break;
+
+            case "C7":
+                findImage = C7;
+            break;
+
+            case "C8":
+                findImage = C8;
+            break;
+
+            case "C9":
+                findImage = C9;
+            break;
+
+            case "C10":
+                findImage = C10;
+            break;
+
+            case "CJ":
+                findImage = CJ;
+            break;
+
+            case "CQ":
+                findImage = CQ;
+            break;
+
+            case "CK":
+                findImage = CK;
+            break;
+
+            case "DA":
+                findImage = DA;
+            break;
+
+            case "D2":
+                findImage = D2;
+            break;
+
+            case "D3":
+                findImage = D3;
+            break;
+
+            case "D4":
+                findImage = D4;
+            break;
+
+            case "D5":
+                findImage = D5;
+            break;
+
+            case "D6":
+                findImage = D6;
+            break;
+
+            case "D7":
+                findImage = D7;
+            break;
+
+            case "D8":
+                findImage = D8;
+            break;
+
+            case "D9":
+                findImage = D9;
+            break;
+
+            case "D10":
+                findImage = D10;
+            break;
+
+            case "DJ":
+                findImage = DJ;
+            break;
+
+            case "DQ":
+                findImage = DQ;
+            break;
+
+            case "DK":
+                findImage = DK;
+            break;
+
+            case "SA":
+                findImage = SA;
+            break;
+
+            case "S2":
+                findImage = S2;
+            break;
+            
+            case "S3":
+                findImage = S3;
+            break;
+
+            case "S4":
+                findImage = S4;
+            break;
+
+            case "S5":
+                findImage = S5;
+            break;
+
+            case "S6":
+                findImage = S6;
+            break;
+
+            case "S7":
+                findImage = S7;
+            break;
+
+            case "S8":
+                findImage = S8;
+            break;
+
+            case "S9":
+                findImage = S9;
+            break;
+
+            case "S10":
+                findImage = S10;
+            break;
+
+            case "SJ":
+                findImage = SJ;
+            break;
+
+            case "SQ":
+                findImage = SQ;
+            break;
+
+            case "SK":
+                findImage = SK;
+            break;
         }
         return (
             <img 
