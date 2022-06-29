@@ -24,7 +24,7 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
             <PlayerCards playerCards={playerCards}/>
             <p>Player Count: {playerCount}</p>
             {isPlayerBust ? <p>You are bust</p> : <></>}
-            {isDealerTurn ? <></> : <button onClick={handleHit}>Hit me</button>}
+            {isDealerTurn || playerCards.length <2 ? <></> : <button onClick={handleHit}>Hit me</button>}
             {isDealerTurn ? <></> : <button onClick={handleStick}>Stick</button>}
         </>
     );
