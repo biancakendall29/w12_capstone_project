@@ -90,7 +90,7 @@ const shuffle = (array) => {
 }
 
 const displayImages = (cards) => {
-    return cards.map((card) => {
+    return cards.map((card, index) => {
         let findImage;
         switch (card.code) {
             case "HA":
@@ -302,7 +302,9 @@ const displayImages = (cards) => {
             break;
         }
         return (
-            <img 
+            <img
+            id={index}
+            key={index}
             alt={JSON.stringify(card)}
             src={findImage}
         ></img>
