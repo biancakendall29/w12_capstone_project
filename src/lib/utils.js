@@ -50,6 +50,7 @@ import S10 from "../img/S10.png";
 import SJ from "../img/SJ.png";
 import SQ from "../img/SQ.png";
 import SK from "../img/SK.png";
+import backOfCard from "../img/card-back.png";
 
 const suits = ["Spades", "Hearts", "Clubs", "Diamonds"];
 const values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
@@ -302,12 +303,17 @@ const displayImages = (cards) => {
             break;
         }
         return (
+            <>
+            {/* <div className="card" key={index}> */}
             <img
-            id={index}
-            key={index}
-            alt={JSON.stringify(card)}
-            src={findImage}
-        ></img>
+                className="card-front"
+                id={index}
+                alt={JSON.stringify(card)}
+                src={findImage}
+            />
+                {/* <img className="card-back" alt="Back of card" src={backOfCard}/> */}
+            {/* </div> */}
+            </>
         );
     });
 };

@@ -1,8 +1,50 @@
-#dealer-cards {
+/* #dealer-cards {
     padding: 20px;
     background-color: black;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3.5rem;
+    padding: 10px; 
+
 }
 
 #dealer-cards > img:nth-of-type(2) {
     border-radius: 50%;
 }
+
+.card img {
+    width: auto;
+    height: 300px;
+  }
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .card:hover {
+    transform: rotateY(180deg);
+  }
+.card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .card-front {
+    background-color: #F2CB05;
+  }
+  
+  .card-back {
+    color: white;
+    padding: 20px;
+    transform: rotateY(180deg);
+    background-color: #F29f05;
+  } */
