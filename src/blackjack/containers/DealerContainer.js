@@ -17,7 +17,7 @@ const DealerContainer = ({result, dealerCount, setDealerCount, dealerCards, setD
             setDealerCount(prevDealerCount => prevDealerCount + 10);
         }
 
-        else if(isDealerTurn && dealerCount < 17 && !isPlayerBust) {
+        else if(isDealerTurn && dealerCount < 17 && !isPlayerBust && !(playerCount===21 && playerCards.length===2)) {
             drawDealerCard(1);
             console.log("dealercount:" + dealerCount);
         }
@@ -38,7 +38,7 @@ const DealerContainer = ({result, dealerCount, setDealerCount, dealerCards, setD
             sum +=dealerCards[i].weight;
         }
 
-        if(isDealerTurn && dealerCards.length > 2 && sum < 17 && !isPlayerBust && !isDealerBust && arr.includes(1) && arr.includes(10)){
+        if(isDealerTurn && dealerCards.length > 2 && sum < 17 && !isPlayerBust && !isDealerBust && arr.includes(1) && arr.includes(10) && !(playerCount===21 && playerCards.length===2)){
             drawDealerCard(1);
         }
     }, [dealerCards])

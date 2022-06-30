@@ -91,7 +91,7 @@ const BlackjackContainer = () => {
             setIsDealerTurn(true);
         }
        
-        else if (dealerCards.length === 2 && dealerCount === 21 && playerCount !== 21) {
+        else if (dealerCards.length === 2 && ((dealerCards[0].weight === 1 && dealerCards[1].weight === 10) || (dealerCards[1].weight === 1 && dealerCards[0].weight === 10)) && playerCount !== 21) {
             setIsDealerTurn(true);
             setResult("Dealer wins - BlackJack!");
         } 
