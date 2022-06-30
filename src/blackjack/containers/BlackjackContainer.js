@@ -16,6 +16,7 @@ const BlackjackContainer = () => {
     const [isPlayerBust, setIsPlayerBust] = useState(false);
     const [isDealerBust, setIsDealerBust] = useState(false);
     const [result, setResult] = useState("");
+    
 
     const startRound = () => {
         setPlayerCards([]);
@@ -113,7 +114,7 @@ const BlackjackContainer = () => {
         <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} 
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
-                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards}/>
+                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/>
          {isDealerTurn ? result : <></>}
         <button onClick={startRound}>Start Round</button>
         </>

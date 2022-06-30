@@ -4,7 +4,7 @@ import DealerCards from "../components/DealerCards";
 import PlayerCards from "../components/PlayerCards";
 
 
-const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCards, deck, isDealerBust, setIsDealerBust, isDealerTurn, isPlayerBust, drawDealerCard, displayImages, playerCount, playerCards}) => {
+const DealerContainer = ({result, dealerCount, setDealerCount, dealerCards, setDealerCards, deck, isDealerBust, setIsDealerBust, isDealerTurn, isPlayerBust, drawDealerCard, displayImages, playerCount, playerCards}) => {
 
     useEffect(() => {
 
@@ -12,25 +12,42 @@ const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCar
         for (let i=0; i<dealerCards.length; i++) {
             arr.push(dealerCards[i].weight);
         }
-        if(arr.includes(1) && dealerCount < 12){
+
+        if(isDealerTurn && arr.includes(1) && dealerCount < 12){
             setDealerCount(prevDealerCount => prevDealerCount + 10);
         }
 
-        // else if(isDealerTurn && dealerCount < 17 && !isPlayerBust) {
-        //     drawDealerCard(1);
-        // }
+        else if(isDealerTurn && dealerCount < 17 && !isPlayerBust) {
+            drawDealerCard(1);
+            console.log("dealercount:" + dealerCount);
+        }
 
         else if(isDealerTurn && dealerCount > 21) {
             setIsDealerBust(true)
         }
+        
+        // else if(isDealerTurn && dealerCount )
 
-    }, [dealerCount, isDealerTurn])
+    }, [isDealerTurn, dealerCount])
 
     useEffect(() => {
-        if(isDealerTurn && dealerCount < 17 && !isPlayerBust && !(playerCount===21 && playerCards.length===2)) {
+        let arr = [];
+        let sum = 0;
+        for (let i=0; i<dealerCards.length; i++) {
+            arr.push(dealerCards[i].weight);
+            sum +=dealerCards[i].weight;
+        }
+
+        if(isDealerTurn && dealerCards.length > 2 && sum < 17 && !isPlayerBust && !isDealerBust && arr.includes(1) && arr.includes(10)){
             drawDealerCard(1);
         }
-    },[dealerCount, isDealerTurn])
+    }, [dealerCards])
+
+    // useEffect(() => {
+    //     if(isDealerTurn && dealerCount < 17 && !isPlayerBust && !(playerCount===21 && playerCards.length===2)) {
+    //         drawDealerCard(1);
+    //     }
+    // },[dealerCount, isDealerTurn])
 
     return (
         <div id="dealer-container">
