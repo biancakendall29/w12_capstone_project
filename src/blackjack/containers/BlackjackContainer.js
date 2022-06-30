@@ -41,7 +41,7 @@ const BlackjackContainer = () => {
     }
 
     const endRound = () => {
-        setIsRoundDone(true) //todo fix: dealer wins on points -> player gets chips*2
+        setIsRoundDone(true) //todo fix: dealer wins on points -> player gets chips*2  
         if(result == "Player wins on points!" || "Player wins - dealer bust!"){setChipCount(chipCount + (lockedBet*2))}
         if(result == "Push!" || result == "Push"){setChipCount(chipCount+lockedBet)}
         if(result == "Player wins - BlackJack!"){setChipCount(chipCount+(lockedBet*2.5))}
