@@ -3,6 +3,7 @@ import DealerContainer from "./DealerContainer.js";
 import PlayerContainer from "./PlayerContainer.js";
 // const {createDeck, shuffle, displayImages} = require('../../lib/utils.js')
 import {createDeck, shuffle, displayImages} from "../../lib/utils.js";
+import RoundButtons from "../components/RoundButtons.js";
 
 const BlackjackContainer = () => {
 
@@ -16,21 +17,28 @@ const BlackjackContainer = () => {
     const [isPlayerBust, setIsPlayerBust] = useState(false);
     const [isDealerBust, setIsDealerBust] = useState(false);
     const [result, setResult] = useState("");
-    
+    const [isRoundDone, setIsRoundDone] = useState(true);
+    const [chipCount, setChipCount] = useState(1000);
+    const [betAmount, setBetAmount] = useState(0);
+    const [lockedBet, setLockedBet] = useState(0);
 
     const startRound = () => {
         setPlayerCards([]);
         setPlayerCount(0);
         setDealerCards([]);
         setDealerCount(0);
-
-        // setDeck(shuffle(createDeck()));
+        setIsRoundDone(false)
+        setLockedBet(0);
         setIsDealerTurn(false);
         setIsDealerBust(false);
         setIsPlayerBust(false);
         
         drawPlayerCard(2);
         drawDealerCard(2);
+    }
+
+    const endRound = () => {
+        setIsRoundDone(true)
     }
 
     useEffect(() => {
@@ -51,29 +59,17 @@ const BlackjackContainer = () => {
 
 
     const drawPlayerCard = (numOfCards = 1) => {
-        // const remainingDeck = deck.slice(0,deck.length-(numOfCards))
-        // console.log(nextCards); 
-        // console.log(remainingDeck); 
         setDeck(deck => deck.slice(0,deck.length-(numOfCards)));
-
         const nextCards = deck.slice(deck.length-(numOfCards), deck.length); 
-
         setPlayerCards(prevPlayerCards => ([...prevPlayerCards, ...nextCards]));
-        //console.log(deck);
     }
 
 
     const drawDealerCard = (numOfCards = 1) => {
         console.log(deck);
-        // const remainingDeck = deck.slice(0,deck.length-(numOfCards)) 
-        // console.log(nextCards); 
-        // console.log(remainingDeck); 
         setDeck(deck => deck.slice(0,deck.length-(numOfCards)));
-
         const nextCards = deck.slice(deck.length-(numOfCards + 2), deck.length - 2); 
-
         setDealerCards(prevDealerCards => ([...prevDealerCards, ...nextCards]));
-        //console.log(deck);
     }
 
     useEffect(() => {
@@ -90,7 +86,6 @@ const BlackjackContainer = () => {
             setResult("Player wins - BlackJack!"); 
             setIsDealerTurn(true);
         }
-       
         else if (dealerCards.length === 2 && ((dealerCards[0].weight === 1 && dealerCards[1].weight === 10) || (dealerCards[1].weight === 1 && dealerCards[0].weight === 10)) && playerCount !== 21) {
             setIsDealerTurn(true);
             setResult("Dealer wins - BlackJack!");
@@ -110,13 +105,13 @@ const BlackjackContainer = () => {
         <>
         <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
                         setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
-                        setIsDealersTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} displayImages = {displayImages}/>
+                        setIsDealerTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} displayImages = {displayImages}/>
         <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} 
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
                         isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/>
-         {isDealerTurn ? result : <></>}
-        <button onClick={startRound}>Start Round</button>
+        {isDealerTurn ? result : <></>}
+        <RoundButtons isRoundDone={isRoundDone} setIsRoundDone={setIsRoundDone} isDealerTurn={isDealerTurn} setIsDealerTurn={setIsDealerTurn} endRound={endRound} startRound={startRound}/>
         </>
     )
 

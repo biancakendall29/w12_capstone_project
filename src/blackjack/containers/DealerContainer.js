@@ -52,7 +52,7 @@ const DealerContainer = ({result, dealerCount, setDealerCount, dealerCards, setD
     return (
         <div id="dealer-container">
         <DealerCards dealerCards={dealerCards} displayImages={displayImages}/>
-        <p>Dealer Count: {isDealerTurn ? dealerCount : dealerCount}</p>
+        <p>Dealer Count: {isDealerTurn ? dealerCount : "?"}</p>
         </div>
 
     )
