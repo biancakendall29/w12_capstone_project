@@ -4,6 +4,7 @@ import PlayerContainer from "./PlayerContainer.js";
 // const {createDeck, shuffle, displayImages} = require('../../lib/utils.js')
 import {createDeck, shuffle, displayImages} from "../../lib/utils.js";
 import RoundButtons from "../components/RoundButtons.js";
+import BettingContainer from "./BettingContainer.js";
 
 const BlackjackContainer = () => {
 
@@ -101,8 +102,10 @@ const BlackjackContainer = () => {
         else if (dealerCount == playerCount) setResult("Push")
     }, [playerCount, dealerCount, isPlayerBust, isDealerBust]);
 
+    
     return(
         <>
+        <p>Chip Count: {chipCount} </p>
         <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
                         setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
                         setIsDealerTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} displayImages = {displayImages}/>
@@ -111,6 +114,7 @@ const BlackjackContainer = () => {
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
                         isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/>
         {isDealerTurn ? result : <></>}
+        <BettingContainer chipCount={chipCount} setChipCount={setChipCount} betAmount={betAmount} setBetAmount={setBetAmount} lockedBet={lockedBet} setLockedBet={setLockedBet}/>
         <RoundButtons isRoundDone={isRoundDone} setIsRoundDone={setIsRoundDone} isDealerTurn={isDealerTurn} setIsDealerTurn={setIsDealerTurn} endRound={endRound} startRound={startRound}/>
         </>
     )
