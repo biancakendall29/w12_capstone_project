@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import DealerContainer from "./DealerContainer.js";
 import PlayerContainer from "./PlayerContainer.js";
-// const {createDeck, shuffle, displayImages} = require('../../lib/utils.js')
 import {createDeck, shuffle, displayImages} from "../../lib/utils.js";
 import RoundButtons from "../components/RoundButtons.js";
 import BettingContainer from "./BettingContainer.js";
 
 const BlackjackContainer = () => {
-
 
     const [playerCount, setPlayerCount] = useState(0);
     const [dealerCount, setDealerCount] = useState(0);
@@ -24,22 +22,31 @@ const BlackjackContainer = () => {
     const [lockedBet, setLockedBet] = useState(0);
 
     const startRound = () => {
-        setPlayerCards([]);
-        setPlayerCount(0);
-        setDealerCards([]);
-        setDealerCount(0);
-        setIsRoundDone(false)
-        setLockedBet(0);
-        setIsDealerTurn(false);
-        setIsDealerBust(false);
-        setIsPlayerBust(false);
+        if(lockedBet > 0){
+            setPlayerCards([]);
+            setPlayerCount(0);
+            setDealerCards([]);
+            setDealerCount(0);
+            setIsRoundDone(false)
+            setIsDealerTurn(false);
+            setIsDealerBust(false);
+            setIsPlayerBust(false);
         
-        drawPlayerCard(2);
-        drawDealerCard(2);
+            drawPlayerCard(2);
+            drawDealerCard(2);
+            console.log("round start");
+        } else {
+            window.alert("Place a Bet")
+        }
     }
 
     const endRound = () => {
-        setIsRoundDone(true)
+        setIsRoundDone(true) //todo fix: dealer wins on points -> player gets chips*2
+        if(result == "Player wins on points!" || "Player wins - dealer bust!"){setChipCount(chipCount + (lockedBet*2))}
+        if(result == "Push!" || result == "Push"){setChipCount(chipCount+lockedBet)}
+        if(result == "Player wins - BlackJack!"){setChipCount(chipCount+(lockedBet*2.5))}
+        console.log("round end");
+        setLockedBet(0);
     }
 
     useEffect(() => {
@@ -82,7 +89,6 @@ const BlackjackContainer = () => {
     }, [deck])
 
     useEffect(() => {
-
         if (playerCards.length === 2 && playerCount === 21 && dealerCount !== 21 && dealerCards.length === 2) {
             setResult("Player wins - BlackJack!"); 
             setIsDealerTurn(true);
@@ -105,16 +111,17 @@ const BlackjackContainer = () => {
     
     return(
         <>
-        <p>Chip Count: {chipCount} </p>
-        <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
+        <h2>Chip Count: {chipCount} </h2>
+        {isRoundDone ? <></> : <><PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
                         setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
                         setIsDealerTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} displayImages = {displayImages}/>
         <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} 
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
-                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/>
+                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/></>}
         {isDealerTurn ? result : <></>}
-        <BettingContainer chipCount={chipCount} setChipCount={setChipCount} betAmount={betAmount} setBetAmount={setBetAmount} lockedBet={lockedBet} setLockedBet={setLockedBet}/>
+        <p>Locked Bet: {lockedBet}</p>
+        {isRoundDone ? <BettingContainer chipCount={chipCount} setChipCount={setChipCount} betAmount={betAmount} setBetAmount={setBetAmount} lockedBet={lockedBet} setLockedBet={setLockedBet}/> : <></>}
         <RoundButtons isRoundDone={isRoundDone} setIsRoundDone={setIsRoundDone} isDealerTurn={isDealerTurn} setIsDealerTurn={setIsDealerTurn} endRound={endRound} startRound={startRound}/>
         </>
     )
