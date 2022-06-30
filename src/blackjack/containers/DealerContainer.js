@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { drawCard } from "../../lib/utils"
 import DealerCards from "../components/DealerCards";
+import PlayerCards from "../components/PlayerCards";
 
 
-const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCards, deck, isDealerBust, setIsDealerBust, isDealerTurn, isPlayerBust, drawDealerCard, displayImages}) => {
+const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCards, deck, isDealerBust, setIsDealerBust, isDealerTurn, isPlayerBust, drawDealerCard, displayImages, playerCount, playerCards}) => {
 
     useEffect(() => {
 
@@ -26,7 +27,7 @@ const DealerContainer = ({dealerCount, setDealerCount, dealerCards, setDealerCar
     }, [dealerCount, isDealerTurn])
 
     useEffect(() => {
-        if(isDealerTurn && dealerCount < 17 && !isPlayerBust) {
+        if(isDealerTurn && dealerCount < 17 && !isPlayerBust && !(playerCount===21 && playerCards.length===2)) {
             drawDealerCard(1);
         }
     },[dealerCount, isDealerTurn])

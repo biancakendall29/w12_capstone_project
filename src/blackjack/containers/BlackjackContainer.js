@@ -85,7 +85,7 @@ const BlackjackContainer = () => {
 
     useEffect(() => {
 
-        if (playerCards.length === 2 && playerCount === 21 && dealerCount !== 21 && dealerCards.length !== 2) {
+        if (playerCards.length === 2 && playerCount === 21 && dealerCount !== 21 && dealerCards.length === 2) {
             setResult("Player wins - BlackJack!"); 
             setIsDealerTurn(true);
         }
@@ -113,7 +113,7 @@ const BlackjackContainer = () => {
         <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} 
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
-                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages}/>
+                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards}/>
          {isDealerTurn ? result : <></>}
         <button onClick={startRound}>Start Round</button>
         </>
