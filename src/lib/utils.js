@@ -52,6 +52,7 @@ import SQ from "../img/SQ.png";
 import SK from "../img/SK.png";
 import backOfCard from "../img/card-back.png";
 
+
 const suits = ["Spades", "Hearts", "Clubs", "Diamonds"];
 const values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
 
@@ -302,9 +303,10 @@ const displayImages = (cards) => {
                 findImage = SK;
             break;
         }
+
         return (
             <>
-            <div className="card" key={index}>
+            <div className="card" data-flip="no">
                 <img className="card-back" alt="Back of card" src={backOfCard}/>
                 <img
                     className="card-front"
@@ -319,4 +321,3 @@ const displayImages = (cards) => {
 };
 
 export {createDeck, shuffle, displayImages};
-// module.exports = {createDeck, shuffle, displayImages}

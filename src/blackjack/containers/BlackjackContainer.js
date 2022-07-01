@@ -121,7 +121,6 @@ const BlackjackContainer = () => {
         else if (dealerCount > playerCount) setResult("Dealer wins on points!")
         else if (dealerCount == playerCount) setResult("Push")
     }, [playerCount, dealerCount, isPlayerBust, isDealerBust]);
-
     
     return(
         <>
