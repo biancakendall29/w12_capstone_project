@@ -1,9 +1,38 @@
+.chip_container{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 1em;
+    padding: 2em 0.5em;
+	background: #b3eca9;
+	color: #306517;
+    border: #222;
+	border-color: #2d2d2d;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 .chip_img {
     height: auto;
     width: auto;
     max-width: 8em;
     padding-left: 1em;
     cursor: pointer;
+}
+
+.bet_button_container {
+    width: 20%;
+    text-align: center;
+    margin: 0.5em auto;
+    margin-bottom: 2em;
+    padding: 1em 1em;
+    background-color: #eaedf1;
+    vertical-align: middle;
+    box-shadow: 0 0 10px;
+}
+
+.bet_button_container > p {
+    color: #222;
 }
 
 .bet_button {
@@ -19,7 +48,7 @@
     letter-spacing: 0.05em;
     border-radius: 20em;
     cursor: pointer;
-    margin: 0.5em;
+    margin: 0.5em auto;
 }
 
 .bet_button:hover {

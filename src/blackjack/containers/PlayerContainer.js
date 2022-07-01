@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { drawCard } from "../../lib/utils";
 import PlayerCards from '../components/PlayerCards'
 
-const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerBust, setPlayerCards, deck, setIsDealerTurn, drawPlayerCard, isPlayerBust, isDealerTurn, displayImages}) => {
+const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerBust, setPlayerCards, deck, setIsDealerTurn, drawPlayerCard, isPlayerBust, isDealerTurn, displayImages,chipCount,setChipCount,setLockedBet,lockedBet}) => {
 
     const handleHit = () => {
         drawPlayerCard();
@@ -10,6 +10,13 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
 
     const handleStick = () => {
         setIsDealerTurn(true);
+   }
+
+   const handleDouble = () => {
+        drawPlayerCard();
+        setIsDealerTurn(true);
+        setLockedBet(lockedBet*2);
+        setChipCount(chipCount-lockedBet)
    }
 
    useEffect(() => {
@@ -35,6 +42,7 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
             {isPlayerBust ? <p>You are bust</p> : <></>}
             {isDealerTurn || playerCards.length <2 ? <></> : <button onClick={handleHit}>Hit me</button>}
             {isDealerTurn || playerCards.length <2 ? <></> : <button onClick={handleStick}>Stick</button>}
+            {isDealerTurn || playerCards.length < 2 || (lockedBet > chipCount) || playerCards.length > 2 ? <></> : <button onClick={handleDouble}>Double</button>}
         </>
     );
 }
