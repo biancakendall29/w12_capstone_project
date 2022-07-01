@@ -6,7 +6,7 @@ import SignUpForm from "./SignUpForm";
 import Modal from "react-modal";
 
 
-const NavBar = (user, setUser, isLoggedIn, setIsLoggedIn) => {
+const NavBar = (user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers) => {
     // const {isShowing, toggle} = useModal();
     //const {isSignUpShowing, hideSignUp} = useModal();
 
@@ -37,8 +37,12 @@ const NavBar = (user, setUser, isLoggedIn, setIsLoggedIn) => {
             
             <Modal isOpen={isModalShowing} onRequestClose={closeModal} ariaHideApp={false} >
                 {isLogin ? 
-                    <LoginForm toggle = {toggle} user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> 
-                    : <SignUpForm toggle = {toggle} user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}
+                    <LoginForm toggle = {toggle} user={user} setUser={setUser} 
+                                isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
+                                users={users} setUsers={setUsers}/> 
+                    : <SignUpForm toggle = {toggle} user={user} setUser={setUser} 
+                                    isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
+                                    users={users} setUsers={setUsers}/>}
                 <button onClick={closeModal}>X</button>
             </Modal>
             {/* <LogInModal isShowing={isShowing} toggle={toggle} /> */}
