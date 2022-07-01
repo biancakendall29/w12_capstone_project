@@ -14,9 +14,25 @@ function App() {
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
+    // .then(response => console.log(response.json()))
     .then(response => response.json())
-    .then(data => setUsers(data))  
-  }, [users, isLoggedIn, user])
+    .then(data => {
+      setUsers(data)
+    })  
+  }, [])
+
+  const authenticateUser = (stateUser) => {
+    let foundUser = users.filter(client =>  client.username === stateUser.username && client.password === stateUser.password);
+    if (foundUser.length === 1) {
+       setUser(foundUser[0]);
+      console.log("set user to " + foundUser[0].username);
+  } 
+  else {
+    alert("Username or password are incorrect")
+  }
+    
+   
+  }
   
   return (
     <div>
@@ -25,7 +41,7 @@ function App() {
 
       <NavBar user={user} setUser={setUser} isLoggedIn={isLoggedIn} 
               setIsLoggedIn={setIsLoggedIn} users={users} 
-              setUsers={setUsers}/>
+              setUsers={setUsers} authenticateUser={authenticateUser}/>
       {/* <div id="navbar">
           <div><Link to="/">Home</Link></div>
       </div> */}

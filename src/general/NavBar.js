@@ -6,7 +6,7 @@ import SignUpForm from "./SignUpForm";
 import Modal from "react-modal";
 
 
-const NavBar = (user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers) => {
+const NavBar = ({user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, authenticateUser}) => {
     // const {isShowing, toggle} = useModal();
     //const {isSignUpShowing, hideSignUp} = useModal();
 
@@ -39,7 +39,7 @@ const NavBar = (user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers) => {
                 {isLogin ? 
                     <LoginForm toggle = {toggle} user={user} setUser={setUser} 
                                 isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
-                                users={users} setUsers={setUsers}/> 
+                                users={users} setUsers={setUsers} authenticateUser={authenticateUser}/> 
                     : <SignUpForm toggle = {toggle} user={user} setUser={setUser} 
                                     isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
                                     users={users} setUsers={setUsers}/>}

@@ -1,7 +1,7 @@
 import "../styles/Modal.css"
 import { useState } from "react"
 
-const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers }) => {
+const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, authenticateUser }) => {
 
     const [stateUser, setStateUser] = useState(
         {
@@ -20,7 +20,7 @@ const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, se
 
     const handleLoginSubmit = (event) => {
       event.preventDefault();
-      let foundUser = users.filter((client) =>  {return client.username === stateUser.username})
+      authenticateUser(stateUser);
     }
 
     return (
