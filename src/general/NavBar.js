@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import useModal from "../hooks/useModal";
-import LogInModal from "./LogInModal";
-import SLModal from "./SLModal";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 import Modal from "react-modal";

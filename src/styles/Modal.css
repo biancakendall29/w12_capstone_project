@@ -120,7 +120,19 @@
     float: right;
     padding-top: 16px;
   }
-  
+  .create-account {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+  .modal-toggle-link {
+    color: blue;
+    text-decoration:underline;
+    cursor: pointer;
+
+  }
+
+
   /* Change styles for span and cancel button on extra small screens */
   @media screen and (max-width: 300px) {
     span.psw {
