@@ -15,6 +15,9 @@ const BettingContainer = ({chipCount,setChipCount,betAmount,setBetAmount,lockedB
     }
 
     const handleLockedBet = () => {
+        if(lockedBet > 0) {
+            setChipCount(chipCount + lockedBet)
+        }
         if(betAmount > 0){
             setLockedBet(betAmount);
             setBetAmount(0);
