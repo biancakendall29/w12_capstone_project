@@ -3,6 +3,7 @@ import BlackjackContainer from './blackjack/containers/BlackjackContainer';
 import NavBar from './general/NavBar';
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import './styles/Modal.css';
+import ReactModalLogin from "react-modal-login";
 
 function App() {
   return (
