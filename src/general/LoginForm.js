@@ -1,7 +1,7 @@
 import "../styles/Modal.css"
 import { useState } from "react"
 
-const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, authenticateUser }) => {
+const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers,closeModal }) => {
 
     const [stateUser, setStateUser] = useState(
         {
@@ -19,8 +19,18 @@ const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, se
     }
 
     const handleLoginSubmit = (event) => {
+
       event.preventDefault();
-      authenticateUser(stateUser);
+      let foundUser = users.filter(client =>  client.username === stateUser.username && client.password === stateUser.password);
+      if (foundUser.length === 1) {
+        setUser(foundUser[0]);
+        console.log("set user to " + foundUser[0].username);
+        closeModal();
+        setIsLoggedIn(true);
+      } 
+      else {
+        alert("Username or password are incorrect")
+      }
     }
 
     return (

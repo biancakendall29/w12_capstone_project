@@ -21,18 +21,6 @@ function App() {
     })  
   }, [])
 
-  const authenticateUser = (stateUser) => {
-    let foundUser = users.filter(client =>  client.username === stateUser.username && client.password === stateUser.password);
-    if (foundUser.length === 1) {
-       setUser(foundUser[0]);
-      console.log("set user to " + foundUser[0].username);
-  } 
-  else {
-    alert("Username or password are incorrect")
-  }
-    
-   
-  }
   
   return (
     <div>
@@ -41,7 +29,7 @@ function App() {
 
       <NavBar user={user} setUser={setUser} isLoggedIn={isLoggedIn} 
               setIsLoggedIn={setIsLoggedIn} users={users} 
-              setUsers={setUsers} authenticateUser={authenticateUser}/>
+              setUsers={setUsers}/>
       {/* <div id="navbar">
           <div><Link to="/">Home</Link></div>
       </div> */}
