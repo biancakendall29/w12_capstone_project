@@ -1,3 +1,11 @@
+import fiveChip from "../../img/5-chip.png";
+import twentyFiveChip from "../../img/25-chip.png";
+import fiftyChip from "../../img/50-chip.png";
+import oneHundredChip from "../../img/100-chip.png";
+import fiveHundredChip from "../../img/500-chip.png";
+import oneThousandChip from "../../img/1000-chip.png";
+import './Betting.css'
+
 const BettingContainer = ({chipCount,setChipCount,betAmount,setBetAmount,lockedBet,setLockedBet}) => {
     
     const handleBet = (bet) => {
@@ -23,14 +31,16 @@ const BettingContainer = ({chipCount,setChipCount,betAmount,setBetAmount,lockedB
     return(
         <>
         <p>Bet Amount: {betAmount}</p>
-        <button onClick={handleLockedBet}>Lock In Bet</button>
-        <button onClick={clearBet}>Reset Bet</button>
-        <button onClick={() => handleBet(5)}>Bet 5</button>
-        <button onClick={() => handleBet(25)}>Bet 25</button>
-        <button onClick={() => handleBet(50)}>Bet 50</button>
-        <button onClick={() => handleBet(100)}>Bet 100</button>
-        <button onClick={() => handleBet(500)}>Bet 500</button>
-        <button onClick={() => handleBet(1000)}>Bet 1000</button>
+        <div className="bet_button_container">
+            <button className="bet_button" onClick={handleLockedBet}>Lock In Bet</button>
+            <button className="bet_button" onClick={clearBet}>Reset Bet</button>
+        </div>
+        <img className="chip_img" src={fiveChip} onClick={() => handleBet(5)} alt="5 chip"></img>
+        <img className="chip_img" src={twentyFiveChip} onClick={() => handleBet(25)} alt="25 chip"></img>
+        <img className="chip_img" src={fiftyChip} onClick={() => handleBet(50)} alt="50 chip"></img>
+        <img className="chip_img" src={oneHundredChip} onClick={() => handleBet(100)} alt="100 chip"></img>
+        <img className="chip_img" src={fiveHundredChip} onClick={() => handleBet(500)} alt="500 chip"></img>
+        <img className="chip_img" src={oneThousandChip} onClick={() => handleBet(1000)} alt="1000 chip"></img>
         </>
     )
 }

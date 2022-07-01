@@ -304,15 +304,15 @@ const displayImages = (cards) => {
         }
         return (
             <>
-            {/* <div className="card" key={index}> */}
-            <img
-                className="card-front"
-                id={index}
-                alt={JSON.stringify(card)}
-                src={findImage}
-            />
-                {/* <img className="card-back" alt="Back of card" src={backOfCard}/> */}
-            {/* </div> */}
+            <div className="card" key={index}>
+                <img className="card-back" alt="Back of card" src={backOfCard}/>
+                <img
+                    className="card-front"
+                    id={index}
+                    alt={JSON.stringify(card)}
+                    src={findImage}
+                />
+            </div>
             </>
         );
     });
