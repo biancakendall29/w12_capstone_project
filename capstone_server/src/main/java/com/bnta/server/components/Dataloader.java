@@ -36,7 +36,7 @@ public class Dataloader implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
 
 
-        User user1 = new User("John Doe", "johndoe@gmail.com", "JohnRules3", 100000L);
+        User user1 = new User("johndoe123", "johndoe@gmail.com", "JohnRules3", 100000L);
         userRepository.saveAll(Arrays.asList(user1));
 
         BlackjackStats blackjackStats1 = new BlackjackStats(0,0,1,1,user1);

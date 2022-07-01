@@ -4,12 +4,19 @@ import NavBar from './general/NavBar';
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import './styles/Modal.css';
 import ReactModalLogin from "react-modal-login";
+import { useState } from 'react';
 
 function App() {
+  
+  const [user, setUser] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState()
+  
   return (
     <div>
 
-      <NavBar />
+    
+
+      <NavBar user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       {/* <div id="navbar">
           <div><Link to="/">Home</Link></div>
       </div> */}
