@@ -3,7 +3,7 @@ import "../styles/Modal.css"
 const LoginForm = ({ toggle }) => {
     return (
         <>
-            <form>
+            <form className="modal-form">
                 <label htmlFor="uname"><b>Username: </b></label>
                 <input type="text" placeholder="Enter Username" name="uname" required />
                 <label htmlFor="psw"><b>Password: </b></label>

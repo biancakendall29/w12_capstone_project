@@ -4,7 +4,7 @@ const SignUpForm = ({toggle}) => {
 
     return(
         <>
-        <form>
+        <form className="modal-form">
             <label><b>Username:</b></label>
             <input type="text" placeholder="Enter Username" name="Uname" required />
             <label><b>Email:</b> </label>
