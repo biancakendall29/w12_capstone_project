@@ -1,7 +1,9 @@
 const PlayerCards = ({playerCards, displayImages}) => {
     return (
         <>
-        {displayImages(playerCards)}
+        <div id="player-cards">
+            {displayImages(playerCards)}
+        </div>
         </> 
     );
 }

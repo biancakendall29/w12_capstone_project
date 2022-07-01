@@ -2,14 +2,14 @@ import { useEffect } from "react";
 import { drawCard } from "../../lib/utils";
 import PlayerCards from '../components/PlayerCards'
 
-const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerBust, setPlayerCards, deck, setIsDealersTurn, drawPlayerCard, isPlayerBust, isDealerTurn, displayImages}) => {
+const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerBust, setPlayerCards, deck, setIsDealerTurn, drawPlayerCard, isPlayerBust, isDealerTurn, displayImages}) => {
 
     const handleHit = () => {
         drawPlayerCard();
     }
 
     const handleStick = () => {
-        setIsDealersTurn(true);
+        setIsDealerTurn(true);
    }
 
    useEffect(() => {
@@ -24,7 +24,7 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
 
     if(playerCount > 21){
         setIsPlayerBust(true);
-        setIsDealersTurn(true);
+        setIsDealerTurn(true);
     }
    })
 

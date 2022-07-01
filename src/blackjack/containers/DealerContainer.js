@@ -17,7 +17,7 @@ const DealerContainer = ({result, dealerCount, setDealerCount, dealerCards, setD
             setDealerCount(prevDealerCount => prevDealerCount + 10);
         }
 
-        else if(isDealerTurn && dealerCount < 17 && !isPlayerBust && !(playerCount===21 && playerCards.length===2)) {
+        else if(isDealerTurn && dealerCount < 17 && !isDealerBust && !isPlayerBust && !(playerCount===21 && playerCards.length===2)) {
             drawDealerCard(1);
             console.log("dealercount:" + dealerCount);
         }
@@ -52,7 +52,7 @@ const DealerContainer = ({result, dealerCount, setDealerCount, dealerCards, setD
     return (
         <div id="dealer-container">
         <DealerCards dealerCards={dealerCards} displayImages={displayImages}/>
-        <p>Dealer Count: {isDealerTurn ? dealerCount : dealerCount}</p>
+        <p>Dealer Count: {isDealerTurn ? dealerCount : "?"}</p>
         </div>
 
     )

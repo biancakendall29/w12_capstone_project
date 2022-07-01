@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import DealerContainer from "./DealerContainer.js";
 import PlayerContainer from "./PlayerContainer.js";
-// const {createDeck, shuffle, displayImages} = require('../../lib/utils.js')
 import {createDeck, shuffle, displayImages} from "../../lib/utils.js";
+import RoundButtons from "../components/RoundButtons.js";
+import BettingContainer from "./BettingContainer.js";
 
 const BlackjackContainer = () => {
-
 
     const [playerCount, setPlayerCount] = useState(0);
     const [dealerCount, setDealerCount] = useState(0);
@@ -16,21 +16,50 @@ const BlackjackContainer = () => {
     const [isPlayerBust, setIsPlayerBust] = useState(false);
     const [isDealerBust, setIsDealerBust] = useState(false);
     const [result, setResult] = useState("");
-    
+    const [isRoundDone, setIsRoundDone] = useState(true);
+    const [chipCount, setChipCount] = useState(1000);
+    const [betAmount, setBetAmount] = useState(0);
+    const [lockedBet, setLockedBet] = useState(0);
 
     const startRound = () => {
-        setPlayerCards([]);
-        setPlayerCount(0);
-        setDealerCards([]);
-        setDealerCount(0);
+        if(lockedBet > 0){
+            setPlayerCards([]);
+            setPlayerCount(0);
+            setDealerCards([]);
+            setDealerCount(0);
+            setIsRoundDone(false)
+            setIsDealerTurn(false);
+            setIsDealerBust(false);
+            setIsPlayerBust(false);
+            drawPlayerCard(2);
+            drawDealerCard(2);
+            console.log("round start");
+        } else {
+            window.alert("Place a Bet")
+        }
+    }
 
-        // setDeck(shuffle(createDeck()));
-        setIsDealerTurn(false);
-        setIsDealerBust(false);
-        setIsPlayerBust(false);
-        
-        drawPlayerCard(2);
-        drawDealerCard(2);
+    const endRound = () => {
+        setIsRoundDone(true);
+        payout(result);
+        console.log("round end");
+        console.log(result);
+        setLockedBet(0);
+    }
+
+    const payout = (result) => {
+        if(result == "Player wins on points!" || result == "Player wins - dealer bust!"){
+            setChipCount(chipCount + (lockedBet*2));
+            console.log("Player Wins, chips should double");
+        }
+        if(result == "Push!" || result == "Push"){
+            setChipCount(chipCount+lockedBet);
+            console.log("Push, chips should return");
+        }
+        if(result == "Player wins - BlackJack!"){
+            setChipCount(chipCount+(lockedBet*2.5));
+            console.log("Blackjack");
+        }
     }
 
     useEffect(() => {
@@ -51,29 +80,17 @@ const BlackjackContainer = () => {
 
 
     const drawPlayerCard = (numOfCards = 1) => {
-        // const remainingDeck = deck.slice(0,deck.length-(numOfCards))
-        // console.log(nextCards); 
-        // console.log(remainingDeck); 
         setDeck(deck => deck.slice(0,deck.length-(numOfCards)));
-
         const nextCards = deck.slice(deck.length-(numOfCards), deck.length); 
-
         setPlayerCards(prevPlayerCards => ([...prevPlayerCards, ...nextCards]));
-        //console.log(deck);
     }
 
 
     const drawDealerCard = (numOfCards = 1) => {
         console.log(deck);
-        // const remainingDeck = deck.slice(0,deck.length-(numOfCards)) 
-        // console.log(nextCards); 
-        // console.log(remainingDeck); 
         setDeck(deck => deck.slice(0,deck.length-(numOfCards)));
-
         const nextCards = deck.slice(deck.length-(numOfCards + 2), deck.length - 2); 
-
         setDealerCards(prevDealerCards => ([...prevDealerCards, ...nextCards]));
-        //console.log(deck);
     }
 
     useEffect(() => {
@@ -85,12 +102,10 @@ const BlackjackContainer = () => {
     }, [deck])
 
     useEffect(() => {
-
         if (playerCards.length === 2 && playerCount === 21 && dealerCount !== 21 && dealerCards.length === 2) {
             setResult("Player wins - BlackJack!"); 
             setIsDealerTurn(true);
         }
-       
         else if (dealerCards.length === 2 && ((dealerCards[0].weight === 1 && dealerCards[1].weight === 10) || (dealerCards[1].weight === 1 && dealerCards[0].weight === 10)) && playerCount !== 21) {
             setIsDealerTurn(true);
             setResult("Dealer wins - BlackJack!");
@@ -106,17 +121,21 @@ const BlackjackContainer = () => {
         else if (dealerCount == playerCount) setResult("Push")
     }, [playerCount, dealerCount, isPlayerBust, isDealerBust]);
 
+    
     return(
         <>
-        <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
+        <h2>Chip Count: {chipCount} </h2>
+        {isRoundDone ? <></> : <><PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
                         setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
-                        setIsDealersTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} displayImages = {displayImages}/>
+                        setIsDealerTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} displayImages = {displayImages}/>
         <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} 
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
-                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/>
-         {isDealerTurn ? result : <></>}
-        <button onClick={startRound}>Start Round</button>
+                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/></>}
+        {isDealerTurn ? result : <></>}
+        <p>Locked Bet: {lockedBet}</p>
+        {isRoundDone ? <BettingContainer chipCount={chipCount} setChipCount={setChipCount} betAmount={betAmount} setBetAmount={setBetAmount} lockedBet={lockedBet} setLockedBet={setLockedBet}/> : <></>}
+        <RoundButtons isRoundDone={isRoundDone} setIsRoundDone={setIsRoundDone} isDealerTurn={isDealerTurn} setIsDealerTurn={setIsDealerTurn} endRound={endRound} startRound={startRound}/>
         </>
     )
 

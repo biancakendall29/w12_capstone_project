@@ -8,6 +8,7 @@ import ReactModalLogin from "react-modal-login";
 function App() {
   return (
     <div>
+
       <NavBar />
       {/* <div id="navbar">
           <div><Link to="/">Home</Link></div>
@@ -23,6 +24,7 @@ function App() {
         </Routes>
 
       </Router>
+
     </div>
 
 
