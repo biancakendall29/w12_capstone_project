@@ -13,7 +13,7 @@ const LoginForm = ({ toggle }) => {
         
             </form>
 
-            <p>Create an account <a href='#' onClick={toggle}>here</a> </p>
+            <p>Create an account <a href='' onClick={toggle}>here</a> </p>
 
         </>
     );

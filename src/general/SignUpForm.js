@@ -13,7 +13,7 @@ const SignUpForm = ({toggle}) => {
             <input type="text" placeholder="Enter Password" name="Password" required />
             <button type="submit">Sign up</button>
         </form>    
-        <p onClick={toggle}>Hello from Sign up form</p>
+        <a href="#" onClick={toggle}>Back to login</a>
         </>
     )
 }
