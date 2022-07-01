@@ -4,7 +4,6 @@ import fiftyChip from "../../img/50-chip.png";
 import oneHundredChip from "../../img/100-chip.png";
 import fiveHundredChip from "../../img/500-chip.png";
 import oneThousandChip from "../../img/1000-chip.png";
-import './Betting.css'
 
 const BettingContainer = ({chipCount,setChipCount,betAmount,setBetAmount,lockedBet,setLockedBet}) => {
     
