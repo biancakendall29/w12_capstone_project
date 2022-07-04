@@ -126,8 +126,12 @@ const BlackjackContainer = () => {
     return(
         <>
         <div id="blackjackContainer">
-        <h2>Chip Count: {chipCount} </h2>
-        <p>Locked Bet: {lockedBet}</p>
+        <div id="top_chips">
+            <h2>Chip Count: {chipCount} </h2>
+            <h2 className="top_chips_locked_bet">Locked Bet: {lockedBet}</h2>
+            <h3>{isDealerTurn && !isRoundDone ? result : <></>}</h3>
+            {isDealerTurn && isRoundDone ? <h4>Last round: {result} </h4>: <></>}
+        </div>
         {isRoundDone ? <></> : <><PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
                         setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
                         setIsDealerTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} 
@@ -136,7 +140,6 @@ const BlackjackContainer = () => {
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
                         isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/></>}
-        {isDealerTurn ? result : <></>}
         {isRoundDone ? <BettingContainer chipCount={chipCount} setChipCount={setChipCount} betAmount={betAmount} setBetAmount={setBetAmount} lockedBet={lockedBet} setLockedBet={setLockedBet}/> : <></>}
         <RoundButtons isRoundDone={isRoundDone} setIsRoundDone={setIsRoundDone} isDealerTurn={isDealerTurn} setIsDealerTurn={setIsDealerTurn} endRound={endRound} startRound={startRound}/>
         </div>

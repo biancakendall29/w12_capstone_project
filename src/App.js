@@ -5,7 +5,8 @@ import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import './styles/Modal.css';
 import ReactModalLogin from "react-modal-login";
 import { useEffect, useState } from 'react';
-import './styles/Cards.css'
+import './styles/Cards.css';
+import Slider from './general/Slider';
 
 function App() {
 
@@ -35,13 +36,17 @@ function App() {
       {/* <div id="navbar">
           <div><Link to="/">Home</Link></div>
       </div> */}
+      <h1>House of Cardzzzzzz</h1>
+      <p>Gamblin is k00l</p>
+      {/* <BlackjackContainer /> */}
+      <Slider />
+
 
 
       <Router>
         <Routes>
           <Route path="/" element={<BlackjackContainer />}/>
         </Routes>
-
       </Router>
 
     </div>
