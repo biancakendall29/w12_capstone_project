@@ -12,9 +12,9 @@ const NavBarDropdown = ({user, setUser, setIsLoggedIn, isLoggedIn, handleClickSi
                 {isLoggedIn ?
                     <div id="navbar-myaccount">
                         <DropdownButton id="dropdown-item-button" title="MyAccount">
-                            <Dropdown.ItemText>You are Signed in</Dropdown.ItemText>
-                            <Dropdown.Item as="button">Action</Dropdown.Item>
-                            <Dropdown.Item as="button">Another action</Dropdown.Item>
+                            <Dropdown.ItemText>You are Signed in as {user.username}!</Dropdown.ItemText>
+                            <Dropdown.Item as="button">My Games</Dropdown.Item>
+                            <Dropdown.Item as="button">Cool Stats</Dropdown.Item>
                             <Dropdown.Item onClick={handleClickLogOut} as="button">Logout</Dropdown.Item>
                         </DropdownButton>
                         <Avatar name={user.username} round={true} color={Avatar.getRandomColor(user.username, ['red', 'green', 'blue'])} size='70' textSizeRatio={1.75} />
