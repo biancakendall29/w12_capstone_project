@@ -1,5 +1,20 @@
 #blackjackContainer {
     background-image: url(../img/background.jpeg);
+    padding: 3em;
+}
+
+#top_chips{
+    width: 20%;
+    color: #222;
+    z-index: 10;
+    background-color: rgba(248, 250, 248, 0.849);
+    padding: 2px;
+    border-radius: 4px;
+    box-shadow: 0 0 20px;
+}
+
+#top_chips.top_chips_locked_bet {
+    text-align: right;
 }
 
 .chip_container{
@@ -11,9 +26,11 @@
 	color: #306517;
     border: #222;
 	border-color: #2d2d2d;
+    border-radius: 4px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    box-shadow: 0 0 20px;
 }
 
 .chip_img {
@@ -22,6 +39,30 @@
     max-width: 8em;
     padding-left: 1em;
     cursor: pointer;
+}
+
+#play_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width: 50%;
+}
+
+.play_button {
+    justify-content: left;
+    align-self: flex-start;
+    font-weight: 500;
+    font-size: 1em;
+    padding: 0.7em 1.4em 0.7em 1.1em;
+    color: #222;
+    background: linear-gradient(0deg, rgba(20,160,60,1) 0%, rgba(100,250,110,1) 100%);
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+    cursor: pointer;
+    margin: 0.5em auto;
 }
 
 .bet_button_container {
@@ -33,6 +74,7 @@
     background-color: #eaedf1;
     vertical-align: middle;
     box-shadow: 0 0 10px;
+    border-radius: 4px;
 }
 
 .bet_button_container > p {
@@ -41,7 +83,6 @@
 
 .bet_button {
     display: flex;
-    align-items: center;
     font-weight: 500;
     font-size: 1em;
     padding: 0.7em 1.4em 0.7em 1.1em;
