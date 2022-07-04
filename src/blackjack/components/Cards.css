@@ -1,7 +1,7 @@
 #dealer-cards, #player-cards {
   margin: auto;
-  width: 40%;
-  background-color: black;
+  width: 30%;
+  background-color: none;
   display: flex;
   justify-content: center;
   padding: 1rem; 

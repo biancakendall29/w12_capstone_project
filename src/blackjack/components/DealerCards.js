@@ -11,27 +11,23 @@ const DealerCards = ({dealerCards, displayImages, isDealerTurn}) => {
         element[0].setAttribute("data-flip", "yes")
     }, [dealerCards])
 
-    // // Flip card 2 on dealer's turn:
-    // useEffect(() => {
-    //     if(isDealerTurn){
-    //         const element = document.querySelectorAll("#dealer-cards > .card:nth-of-type(2)");
-    //         element[0].setAttribute("data-flip", "yes");
-    //     }
-    // })
-
+    // Flip card 2 on dealer's turn:
+    useEffect(() => {
+        if(isDealerTurn){
+            const element = document.querySelectorAll("#dealer-cards > .card:nth-of-type(2)");
+            element[0].setAttribute("data-flip", "yes");
+        }
+    })
 
     // Flip player subsequent dealer card(s) on hit me:
     useEffect(() => {
-        if(isDealerTurn){
-            const element = document.querySelectorAll("#dealer-cards > .card");
+        const element = document.querySelectorAll("#dealer-cards > .card");
 
-            for(let i=1; i<element.length; i++){
-                setTimeout(() => {
-                        element[i].setAttribute("data-flip", "yes");     
-                }, i * 300);
-            }
+        for(let i=2; i<element.length; i++){
+            setTimeout(() => {
+                    element[i].setAttribute("data-flip", "yes");     
+            }, i * 300);
         }
-        
         
     }, [dealerCards])
 
