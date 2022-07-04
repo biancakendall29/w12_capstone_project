@@ -10,16 +10,16 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
 
     const handleStick = () => {
         setIsDealerTurn(true);
-   }
+    }
 
-   const handleDouble = () => {
+    const handleDouble = () => {
         drawPlayerCard();
         setIsDealerTurn(true);
         setLockedBet(lockedBet*2);
         setChipCount(chipCount-lockedBet)
-   }
+    }
 
-   useEffect(() => {
+    useEffect(() => {
 
     let arr = [];
     for (let i=0; i<playerCards.length; i++) {
@@ -33,16 +33,17 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
         setIsPlayerBust(true);
         setIsDealerTurn(true);
     }
-   })
+    })
 
     return (
         <>
             <PlayerCards playerCards={playerCards} displayImages={displayImages}/>
-            <p>Player Count: {playerCount}</p>
-            {isPlayerBust ? <p>You are bust</p> : <></>}
-            {isDealerTurn || playerCards.length <2 ? <></> : <button onClick={handleHit}>Hit me</button>}
-            {isDealerTurn || playerCards.length <2 ? <></> : <button onClick={handleStick}>Stick</button>}
-            {isDealerTurn || playerCards.length < 2 || (lockedBet > chipCount) || playerCards.length > 2 ? <></> : <button onClick={handleDouble}>Double</button>}
+            <h4 id="player_count">Player Count: {playerCount}</h4>
+            <div id="play_buttons">
+                {isDealerTurn || playerCards.length <2 ? <></> : <button className="play_button" onClick={handleHit}>Hit me</button>}
+                {isDealerTurn || playerCards.length <2 ? <></> : <button className="play_button" onClick={handleStick}>Stick</button>}
+                {isDealerTurn || playerCards.length < 2 || (lockedBet > chipCount) || playerCards.length > 2 ? <></> : <button className="play_button" onClick={handleDouble}>Double</button>}
+            </div>
         </>
     );
 }

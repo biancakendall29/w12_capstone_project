@@ -43,16 +43,10 @@ const DealerContainer = ({result, dealerCount, setDealerCount, dealerCards, setD
         }
     }, [dealerCards])
 
-    // useEffect(() => {
-    //     if(isDealerTurn && dealerCount < 17 && !isPlayerBust && !(playerCount===21 && playerCards.length===2)) {
-    //         drawDealerCard(1);
-    //     }
-    // },[dealerCount, isDealerTurn])
-
     return (
         <div id="dealer-container">
         <DealerCards dealerCards={dealerCards} displayImages={displayImages} isDealerTurn={isDealerTurn}/>
-        <p>Dealer Count: {isDealerTurn ? dealerCount : "?"}</p>
+        <h4 id="dealer_count">Dealer Count: {isDealerTurn ? dealerCount : "?"}</h4>
         </div>
 
     )
