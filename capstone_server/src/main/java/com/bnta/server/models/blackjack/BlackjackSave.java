@@ -37,7 +37,7 @@ public class BlackjackSave {
 
     @ManyToOne
     @JoinColumn(name="blackjack_sessions_id")
-    @JsonIgnoreProperties({"saves", "stats"})
+    @JsonIgnoreProperties({"session","saves"})
     private BlackjackSession session;
 
     public BlackjackSave(LocalDate timestamp,

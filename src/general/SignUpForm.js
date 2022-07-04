@@ -11,13 +11,6 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
             wallet: 1000,
         }
     )
-    const [blackjackStats, setBlackjackStats] = {
-        "wins": 0,
-        "losses": 0,
-        "pushes": 0,
-        "blackjacks": 0,
-        "user" : {"id": 1}
-    }
     const [isSignupAlertShowing, setIsSignupAlertShowing] = useState(false);
     const [showPassword, setShowPassword] = useState(false)
     const [usernameAlert, setUsernameAlert] = useState(false)
@@ -60,9 +53,9 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
             })
         }
         else if(checkDuplicatesEmail.length !== 0 && checkDuplicatesUsername.length === 0) {
-           setEmailAlert(true)
-           setUsernameAlert(false)
-           setUsernameEmailAlert(false)
+            setEmailAlert(true)
+            setUsernameAlert(false)
+            setUsernameEmailAlert(false)
 
         }
         else if(checkDuplicatesEmail.length === 0 && checkDuplicatesUsername.length !== 0) {

@@ -1,6 +1,6 @@
 package com.bnta.server.models;
 
-import com.bnta.server.models.blackjack.BlackjackStats;
+import com.bnta.server.models.blackjack.BlackjackSession;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -27,18 +27,32 @@ public class User {
     @Column
     private Long wallet;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({"user"})
-    private List<BlackjackStats> blackjackStats;
+    @Column
+    private int blackjackWins;
 
-    public User(String username,
-                String email,
-                String password) {
+    @Column
+    private int blackjackLosses;
+
+    @Column
+    private int blackjackPushes;
+
+    @Column
+    private int blackjackBlackjacks;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"user","sessions"})
+    private List<BlackjackSession> sessions;
+
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.wallet = 1000L;
-        this.blackjackStats = new ArrayList<>();
+        this.blackjackWins = 0;
+        this.blackjackLosses = 0;
+        this.blackjackPushes = 0;
+        this.blackjackBlackjacks = 0;
+        this.sessions = new ArrayList<>();
     }
 
     public User() {
@@ -80,11 +94,43 @@ public class User {
         this.wallet = wallet;
     }
 
-    public List<BlackjackStats> getBlackjackStats() {
-        return blackjackStats;
+    public int getBlackjackWins() {
+        return blackjackWins;
     }
 
-    public void setBlackjackStats(List<BlackjackStats> blackjackStats) {
-        this.blackjackStats = blackjackStats;
+    public void setBlackjackWins(int blackjackWins) {
+        this.blackjackWins = blackjackWins;
+    }
+
+    public int getBlackjackLosses() {
+        return blackjackLosses;
+    }
+
+    public void setBlackjackLosses(int blackjackLosses) {
+        this.blackjackLosses = blackjackLosses;
+    }
+
+    public int getBlackjackPushes() {
+        return blackjackPushes;
+    }
+
+    public void setBlackjackPushes(int blackjackPushes) {
+        this.blackjackPushes = blackjackPushes;
+    }
+
+    public int getBlackjackBlackjacks() {
+        return blackjackBlackjacks;
+    }
+
+    public void setBlackjackBlackjacks(int blackjackBlackjacks) {
+        this.blackjackBlackjacks = blackjackBlackjacks;
+    }
+
+    public List<BlackjackSession> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(List<BlackjackSession> sessions) {
+        this.sessions = sessions;
     }
 }
