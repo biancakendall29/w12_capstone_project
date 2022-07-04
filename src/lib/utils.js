@@ -51,6 +51,7 @@ import SJ from "../img/SJ.png";
 import SQ from "../img/SQ.png";
 import SK from "../img/SK.png";
 import backOfCard from "../img/card-back.png";
+import "../img/avatar1.png"
 
 
 const suits = ["Spades", "Hearts", "Clubs", "Diamonds"];
@@ -89,6 +90,12 @@ const shuffle = (array) => {
     }
 
     return array;
+}
+
+const displayAvatar = (avatarNumber) => {
+    return (
+        <img src={"../img/avatar" + avatarNumber + ".png"}/>
+    )
 }
 
 const displayImages = (cards) => {

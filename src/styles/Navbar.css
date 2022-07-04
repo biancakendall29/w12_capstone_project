@@ -1,0 +1,28 @@
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    background-color: rgb(160, 160, 160);
+    color: white;
+    font-size: 40px;
+}
+
+#navbar > a {
+    text-decoration: none;
+    color: white;
+    margin: 30px;
+}
+
+#navbar-dropdown-container {
+    margin: 30px;
+}
+
+#navbar-myaccount {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}

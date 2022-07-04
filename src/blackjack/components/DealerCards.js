@@ -1,4 +1,3 @@
-import "./Cards.css";
 import { useEffect } from "react";
 
 const DealerCards = ({dealerCards, displayImages, isDealerTurn}) => {
@@ -19,7 +18,7 @@ const DealerCards = ({dealerCards, displayImages, isDealerTurn}) => {
         }
     })
 
-    // Flip player subsequent dealer card(s) on hit me:
+    // Flip subsequent dealer card(s) on hit me:
     useEffect(() => {
         const element = document.querySelectorAll("#dealer-cards > .card");
 
