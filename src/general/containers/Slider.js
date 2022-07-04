@@ -5,12 +5,24 @@ import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from "react-icons/fa"
 
 const Slider = () => {
 
-    const leftScrollClick = () => {
+    let carousel = {};
+    carousel.e = document.getElementById('carousel');
+    carousel.items = document.getElementById('carousel-items');
+    carousel.leftScroll = document.getElementById('left-scroll-button');
+    carousel.rightScroll = document.getElementById('right-scroll-button');  
 
+    const scroll = (element, step) => {
+        element.scrollLeft += step;
+    }
+
+    const leftScrollClick = () => {
+        // carousel.items.scrollLeft(100);
+        console.log("clicked");
+        scroll(carousel.items, 100);
     }
 
     const rightScrollClick = () => {
-
+        scroll(carousel.items, -100);
     }
 
 
@@ -48,7 +60,7 @@ const Slider = () => {
             </div>
 
             <div className="item"> 
-                <img className="item-image" alt="pokerCover" src={pokerCover} />
+                <img className="item-image" alt="pokerCover" src={blackjackCover} />
                 <span className="item-title">BlackJack</span>
                 <span className="item-load-icon button opacity-none"><i className="fa fa-play"></i></span>
                 {/* <div className="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div> */}
