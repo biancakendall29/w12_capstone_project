@@ -18,7 +18,7 @@ const DealerCards = ({dealerCards, displayImages, isDealerTurn}) => {
         }
     })
 
-    // Flip player subsequent dealer card(s) on hit me:
+    // Flip subsequent dealer card(s) on hit me:
     useEffect(() => {
         const element = document.querySelectorAll("#dealer-cards > .card");
 
