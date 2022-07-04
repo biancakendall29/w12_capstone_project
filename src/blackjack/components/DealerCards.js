@@ -1,4 +1,3 @@
-import "./Cards.css";
 import { useEffect } from "react";
 
 const DealerCards = ({dealerCards, displayImages, isDealerTurn}) => {
