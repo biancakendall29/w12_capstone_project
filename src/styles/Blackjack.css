@@ -1,3 +1,7 @@
+#blackjackContainer {
+    background-image: url(../img/background.jpeg);
+}
+
 .chip_container{
     width: 80%;
     margin: auto;

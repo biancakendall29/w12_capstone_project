@@ -124,6 +124,7 @@ const BlackjackContainer = () => {
     
     return(
         <>
+        <div id="blackjackContainer">
         <h2>Chip Count: {chipCount} </h2>
         {isRoundDone ? <></> : <><PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
                         setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
@@ -137,6 +138,7 @@ const BlackjackContainer = () => {
         <p>Locked Bet: {lockedBet}</p>
         {isRoundDone ? <BettingContainer chipCount={chipCount} setChipCount={setChipCount} betAmount={betAmount} setBetAmount={setBetAmount} lockedBet={lockedBet} setLockedBet={setLockedBet}/> : <></>}
         <RoundButtons isRoundDone={isRoundDone} setIsRoundDone={setIsRoundDone} isDealerTurn={isDealerTurn} setIsDealerTurn={setIsDealerTurn} endRound={endRound} startRound={startRound}/>
+        </div>
         </>
     )
 
