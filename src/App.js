@@ -35,20 +35,17 @@ function App() {
       {/* <div id="navbar">
           <div><Link to="/">Home</Link></div>
       </div> */}
-<<<<<<< HEAD
       <h1>House of Cardzzzzzz</h1>
       <p>Gamblin is k00l</p>
       {/* <BlackjackContainer /> */}
       <Slider />
-=======
->>>>>>> main
+
 
 
       <Router>
         <Routes>
           <Route path="/" element={<BlackjackContainer />}/>
         </Routes>
-
       </Router>
 
     </div>

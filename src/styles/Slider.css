@@ -181,7 +181,7 @@ box-sizing: border-box;
     height: 400px;
     margin: 1rem;
     cursor: pointer;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .item > img:hover {
@@ -208,7 +208,7 @@ box-sizing: border-box;
 #left-scroll-button {
     font-size: 3rem;
     position: absolute;
-    z-index: 2;
+    /* z-index: 2; */
     transition: all 0.3s ease-in-out;
 }
 
@@ -219,7 +219,7 @@ box-sizing: border-box;
 #right-scroll-button {
     font-size: 3rem;
     position: absolute;
-    z-index: 2;
+    /* z-index: 2; */
     transition: all 0.3s ease-in-out;
 }
 
@@ -242,7 +242,7 @@ div.right-scroll {
     top: 50%;
     left: 50%;
     transform: translate(-35%, -55%);
-    z-index: 3;
+    /* z-index: 3; */
 }
 
 .right-scroll > i {
@@ -250,6 +250,6 @@ div.right-scroll {
     top: 50%;
     right: 50%;
     transform: translate(-35%, -55%);
-    z-index: 3;
+    /* z-index: 3; */
 }
     
