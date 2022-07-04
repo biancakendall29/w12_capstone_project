@@ -11,6 +11,13 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
             wallet: 1000,
         }
     )
+    const [blackjackStats, setBlackjackStats] = {
+        "wins": 0,
+        "losses": 0,
+        "pushes": 0,
+        "blackjacks": 0,
+        "user" : {"id": 1}
+    }
     const [isSignupAlertShowing, setIsSignupAlertShowing] = useState(false);
     const [showPassword, setShowPassword] = useState(false)
     const [usernameAlert, setUsernameAlert] = useState(false)
@@ -45,6 +52,11 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
                 console.log("set user to " + stateUser.username);
                 closeModal();
                 setIsLoggedIn(true);
+            })
+            fetch("http://localhost:8080/blackjack_stats", {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(blackjackStats)
             })
         }
         else if(checkDuplicatesEmail.length !== 0 && checkDuplicatesUsername.length === 0) {

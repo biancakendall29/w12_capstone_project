@@ -27,7 +27,7 @@ public class BlackjackSession {
     private LocalDate timestamp;
 
     @ManyToOne
-    @JoinColumn(name= "blackjack_stat_id", nullable = false)
+    @JoinColumn(name= "blackjack_stat_id")
     @JsonIgnoreProperties({"sessions","user"})
     private BlackjackStats stats;
 

@@ -32,7 +32,7 @@ public class BlackjackStats {
     private int blackjacks;
 
     @ManyToOne
-    @JoinColumn(name="user_id", nullable = false)
+    @JoinColumn(name="user_id")
     @JsonIgnoreProperties({"user"})
     private User user;
 

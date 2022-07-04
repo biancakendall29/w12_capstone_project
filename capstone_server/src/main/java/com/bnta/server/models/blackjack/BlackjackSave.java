@@ -36,7 +36,7 @@ public class BlackjackSave {
     private String roundResult;
 
     @ManyToOne
-    @JoinColumn(name="blackjack_sessions_id", nullable = false)
+    @JoinColumn(name="blackjack_sessions_id")
     @JsonIgnoreProperties({"saves", "stats"})
     private BlackjackSession session;
 
