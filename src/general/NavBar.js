@@ -32,11 +32,16 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers }) =
         setIsModalShowing(false);
     }
 
+    const handleClickLogOut = () => {
+      setIsLogin(false)
+    }
+
+
     return (
         <Router>
             <div id="navbar">
                 <Link to="/">Home</Link>
-                <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} />
+                <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut}/>
             </div>
 
             <Modal isOpen={isModalShowing} onRequestClose={closeModal} ariaHideApp={false} data-backdrop="static" >
