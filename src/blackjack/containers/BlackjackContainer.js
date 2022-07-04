@@ -5,7 +5,6 @@ import {createDeck, shuffle, displayImages} from "../../lib/utils.js";
 import RoundButtons from "../components/RoundButtons.js";
 import BettingContainer from "./BettingContainer.js";
 import "../../styles/Blackjack.css"
-import "../components/Cards.css";
 
 
 const BlackjackContainer = () => {
