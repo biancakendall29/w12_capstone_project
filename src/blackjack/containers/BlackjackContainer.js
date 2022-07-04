@@ -129,7 +129,7 @@ const BlackjackContainer = () => {
             <h2>Chip Count: {chipCount} </h2>
             <h2 className="top_chips_locked_bet">Locked Bet: {lockedBet}</h2>
             <h3>{isDealerTurn && !isRoundDone ? result : <></>}</h3>
-            {isDealerTurn && isRoundDone ? <h3>Last round: {result} </h3>: <></>}
+            {isDealerTurn && isRoundDone ? <h4>Last round: {result} </h4>: <></>}
         </div>
         {isRoundDone ? <></> : <><PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
                         setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
