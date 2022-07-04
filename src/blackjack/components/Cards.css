@@ -1,6 +1,6 @@
 #dealer-cards, #player-cards {
   margin: auto;
-  width: 70%;
+  width: 40%;
   background-color: black;
   display: flex;
   justify-content: center;
