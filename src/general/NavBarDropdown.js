@@ -8,7 +8,7 @@ const NavBarDropdown = ({user, setUser, setIsLoggedIn, isLoggedIn, handleClickSi
             {isLoggedIn ?
                 <div id="navbar-myaccount">
                     <h2>My Account</h2>
-                    <Avatar name={user.username} round={true} color={Avatar.getRandomColor(user.username, ['red', 'green', 'blue'])} />
+                    <Avatar name={user.username} round={true} color={Avatar.getRandomColor(user.username, ['red', 'green', 'blue'])} size='70' textSizeRatio={1.75} />
                 </div>
                 :
                 <div onClick={handleClickSignIn}>Sign in</div>}

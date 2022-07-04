@@ -35,7 +35,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers }) =
     return (
         <Router>
             <div id="navbar">
-                <div><Link to="/">Home</Link></div>
+                <Link to="/">Home</Link>
                 <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} />
             </div>
 
