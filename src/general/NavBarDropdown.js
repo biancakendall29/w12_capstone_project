@@ -6,6 +6,7 @@ const NavBarDropdown = ({user, setUser, setIsLoggedIn, isLoggedIn, handleClickSi
 
     const handleClickLogOut = () => {
         setIsLoggedIn(false)
+        setUser(null)
       }
     return (
             <div id="navbar-dropdown-container">
