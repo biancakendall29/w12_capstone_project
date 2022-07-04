@@ -23,22 +23,23 @@ const SliderContainer = () => {
        element.scrollLeft -= (delta);
     }
 
-    useEffect = () => {
         let carousel = {};
+        // const loading = () => {
+        useEffect = () => {
         carousel.e = document.getElementById('carousel');
         carousel.items = document.getElementById('carousel-items');
         carousel.leftScroll = document.getElementById('left-scroll-button');
         carousel.rightScroll = document.getElementById('right-scroll-button');    
 
-
-        carousel.items.addEventListener("mousewheel", handleMouse, false);
-        carousel.items.addEventListener("scroll", scrollEvent);
-        carousel.leftScroll.addEventListener("click", leftScrollClick);
-        carousel.rightScroll.addEventListener("click", rightScrollClick);
-
+        // carousel.items.addEventListener("mousewheel", handleMouse, false);
+        // carousel.items.addEventListener("scroll", scrollEvent);
+        // carousel.leftScroll.addEventListener("click", leftScrollClick);
+        // carousel.rightScroll.addEventListener("click", rightScrollClick);
 
         setLeftScrollOpacity();
         setRightScrollOpacity();
+
+        }
 
        const handleMouse = (e) => {
         MouseWheelHandler(e, carousel.items);
@@ -88,77 +89,77 @@ const SliderContainer = () => {
                 carousel.rightScroll.style.opacity = 1;
             }
         }
-    }
 
 
     return (
         <div id="carousel" className="container">
             <div className="control-container">
-                <div id="left-scroll-button" class="left-scroll button scroll">
+                <div id="left-scroll-button" className="left-scroll button scroll" onClick={() => leftScrollClick}>
                     <i className="fa fa-chevron-left" aria-hidden="true"></i>
+                    {/* <FaArrowAltCircleLeft className="fa fa-chevron-right" onClick={leftScrollClick}/> */}
                 </div>
-                <div id="right-scroll-button" class="right-scroll button scroll">
-                    {/* <i className="fa fa-chevron-right" aria-hidden="true"></i> */}
-                    <FaArrowAltCircleRight onClick={rightScrollClick}/>
+                <div id="right-scroll-button" className="right-scroll button scroll" onClick={() => rightScrollClick}>
+                    <i className="fa fa-chevron-right" aria-hidden="true"></i>
+                    {/* <FaArrowAltCircleRight className="fa fa-chevron-right" onClick={rightScrollClick}/> */}
                 </div>
             </div>
         
         <div className="items" id="carousel-items">
 
             <div className="item"> 
-                <img class="item-image" alt="blackjackCover" src={blackjackCover} />
-                <span class="item-title">BlackJack</span>
-                <span class="item-load-icon button opacity-none"><i class="fa fa-play"></i></span>
-                <div class="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
+                <img className="item-image" alt="blackjackCover" src={blackjackCover} />
+                <span className="item-title">BlackJack</span>
+                <span className="item-load-icon button opacity-none"><i className="fa fa-play"></i></span>
+                <div className="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
             </div>
 
             <div className="item"> 
-                <img class="item-image" alt="pokerCover" src={pokerCover} />
-                <span class="item-title">BlackJack</span>
-                <span class="item-load-icon button opacity-none"><i class="fa fa-play"></i></span>
-                <div class="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
+                <img className="item-image" alt="pokerCover" src={pokerCover} />
+                <span className="item-title">BlackJack</span>
+                <span className="item-load-icon button opacity-none"><i className="fa fa-play"></i></span>
+                <div className="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
             </div>
 
             <div className="item"> 
-                <img class="item-image" alt="pokerCover" src={pokerCover} />
-                <span class="item-title">BlackJack</span>
-                <span class="item-load-icon button opacity-none"><i class="fa fa-play"></i></span>
-                <div class="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
+                <img className="item-image" alt="pokerCover" src={pokerCover} />
+                <span className="item-title">BlackJack</span>
+                <span className="item-load-icon button opacity-none"><i className="fa fa-play"></i></span>
+                <div className="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
             </div>
 
             <div className="item"> 
-                <img class="item-image" alt="pokerCover" src={pokerCover} />
-                <span class="item-title">BlackJack</span>
-                <span class="item-load-icon button opacity-none"><i class="fa fa-play"></i></span>
-                <div class="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
+                <img className="item-image" alt="pokerCover" src={pokerCover} />
+                <span className="item-title">BlackJack</span>
+                <span className="item-load-icon button opacity-none"><i className="fa fa-play"></i></span>
+                <div className="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
             </div>
 
             <div className="item"> 
-                <img class="item-image" alt="pokerCover" src={pokerCover} />
-                <span class="item-title">BlackJack</span>
-                <span class="item-load-icon button opacity-none"><i class="fa fa-play"></i></span>
-                <div class="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
+                <img className="item-image" alt="pokerCover" src={pokerCover} />
+                <span className="item-title">BlackJack</span>
+                <span className="item-load-icon button opacity-none"><i className="fa fa-play"></i></span>
+                <div className="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
             </div>
 
             <div className="item"> 
-                <img class="item-image" alt="pokerCover" src={pokerCover} />
-                <span class="item-title">BlackJack</span>
-                <span class="item-load-icon button opacity-none"><i class="fa fa-play"></i></span>
-                <div class="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
+                <img className="item-image" alt="pokerCover" src={pokerCover} />
+                <span className="item-title">BlackJack</span>
+                <span className="item-load-icon button opacity-none"><i className="fa fa-play"></i></span>
+                <div className="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
             </div>
 
             <div className="item"> 
-                <img class="item-image" alt="pokerCover" src={pokerCover} />
-                <span class="item-title">BlackJack</span>
-                <span class="item-load-icon button opacity-none"><i class="fa fa-play"></i></span>
-                <div class="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
+                <img className="item-image" alt="pokerCover" src={pokerCover} />
+                <span className="item-title">BlackJack</span>
+                <span className="item-load-icon button opacity-none"><i className="fa fa-play"></i></span>
+                <div className="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
             </div>
 
             <div className="item"> 
-                <img class="item-image" alt="pokerCover" src={pokerCover} />
-                <span class="item-title">BlackJack</span>
-                <span class="item-load-icon button opacity-none"><i class="fa fa-play"></i></span>
-                <div class="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
+                <img className="item-image" alt="pokerCover" src={pokerCover} />
+                <span className="item-title">BlackJack</span>
+                <span className="item-load-icon button opacity-none"><i className="fa fa-play"></i></span>
+                <div className="item-description opacity-none">Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet.</div>
             </div>
 
         </div>

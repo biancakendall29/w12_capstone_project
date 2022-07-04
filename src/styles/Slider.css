@@ -1,4 +1,4 @@
-body {
+/* body {
     background-color: #343434;
     margin: 0;
     padding: 0;
@@ -149,4 +149,87 @@ body {
    }
    .button:hover {
     box-shadow: 0px 0px 50px #FFFFFF;
+   } */
+
+div .items {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row nowrap;
+    overflow: hidden;
+    align-items: center;
+}
+
+div.control-container {
+height: 300px;
+position: absolute;
+width: 100%;
+overflow: hidden;
+box-sizing: border-box;
+}
+
+.item {
+    position: relative;
+    align-self: center;
+    width: 200px;
+    height: 200px;
+    margin: 3px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.item img.item-image {
+    width: 200px;
+    height: 200px;
+    -o-object-fit: cover;
+    object-fit: cover;
    }
+
+#left-scroll-button {
+    font-size: 3rem;
+    position: absolute;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+}
+
+#left-scroll-button:hover {
+    color: grey;
+}
+
+#right-scroll-button {
+    font-size: 3rem;
+    position: absolute;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+}
+
+#right-scroll-button:hover {
+    color: grey;
+}
+
+div.left-scroll {
+    left: 0;
+    top: 20%
+}
+
+div.right-scroll {
+    right: 0;
+    top: 20%
+}   
+
+.left-scroll > i {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%, -55%);
+    z-index: 3;
+}
+
+.right-scroll > i {
+    position: relative;
+    top: 50%;
+    right: 50%;
+    transform: translate(-35%, -55%);
+    z-index: 3;
+}
+    
