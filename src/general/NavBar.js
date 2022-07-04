@@ -37,7 +37,7 @@ const NavBar = ({user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers}) => 
             : <div onClick={handleClickSignIn}>Sign in</div> }
             
             
-            <Modal isOpen={isModalShowing} onRequestClose={closeModal} ariaHideApp={false} >
+            <Modal isOpen={isModalShowing} onRequestClose={closeModal} ariaHideApp={false} data-backdrop="static" >
                 {isLogin ? 
                     <LoginForm toggle = {toggle} user={user} setUser={setUser} 
                                 isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
