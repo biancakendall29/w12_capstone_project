@@ -151,12 +151,19 @@
     box-shadow: 0px 0px 50px #FFFFFF;
    } */
 
+div.container {
+    background-color: forestgreen;
+}
+
 div .items {
     display: flex;
     flex-direction: row;
     flex-flow: row nowrap;
     overflow: hidden;
     align-items: center;
+    scroll-behavior: smooth;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 div.control-container {
@@ -170,20 +177,33 @@ box-sizing: border-box;
 .item {
     position: relative;
     align-self: center;
-    width: 200px;
-    height: 200px;
-    margin: 3px;
-    transition: all 0.3s ease-in-out;
+    width: 300px;
+    height: 400px;
+    margin: 1rem;
     cursor: pointer;
     z-index: 1;
 }
 
+.item > img:hover {
+    width: 250px;
+    height: 250px;
+}
+
+.item-title {
+    font-size: 3rem;
+    font-weight: 700;
+    align-self: center;
+    padding: 1rem;
+}
+
 .item img.item-image {
     width: 200px;
-    height: 200px;
-    -o-object-fit: cover;
-    object-fit: cover;
-   }
+    height: 300px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    padding-top: 1rem;
+    padding-left: 10%;
+}
 
 #left-scroll-button {
     font-size: 3rem;
@@ -209,12 +229,12 @@ box-sizing: border-box;
 
 div.left-scroll {
     left: 0;
-    top: 20%
+    top: 60%
 }
 
 div.right-scroll {
     right: 0;
-    top: 20%
+    top: 60%
 }   
 
 .left-scroll > i {

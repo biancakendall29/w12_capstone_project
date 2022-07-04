@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import './styles/Modal.css';
 import ReactModalLogin from "react-modal-login";
 import { useEffect, useState } from 'react';
-import Slider from './general/containers/Slider';
+import Slider from './general/Slider';
 
 function App() {
 
