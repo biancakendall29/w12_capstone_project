@@ -21,6 +21,11 @@
   background-color: transparent;
 }
 
+#dealer-cards > .card {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .card-back, .card-front {
   width: 10rem;
   height: 14rem;
