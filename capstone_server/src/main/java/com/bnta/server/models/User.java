@@ -33,12 +33,11 @@ public class User {
 
     public User(String username,
                 String email,
-                String password,
-                Long wallet) {
+                String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.wallet = wallet;
+        this.wallet = 1000L;
         this.blackjackStats = new ArrayList<>();
     }
 
