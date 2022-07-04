@@ -1,0 +1,51 @@
+#dealer-cards, #player-cards {
+  margin: auto;
+  width: 40%;
+  height:224px;
+
+  /* display: flex;
+  justify-content: center; */
+  /* padding: 1rem;  */
+  position: relative;
+  display:grid;
+  grid-auto-flow: column;
+}
+
+.card {  
+  background-color: transparent;
+  border: none;
+  position:absolute;
+  width: 10rem;
+  height: 14rem;
+  /* margin: 0.5rem; */
+
+  /* background-color: aquamarine; */
+}
+
+.card-back,
+.card-front {
+   position: absolute;
+   width: 10rem;
+   height: 14rem;
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+}
+
+/* ---------- Flip Card Effect ----------- */
+
+/* CARD DIV */
+.card {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* FLIPPED CARD DIV */
+.card[data-flip="yes"]  {
+  transform: rotateY(180deg);
+  transform-origin: center;
+}
+
+/* CARD FRONT */
+.card > img:nth-of-type(2) {
+  transform: rotateY(180deg);
+}
