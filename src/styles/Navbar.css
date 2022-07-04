@@ -1,0 +1,14 @@
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 90px;
+    background-color: rgb(181, 0, 181);
+}
+
+#navbar-myaccount {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
