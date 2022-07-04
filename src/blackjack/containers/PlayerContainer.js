@@ -10,16 +10,16 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
 
     const handleStick = () => {
         setIsDealerTurn(true);
-   }
+    }
 
-   const handleDouble = () => {
+    const handleDouble = () => {
         drawPlayerCard();
         setIsDealerTurn(true);
         setLockedBet(lockedBet*2);
         setChipCount(chipCount-lockedBet)
-   }
+    }
 
-   useEffect(() => {
+    useEffect(() => {
 
     let arr = [];
     for (let i=0; i<playerCards.length; i++) {
@@ -33,7 +33,7 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
         setIsPlayerBust(true);
         setIsDealerTurn(true);
     }
-   })
+    })
 
     return (
         <>
