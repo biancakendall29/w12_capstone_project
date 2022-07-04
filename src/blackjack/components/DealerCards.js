@@ -30,13 +30,13 @@ const DealerCards = ({ dealerCards, displayImages, isDealerTurn }) => {
             if (element[i].getAttribute("data-flip") === "no" && i >= 2) {
                 element[i].style.visibility = "hidden";
 
-                setTimeout(() => {
-                    element[i].setAttribute("style", "visibility:visible;" + positionStyle)
-                }, i * 500)
+                // setTimeout(() => {
+                //     element[i].setAttribute("style", "visibility:visible;" + positionStyle)
+                // }, i * 300)
 
                 setTimeout(() => {
                     element[i].setAttribute("data-flip", "yes");
-                }, i * 400);
+                }, i * 500);
             }
         }
 

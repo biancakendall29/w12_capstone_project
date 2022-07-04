@@ -21,7 +21,9 @@
   right:0;
 
   /* background-color: aquamarine; */
+
 }
+
 
 .card-back,
 .card-front {
@@ -49,4 +51,19 @@
 /* CARD FRONT */
 .card > img:nth-of-type(2) {
   transform: rotateY(180deg);
+}
+
+/* ------ draw card effect ------- */
+.card[style*="visibility: hidden"] {
+  animation-name: carddraw;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes carddraw {
+  0% {opacity: 0;}
+  100% {
+    visibility: visible;
+    opacity: 100;
+  }
 }
