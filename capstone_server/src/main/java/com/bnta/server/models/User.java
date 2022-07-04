@@ -16,7 +16,7 @@ public class User {
     private Long id;
 
     @Column
-    private String name;
+    private String username;
 
     @Column
     private String email;
@@ -31,11 +31,11 @@ public class User {
     @JsonIgnoreProperties({"user"})
     private List<BlackjackStats> blackjackStats;
 
-    public User(String name,
+    public User(String username,
                 String email,
                 String password,
                 Long wallet) {
-        this.name = name;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.wallet = wallet;
@@ -49,12 +49,12 @@ public class User {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

@@ -6,16 +6,14 @@ import SignUpForm from "./SignUpForm";
 import Modal from "react-modal";
 
 
-const NavBar = () => {
+const NavBar = ({user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers}) => {
     // const {isShowing, toggle} = useModal();
     //const {isSignUpShowing, hideSignUp} = useModal();
 
     const [isModalShowing, setIsModalShowing] = useState(false);
     const [isLogin, setIsLogin] = useState(true);
   
-
-
-    const handleSignIn = () => {
+    const handleClickSignIn = () => {
         setIsModalShowing(true);
         setIsLogin(true)
     }
@@ -35,13 +33,21 @@ const NavBar = () => {
             <div id="navbar">
                 <div><Link to="/">Home</Link></div>
             </div>
-            <div onClick={handleSignIn}>Sign in</div>
+            {isLoggedIn ? <> <div>{user.username}</div> <div onClick={() => {setIsLoggedIn(false); setUser()}}>logout</div> </> 
+            : <div onClick={handleClickSignIn}>Sign in</div> }
+            
             
             <Modal isOpen={isModalShowing} onRequestClose={closeModal} ariaHideApp={false} >
-                {isLogin ? <LoginForm toggle = {toggle}/> : <SignUpForm toggle = {toggle}/>}
+                {isLogin ? 
+                    <LoginForm toggle = {toggle} user={user} setUser={setUser} 
+                                isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
+                                users={users} setUsers={setUsers} closeModal={closeModal}/> 
+                    : <SignUpForm toggle = {toggle} user={user} setUser={setUser} 
+                                    isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
+                                    users={users} setUsers={setUsers}/>}
                 <button onClick={closeModal}>X</button>
 
-
+                
             </Modal>
             {/* <LogInModal isShowing={isShowing} toggle={toggle} /> */}
         </Router>
