@@ -20,6 +20,7 @@
   /* margin: 0.5rem; */
   right:0;
 
+
   /* background-color: aquamarine; */
 
 }
@@ -54,16 +55,18 @@
 }
 
 /* ------ draw card effect ------- */
-.card[style*="visibility: hidden"] {
-  animation-name: carddraw;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-}
+/* .card[style*="opacity: 0"] {
+  transition: opacity 0.5s;
+} */
+/* .card[style*="opacity: 0"] {
+  animation: fadeIn 0.5s forwards;
+} */
 
-@keyframes carddraw {
-  0% {opacity: 0;}
+/* @keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
   100% {
-    visibility: visible;
     opacity: 100;
   }
-}
+} */
