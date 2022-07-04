@@ -5,7 +5,7 @@ const DealerCards = ({dealerCards, displayImages, isDealerTurn}) => {
 
     // useEffects to change JSX custom data attribute for styling flipped card:
 
-    // Flip vard 2 on dealer's turn:
+    // Flip card 2 on dealer's turn:
     useEffect(() => {
         if(isDealerTurn){
             const element = document.querySelectorAll("#dealer-cards > .card:nth-of-type(2)");
@@ -16,14 +16,20 @@ const DealerCards = ({dealerCards, displayImages, isDealerTurn}) => {
     // Flip card 1 on deal:
     useEffect(() => {
         const element = document.querySelectorAll("#dealer-cards > .card");
-        for(let i=0; i<element.length; i++){
-            if(i === 1){
-                continue;
-            } else {
-                element[i].setAttribute("data-flip", "yes")
-            }
-        }
-    })
+        element[0].setAttribute("data-flip", "yes")
+    }, [dealerCards])
+
+    // Flip player subsequent dealer card(s) on hit me:
+    useEffect(() => {
+        const element = document.querySelectorAll("#dealer-cards > .card");
+
+        for(let i=2; i<element.length; i++){
+        setTimeout(() => {
+                element[i].setAttribute("data-flip", "yes");     
+        }, 300);
+    }
+        
+    }, [dealerCards])
 
     return(
         <>

@@ -1,16 +1,16 @@
 #dealer-cards, #player-cards {
   margin: auto;
-  width: 50%;
+  width: 70%;
   background-color: black;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 1rem; 
-
 }
 
 .card {
   width: 10rem;
   height: 14rem;
+  margin: 0.5rem;
   /* background-color: aquamarine; */
 }
 
@@ -25,19 +25,19 @@
 
 /* ---------- Flip Card Effect ----------- */
 
-/* DEALER CARD 2 DIV */
+/* CARD DIV */
 .card {
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
 
-/* DEALER CARD 2 DIV */
+/* FLIPPED CARD DIV */
 .card[data-flip="yes"]  {
   transform: rotateY(180deg);
   transform-origin: center;
 }
 
-/* DEALER CARD 2 FRONT */
+/* CARD FRONT */
 .card > img:nth-of-type(2) {
   transform: rotateY(180deg);
 }
