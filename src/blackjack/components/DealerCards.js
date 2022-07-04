@@ -1,21 +1,15 @@
 import "./Cards.css";
 import { useEffect } from "react";
 
-const DealerCards = ({dealerCards, displayImages, isDealerTurn}) => {
+const DealerCards = ({ dealerCards, displayImages, isDealerTurn }) => {
 
     // useEffects to change JSX custom data attribute for styling flipped card:
 
-    // Flip card 1 on deal:
     useEffect(() => {
-        const element = document.querySelectorAll("#dealer-cards > .card");
-        element[0].setAttribute("data-flip", "yes")
-    }, [dealerCards])
-
-    // Flip card 2 on dealer's turn:
-    useEffect(() => {
-        if(isDealerTurn){
-            const element = document.querySelectorAll("#dealer-cards > .card:nth-of-type(2)");
-            element[0].setAttribute("data-flip", "yes");
+        // Flip card 2 on dealer's turn:
+        if (isDealerTurn) {
+            const element = document.querySelectorAll("#dealer-cards > .card");
+            element[1].setAttribute("data-flip", "yes");
         }
     })
 
@@ -23,19 +17,43 @@ const DealerCards = ({dealerCards, displayImages, isDealerTurn}) => {
     useEffect(() => {
         const element = document.querySelectorAll("#dealer-cards > .card");
 
-        for(let i=2; i<element.length; i++){
-            setTimeout(() => {
-                    element[i].setAttribute("data-flip", "yes");     
-            }, i * 300);
+        // flip first dealer card on deal
+        element[0].setAttribute("data-flip", "yes")
+
+        // positioning cards
+        for (let i = 0; i < element.length; i++) {
+            let len = element.length - 1;
+            let position = 5 * 1.1 ** len * (2 * i - len) / len;
+            let positionStyle = `left: calc(${position}rem + 50% - 5.5rem)`
+            element[i].setAttribute("style", positionStyle)
+
+            if (element[i].getAttribute("data-flip") === "no" && i >= 2) {
+                element[i].style.visibility = "hidden";
+
+                setTimeout(() => {
+                    element[i].setAttribute("style", "visibility:visible;" + positionStyle)
+                }, i * 500)
+
+                setTimeout(() => {
+                    element[i].setAttribute("data-flip", "yes");
+                }, i * 400);
+            }
         }
-        
+
+        // for (let i = 2; i < element.length; i++) {
+
+
+
+
+        // }
+
     }, [dealerCards])
 
-    return(
+    return (
         <>
-        <div id="dealer-cards">
-        {displayImages(dealerCards)}        
-        </div>
+            <div id="dealer-cards">
+                {displayImages(dealerCards)}
+            </div>
         </>
     )
 }
