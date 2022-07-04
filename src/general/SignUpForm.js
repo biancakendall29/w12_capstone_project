@@ -7,7 +7,8 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
         {
             username: "",
             email: "",
-            password: ""
+            password: "",
+            wallet: 1000,
         }
     )
     const [isSignupAlertShowing, setIsSignupAlertShowing] = useState(false);

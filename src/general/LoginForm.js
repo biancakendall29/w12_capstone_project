@@ -10,7 +10,7 @@ const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, se
     {
       username: "",
       email: "",
-      password: ""
+      password: "",
     }
   )
   const [isLoginAlertShowing, setIsLoginAlertShowing] = useState(false);
