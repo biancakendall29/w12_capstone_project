@@ -44,7 +44,7 @@ const NavBar = ({user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers}) => 
                                 users={users} setUsers={setUsers} closeModal={closeModal}/> 
                     : <SignUpForm toggle = {toggle} user={user} setUser={setUser} 
                                     isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
-                                    users={users} setUsers={setUsers}/>}
+                                    users={users} setUsers={setUsers} closeModal={closeModal}/>}
                 <button onClick={closeModal}>X</button>
 
                 
