@@ -1,7 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "../styles/Modal.css"
-import { useState } from "react"
-import { eventWrapper } from "@testing-library/user-event/dist/utils"
+
+import { useState } from "react";
+import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 
 const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, closeModal }) => {
