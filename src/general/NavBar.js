@@ -9,7 +9,7 @@ import NavBarDropdown from "./NavBarDropdown"
 
 
 
-const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers,  setSessionStart}) => {
+const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, setSessionStart }) => {
     // const {isShowing, toggle} = useModal();
     //const {isSignUpShowing, hideSignUp} = useModal();
 
@@ -33,7 +33,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers,  se
     }
 
     const handleClickLogOut = () => {
-      setIsLogin(false)
+        setIsLogin(false)
     }
 
     const handleSessionEnd = () => {
@@ -41,7 +41,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers,  se
         console.log('session end');
         fetch('http://localhost:8080/users/' + user.id, {
             method: 'PUT',
-            headers: {'Content-Type': 'application/json'},
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
         })
     }
@@ -52,18 +52,30 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers,  se
         <>
             <div id="navbar">
                 <Link to="/" onClick={handleSessionEnd}>Home</Link>
-                <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut}/>
+                <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut} />
             </div>
 
-            <Modal isOpen={isModalShowing} onRequestClose={closeModal} ariaHideApp={false} data-backdrop="static" >
-                {isLogin ?
-                    <LoginForm toggle={toggle} user={user} setUser={setUser}
-                        isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
-                        users={users} setUsers={setUsers} closeModal={closeModal} />
-                    : <SignUpForm toggle={toggle} user={user} setUser={setUser}
-                        isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
-                        users={users} setUsers={setUsers} closeModal={closeModal} />}
-                <button onClick={closeModal}>X</button>
+            <Modal isOpen={isModalShowing} onRequestClose={closeModal} ariaHideApp={false} data-backdrop="static">
+                <div id='modal-header'>
+                    <button onClick={closeModal} id="modal-close-button"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div id='modal-content'>
+                    {isLogin ?
+                        <>
+                            <h2 className="modal-title">Login</h2>
+                            <LoginForm toggle={toggle} user={user} setUser={setUser}
+                                isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+                                users={users} setUsers={setUsers} closeModal={closeModal} />
+                        </>
+                        : <>
+                            <h2 className='modal-title'>Sign up</h2>
+                            <SignUpForm toggle={toggle} user={user} setUser={setUser}
+                                isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+                                users={users} setUsers={setUsers} closeModal={closeModal} />
+                        </>
+                    }
+                </div>
+
 
             </Modal>
             {/* <LogInModal isShowing={isShowing} toggle={toggle} /> */}
