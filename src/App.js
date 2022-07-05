@@ -42,14 +42,15 @@ function App() {
       <h1>House of Cardzzzzzz</h1>
       <p>Gamblin is k00l</p>
       {/* <BlackjackContainer /> */}
-      <Slider />
+      {/* <Slider /> */}
 
 
 
       <Router>
         <Routes>
-          <Route path="/" element={<BlackjackContainer />}/>
+          <Route path='/' element={<Slider/>}/>
           <Route path="/stats" element={<StatsContainer/>}/>
+          <Route path="/blackjack" element={<BlackjackContainer/>} />
         </Routes>
       </Router>
 
