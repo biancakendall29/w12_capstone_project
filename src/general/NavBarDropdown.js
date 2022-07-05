@@ -1,16 +1,17 @@
 import Avatar from "react-avatar";
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 
-const NavBarDropdown = ({user, setUser, setIsLoggedIn, isLoggedIn, handleClickSignIn}) => {
+const NavBarDropdown = ({ user, setUser, setIsLoggedIn, isLoggedIn, handleClickSignIn }) => {
 
     const handleClickLogOut = () => {
         setIsLoggedIn(false)
         setUser(null)
-      }
+    }
     return (
+
             <div id="navbar-dropdown-container">
                 {isLoggedIn ?
                     <div id="navbar-myaccount">
@@ -24,9 +25,10 @@ const NavBarDropdown = ({user, setUser, setIsLoggedIn, isLoggedIn, handleClickSi
                     </div>
                     :
                     <div onClick={handleClickSignIn}>Sign in</div>}
-    
+
             </div>
-        )
+
+    )
 }
 
 /* 

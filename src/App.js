@@ -1,7 +1,7 @@
 import './App.css';
 import BlackjackContainer from './blackjack/containers/BlackjackContainer';
 import NavBar from './general/NavBar';
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Link, withRouter} from "react-router-dom";
 import './styles/Modal.css';
 import ReactModalLogin from "react-modal-login";
 import { useEffect, useState } from 'react';
@@ -49,7 +49,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Slider/>}/>
-          <Route path="/stats" element={<StatsContainer/>}/>
+          <Route exact path="/stats" element={<StatsContainer/>}/>
           <Route path="/blackjack" element={<BlackjackContainer/>} />
         </Routes>
       </Router>
