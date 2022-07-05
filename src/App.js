@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 
 import './styles/Cards.css';
 import Slider from './general/Slider';
+import StatsContainer from './general/containers/StatsContainer';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<BlackjackContainer />}/>
+          <Route path="/stats" element={<StatsContainer/>}/>
         </Routes>
       </Router>
 
