@@ -1,13 +1,15 @@
 import './App.css';
 import BlackjackContainer from './blackjack/containers/BlackjackContainer';
 import NavBar from './general/NavBar';
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Link, withRouter} from "react-router-dom";
 import './styles/Modal.css';
 import ReactModalLogin from "react-modal-login";
 import { useEffect, useState } from 'react';
 
 import './styles/Cards.css';
 import Slider from './general/Slider';
+import StatsContainer from './general/containers/StatsContainer';
+import HomeContainer from './general/containers/HomeContainer';
 
 
 function App() {
@@ -25,7 +27,8 @@ function App() {
       setUsers(data)
       console.log("set users")
     })  
-  },[user,isLoggedIn,sessionStart])
+  }, [user, isLoggedIn, sessionStart])
+
 
   
   return (
@@ -37,11 +40,12 @@ function App() {
       {/* <div id="navbar">
           <div><Link to="/">Home</Link></div>
       </div> */}
-      <h1>House of Cardzzzzzz</h1>
-      <p>Gamblin is k00l</p>
+
         <Routes>
-          <Route path='/' element={<Slider sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users}/>}/>
-          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser}/>} />
+          <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users}/>}/>
+          <Route path="/stats" element={<StatsContainer user={user}/>}/>
+          <Route path="/blackjack" element={<BlackjackContainer/>} />
+
         </Routes>
       </Router>
 

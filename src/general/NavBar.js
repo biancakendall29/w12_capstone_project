@@ -48,7 +48,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers,  se
 
 
     return (
-        // <Router>
+
         <>
             <div id="navbar">
                 <Link to="/" onClick={handleSessionEnd}>Home</Link>
@@ -67,7 +67,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers,  se
 
             </Modal>
             {/* <LogInModal isShowing={isShowing} toggle={toggle} /> */}
-        {/* // </Router> */}
+
         </>
     )
 }
