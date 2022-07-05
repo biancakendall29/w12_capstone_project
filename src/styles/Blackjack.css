@@ -60,19 +60,27 @@
 }
 
 .play_button {
-    justify-content: left;
+    justify-content: center;
     align-self: flex-start;
+    text-align: center;
     font-weight: 500;
     font-size: 1em;
     padding: 0.7em 1.4em 0.7em 1.1em;
     color: #222;
     background: linear-gradient(0deg, rgba(20,160,60,1) 0%, rgba(100,250,110,1) 100%);
-    border: none;
     box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
     letter-spacing: 0.05em;
     border-radius: 20em;
     cursor: pointer;
     margin: 0.5em auto;
+}
+
+.play_button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em #0c652698;
+}
+
+.play_button:active {
+    box-shadow: 0 0.3em 1em -0.5em #0c652698;
 }
 
 .bet_button_container {

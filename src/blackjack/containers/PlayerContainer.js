@@ -40,7 +40,7 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
             <PlayerCards playerCards={playerCards} displayImages={displayImages}/>
             <h4 id="player_count">Player Count: {playerCount}</h4>
             <div id="play_buttons">
-                {isDealerTurn || playerCards.length <2 ? <></> : <button className="play_button" onClick={handleHit}>Hit me</button>}
+                {isDealerTurn || playerCards.length <2 ? <></> : <button className="play_button" onClick={handleHit}>Hit Me</button>}
                 {isDealerTurn || playerCards.length <2 ? <></> : <button className="play_button" onClick={handleStick}>Stick</button>}
                 {isDealerTurn || playerCards.length < 2 || (lockedBet > chipCount) || playerCards.length > 2 ? <></> : <button className="play_button" onClick={handleDouble}>Double</button>}
             </div>
