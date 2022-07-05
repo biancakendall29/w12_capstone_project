@@ -6,7 +6,7 @@ import rummy from "../img/S2.png"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from "react-icons/fa"
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
-const Slider = () => {
+const Slider = ({setSessionStart,sessionStart}) => {
 
     let carousel = {};
     carousel.e = document.getElementById('carousel');
@@ -27,9 +27,12 @@ const Slider = () => {
         scroll(carousel.items, 100);
     }
 
-    // const goToLink = () => {
-    //     <Link to="/blackjack" />
-    // }
+    const handleSessionStart = () => {
+        setSessionStart(true)
+        console.log('session start');
+    }
+
+
 
 
     return (
@@ -51,8 +54,8 @@ const Slider = () => {
         
         <div className="items" id="carousel-items">
 
-            <div className="item" > 
-                <Link to={'/blackjack'}>
+            <div className="item"> 
+                <Link to={'/blackjack'} onClick={handleSessionStart}>
                 <img className="item-image" alt="blackjackCover" src={blackjack} />
                 <span className="item-title">BlackJack</span>
                 </Link>

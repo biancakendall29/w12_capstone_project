@@ -62,6 +62,9 @@ const BlackjackContainer = () => {
             setChipCount(chipCount+(lockedBet*2.5));
             console.log("Blackjack");
         }
+        if (result == "Dealer wins - BlackJack!" || result == "Dealer wins - player bust!" || result == "Dealer wins on points!") {
+            
+        }
     }
 
     useEffect(() => {

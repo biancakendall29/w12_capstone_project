@@ -9,7 +9,7 @@ import NavBarDropdown from "./NavBarDropdown"
 import "../styles/Navbar.css"
 
 
-const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers }) => {
+const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers,  setSessionStart}) => {
     // const {isShowing, toggle} = useModal();
     //const {isSignUpShowing, hideSignUp} = useModal();
 
@@ -36,11 +36,16 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers }) =
       setIsLogin(false)
     }
 
+    const handleSessionEnd = () => {
+        setSessionStart(false)
+    }
+
 
     return (
-        <Router>
+        // <Router>
+        <>
             <div id="navbar">
-                <Link to="/">Home</Link>
+                <Link to="/" onClick={handleSessionEnd}>Home</Link>
                 <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut}/>
             </div>
 
@@ -56,7 +61,8 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers }) =
 
             </Modal>
             {/* <LogInModal isShowing={isShowing} toggle={toggle} /> */}
-        </Router>
+        {/* // </Router> */}
+        </>
     )
 }
 
