@@ -22,13 +22,13 @@ const PlayerCards = ({ playerCards, displayImages }) => {
     }, [playerCards])
 
 
-    // Flip subsequent player card(s) on hit me:
-    useEffect(() => {
-        const element = document.querySelectorAll("#player-cards > .card");
+    // // Flip subsequent player card(s) on hit me:
+    // useEffect(() => {
+    //     const element = document.querySelectorAll("#player-cards > .card");
 
 
 
-    }, [playerCards])
+    // }, [playerCards])
 
     return (
         <>
