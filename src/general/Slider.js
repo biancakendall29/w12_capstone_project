@@ -1,4 +1,3 @@
-import "../styles/Slider.css"
 import blackjack from "../img/CA.png"
 import poker from "../img/SQ.png"
 import hearts from "../img/H5.png"
@@ -9,7 +8,7 @@ import sevens from "../img/H3.png"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from "react-icons/fa"
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
-const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
+const Slider = ({setSessionStart,sessionStart,setUser,user,users,isLoggedIn}) => {
 
     // let carousel = {};
     // carousel.e = document.getElementById('carousel');
