@@ -14,15 +14,19 @@ const StatsContainer = ({ user }) => {
     return(
 
         <div id="stats-container">
-            <h1>Stats</h1>
-            <label>Select a game to view stats:</label>
-            <select value={selectedGame} onChange={handleSelectGame}>
-                <option value="blackjack">Blackjack</option>
-                <option value="poker">Poker</option>
-                <option value="hearts">Hearts</option>
-                <option value="wist">Wist</option>
-                <option value="snap">Snap</option>
-            </select>
+            <h1 id="stats-heading">Stats</h1> 
+            <div id="stats-dropdown">
+                <label>Select a game to view stats: </label>
+                <select id="stats-select" value={selectedGame} onChange={handleSelectGame}>
+                    <option value="blackjack">Blackjack</option>
+                    <option value="poker">Poker</option>
+                    <option value="hearts">Hearts</option>
+                    <option value="wist">Wist</option>
+                    <option value="snap">Snap</option>
+                </select>
+            </div>
+   
+            
 
             {selectedGame==="blackjack" ? 
                 <BlackjackStats user={user}/>

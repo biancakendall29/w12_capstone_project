@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/Modal.css";
 import './App.css';
+import './index.css';
 import BlackjackContainer from './blackjack/containers/BlackjackContainer';
 import NavBar from './general/NavBar';
 import {BrowserRouter as Router, Routes, Route, Link, withRouter} from "react-router-dom";
@@ -34,7 +35,7 @@ function App() {
 
   
   return (
-    <div>
+    <div id='outer-div'>
       <Router>
       <NavBar user={user} setUser={setUser} isLoggedIn={isLoggedIn} 
               setIsLoggedIn={setIsLoggedIn} users={users} 
