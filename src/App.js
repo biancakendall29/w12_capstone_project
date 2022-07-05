@@ -5,8 +5,10 @@ import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import './styles/Modal.css';
 import ReactModalLogin from "react-modal-login";
 import { useEffect, useState } from 'react';
+
 import './styles/Cards.css';
 import Slider from './general/Slider';
+
 
 function App() {
 
