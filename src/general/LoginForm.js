@@ -1,6 +1,7 @@
 
 import { useState } from "react"
 import { eventWrapper } from "@testing-library/user-event/dist/utils"
+import {Eye, EyeSlash} from "react-bootstrap-icons"
 
 
 const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, closeModal }) => {
@@ -51,6 +52,7 @@ const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, se
         <label htmlFor="password"><b>Password: </b></label>
         <input type={showPassword ? "text":"password"} placeholder="Enter Password" name="password"
           onChange={handleInputChange} value={stateUser.password} required />
+        <button className='password-show' type="button" onClick={togglePassword}>{showPassword ? <Eye /> :<EyeSlash/>}</button>
         <div className='password-checkbox-container'>
           <label htmlFor="password-checkbox">Show password? </label>
           <input type="checkbox" id="password-checkbox" checked={showPassword} onChange={togglePassword} />
