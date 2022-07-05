@@ -25,7 +25,7 @@ function App() {
       setUsers(data)
       console.log("set users")
     })  
-  }, [])
+  },[user,isLoggedIn,sessionStart])
 
   
   return (
@@ -40,8 +40,8 @@ function App() {
       <h1>House of Cardzzzzzz</h1>
       <p>Gamblin is k00l</p>
         <Routes>
-          <Route path='/' element={<Slider sessionStart={sessionStart} setSessionStart={setSessionStart}/>}/>
-          <Route path="/blackjack" element={<BlackjackContainer/>} />
+          <Route path='/' element={<Slider sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users}/>}/>
+          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser}/>} />
         </Routes>
       </Router>
 

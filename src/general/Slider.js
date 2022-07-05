@@ -6,7 +6,7 @@ import rummy from "../img/S2.png"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from "react-icons/fa"
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
-const Slider = ({setSessionStart,sessionStart}) => {
+const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
 
     let carousel = {};
     carousel.e = document.getElementById('carousel');
@@ -30,10 +30,15 @@ const Slider = ({setSessionStart,sessionStart}) => {
     const handleSessionStart = () => {
         setSessionStart(true)
         console.log('session start');
+        let foundUser = users.filter(client => client.username === user.username && client.password === user.password);
+        if (foundUser.length === 1) {
+            setUser(foundUser[0]);
+            console.log("set user to " + foundUser[0].username);
+        }
+        else {
+            console.log("something weird happened");
+        }
     }
-
-
-
 
     return (
         <div id="carousel" className="container">
