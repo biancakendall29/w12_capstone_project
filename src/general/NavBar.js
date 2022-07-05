@@ -39,6 +39,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
     const handleSessionEnd = () => {
         setSessionStart(false)
         console.log('session end');
+        console.log(JSON.stringify(user))
         fetch('http://localhost:8080/users/' + user.id, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },

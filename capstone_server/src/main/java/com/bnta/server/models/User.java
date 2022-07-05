@@ -40,7 +40,7 @@ public class User {
     private int blackjackBlackjacks;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({"user","sessions"})
+    @JsonIgnoreProperties(value={"user","sessions"})
     private List<BlackjackSession> sessions;
 
     public User(String username, String email, String password) {
