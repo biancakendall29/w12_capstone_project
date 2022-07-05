@@ -6,7 +6,7 @@ import SignUpForm from "./SignUpForm";
 import Modal from "react-modal";
 import Avatar from "react-avatar";
 import NavBarDropdown from "./NavBarDropdown"
-import "../styles/Navbar.css"
+
 
 
 const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers,  setSessionStart}) => {

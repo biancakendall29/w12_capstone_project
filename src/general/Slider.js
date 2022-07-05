@@ -1,4 +1,3 @@
-import "../styles/Slider.css"
 import blackjack from "../img/CA.png"
 import poker from "../img/SQ.png"
 import hearts from "../img/H5.png"

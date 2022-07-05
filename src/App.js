@@ -1,15 +1,23 @@
-import './App.css';
 import BlackjackContainer from './blackjack/containers/BlackjackContainer';
 import NavBar from './general/NavBar';
 import {BrowserRouter as Router, Routes, Route, Link, withRouter} from "react-router-dom";
-import './styles/Modal.css';
 import ReactModalLogin from "react-modal-login";
 import { useEffect, useState } from 'react';
 
-import './styles/Cards.css';
 import Slider from './general/Slider';
 import StatsContainer from './general/containers/StatsContainer';
 import HomeContainer from './general/containers/HomeContainer';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import "./styles/Modal.css"
+import './styles/Modal.css';
+import './styles/Cards.css';
+import './styles/Home.css'
+import './styles/Navbar.css'
+import './styles/Modal.css'
+import "./styles/Slider.css"
+
 
 
 function App() {
