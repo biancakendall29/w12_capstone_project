@@ -9,7 +9,7 @@ import NavBarDropdown from "./NavBarDropdown"
 import "../styles/Navbar.css"
 
 
-const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers }) => {
+const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers,  setSessionStart}) => {
     // const {isShowing, toggle} = useModal();
     //const {isSignUpShowing, hideSignUp} = useModal();
 
@@ -36,12 +36,17 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers }) =
       setIsLogin(false)
     }
 
+    const handleSessionEnd = () => {
+        setSessionStart(false)
+    }
+
 
     return (
-        <Router>
+
+        <>
             <div id="navbar">
-                <Link to="/">Home</Link>
-                <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} />
+                <Link to="/" onClick={handleSessionEnd}>Home</Link>
+                <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut}/>
             </div>
 
             <Modal isOpen={isModalShowing} onRequestClose={closeModal} ariaHideApp={false} data-backdrop="static" >
@@ -56,7 +61,8 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers }) =
 
             </Modal>
             {/* <LogInModal isShowing={isShowing} toggle={toggle} /> */}
-        </Router>
+
+        </>
     )
 }
 
