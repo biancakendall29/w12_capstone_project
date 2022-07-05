@@ -46,11 +46,6 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
                 closeModal();
                 setIsLoggedIn(true);
             })
-            fetch("http://localhost:8080/blackjack_stats", {
-                method: 'POST',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(blackjackStats)
-            })
         }
         else if(checkDuplicatesEmail.length !== 0 && checkDuplicatesUsername.length === 0) {
             setEmailAlert(true)
