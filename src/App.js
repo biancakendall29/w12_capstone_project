@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import './styles/Cards.css';
 import Slider from './general/Slider';
 import StatsContainer from './general/containers/StatsContainer';
+import HomeContainer from './general/containers/HomeContainer';
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
       <h1>House of Cardzzzzzz</h1>
       <p>Gamblin is k00l</p>
         <Routes>
-          <Route path='/' element={<Slider sessionStart={sessionStart} setSessionStart={setSessionStart}/>}/>
+          <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart}/>}/>
           <Route path="/stats" element={<StatsContainer/>}/>
           <Route path="/blackjack" element={<BlackjackContainer/>} />
         </Routes>
