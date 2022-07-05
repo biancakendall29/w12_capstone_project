@@ -29,6 +29,7 @@ function App() {
     })  
   }, [user, isLoggedIn, sessionStart])
 
+
   
   return (
     <div>
@@ -41,9 +42,10 @@ function App() {
       </div> */}
 
         <Routes>
-          <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart}/>}/>
+          <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users}/>}/>
           <Route path="/stats" element={<StatsContainer user={user}/>}/>
           <Route path="/blackjack" element={<BlackjackContainer/>} />
+
         </Routes>
       </Router>
 

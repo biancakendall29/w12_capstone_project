@@ -43,4 +43,21 @@ public class UserController {
         userRepository.deleteById(id);
         return new ResponseEntity(id,HttpStatus.OK);
     }
+
+    @PutMapping(value = "/{id}") //UPDATE localhost:8080/users/1
+    public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long id, @RequestBody User upUser) throws Exception {
+        Optional<User> user = userRepository.findById(id);
+        if(user.isEmpty()){
+            throw new Exception("User with Id: " + id + "not found");
+        } else {
+            User u = user.get();
+            u.setBlackjackWins(upUser.getBlackjackWins());
+            u.setBlackjackLosses(upUser.getBlackjackLosses());
+            u.setBlackjackPushes(upUser.getBlackjackPushes());
+            u.setBlackjackBlackjacks(upUser.getBlackjackBlackjacks());
+            u.setSessions(upUser.getSessions());
+            User updatedUser = userRepository.save(u);
+            return new ResponseEntity<>(updatedUser,HttpStatus.OK);
+        }
+    }
 }

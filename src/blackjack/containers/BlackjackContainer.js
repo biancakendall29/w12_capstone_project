@@ -7,7 +7,7 @@ import BettingContainer from "./BettingContainer.js";
 import "../../styles/Blackjack.css"
 
 
-const BlackjackContainer = () => {
+const BlackjackContainer = ({user, setUser}) => {
 
     const [playerCount, setPlayerCount] = useState(0);
     const [dealerCount, setDealerCount] = useState(0);
@@ -50,20 +50,29 @@ const BlackjackContainer = () => {
     }
 
     const payout = (result) => {
+        let copiedUser = { ...user}
         if(result == "Player wins on points!" || result == "Player wins - dealer bust!"){
             setChipCount(chipCount + (lockedBet*2));
             console.log("Player Wins, chips should double");
+            copiedUser.blackjackWins += 1
+            setUser(copiedUser)
         }
         if(result == "Push!" || result == "Push"){
             setChipCount(chipCount+lockedBet);
             console.log("Push, chips should return");
+            copiedUser.blackjackPushes += 1
+            setUser(copiedUser)
         }
         if(result == "Player wins - BlackJack!"){
             setChipCount(chipCount+(lockedBet*2.5));
             console.log("Blackjack");
+            copiedUser.blackjackBlackjacks += 1
+            setUser(copiedUser)
         }
         if (result == "Dealer wins - BlackJack!" || result == "Dealer wins - player bust!" || result == "Dealer wins on points!") {
-            
+            console.log('dealer wins');
+            copiedUser.blackjackLosses += 1
+            setUser(copiedUser)
         }
     }
 
