@@ -38,11 +38,12 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
     return (
         <>
             <PlayerCards playerCards={playerCards} displayImages={displayImages}/>
-            <p>Player Count: {playerCount}</p>
-            {isPlayerBust ? <p>You are bust</p> : <></>}
-            {isDealerTurn || playerCards.length <2 ? <></> : <button onClick={handleHit}>Hit me</button>}
-            {isDealerTurn || playerCards.length <2 ? <></> : <button onClick={handleStick}>Stick</button>}
-            {isDealerTurn || playerCards.length < 2 || (lockedBet > chipCount) || playerCards.length > 2 ? <></> : <button onClick={handleDouble}>Double</button>}
+            <h4 id="player_count">Player Count: {playerCount}</h4>
+            <div id="play_buttons">
+                {isDealerTurn || playerCards.length <2 ? <></> : <button className="play_button" onClick={handleHit}>Hit me</button>}
+                {isDealerTurn || playerCards.length <2 ? <></> : <button className="play_button" onClick={handleStick}>Stick</button>}
+                {isDealerTurn || playerCards.length < 2 || (lockedBet > chipCount) || playerCards.length > 2 ? <></> : <button className="play_button" onClick={handleDouble}>Double</button>}
+            </div>
         </>
     );
 }

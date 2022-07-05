@@ -1,6 +1,7 @@
 package com.bnta.server.models.blackjack;
 
 
+import com.bnta.server.models.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -20,24 +21,24 @@ public class BlackjackSession {
     private boolean isSessionFinished;
 
     @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({"session","user"})
+    @JsonIgnoreProperties({"user","session","saves"})
     private List<BlackjackSave> saves;
 
     @Column(name = "session_timestamp")
     private LocalDate timestamp;
 
     @ManyToOne
-    @JoinColumn(name= "blackjack_stat_id", nullable = false)
-    @JsonIgnoreProperties({"sessions","user"})
-    private BlackjackStats stats;
+    @JoinColumn(name="user_id")
+    @JsonIgnoreProperties({"user","sessions","saves"})
+    private User user;
 
     public BlackjackSession(boolean isSessionFinished,
                             LocalDate timestamp,
-                            BlackjackStats stats) {
+                            User user) {
         this.isSessionFinished = isSessionFinished;
         this.saves = new ArrayList<>();
         this.timestamp = timestamp;
-        this.stats = stats;
+        this.user = user;
     }
 
     public BlackjackSession() {}
@@ -70,11 +71,11 @@ public class BlackjackSession {
         this.timestamp = timestamp;
     }
 
-    public BlackjackStats getStats() {
-        return stats;
+    public User getUser() {
+        return user;
     }
 
-    public void setStats(BlackjackStats stats) {
-        this.stats = stats;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

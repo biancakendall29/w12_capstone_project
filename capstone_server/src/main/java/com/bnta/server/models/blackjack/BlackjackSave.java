@@ -36,8 +36,8 @@ public class BlackjackSave {
     private String roundResult;
 
     @ManyToOne
-    @JoinColumn(name="blackjack_sessions_id", nullable = false)
-    @JsonIgnoreProperties({"saves", "stats"})
+    @JoinColumn(name="blackjack_sessions_id")
+    @JsonIgnoreProperties({"session","saves"})
     private BlackjackSession session;
 
     public BlackjackSave(LocalDate timestamp,

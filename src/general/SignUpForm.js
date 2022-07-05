@@ -48,9 +48,9 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
             })
         }
         else if(checkDuplicatesEmail.length !== 0 && checkDuplicatesUsername.length === 0) {
-           setEmailAlert(true)
-           setUsernameAlert(false)
-           setUsernameEmailAlert(false)
+            setEmailAlert(true)
+            setUsernameAlert(false)
+            setUsernameEmailAlert(false)
 
         }
         else if(checkDuplicatesEmail.length === 0 && checkDuplicatesUsername.length !== 0) {

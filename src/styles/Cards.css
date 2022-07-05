@@ -1,5 +1,6 @@
 #dealer-cards, #player-cards {
   margin: auto;
+
   width: 50%;
   height:240px;
 
@@ -35,6 +36,7 @@
    backface-visibility: hidden;
 }
 
+
 /* ---------- Flip Card Effect ----------- */
 
 /* CARD DIV */
@@ -52,21 +54,5 @@
 /* CARD FRONT */
 .card > img:nth-of-type(2) {
   transform: rotateY(180deg);
+  transform-origin: center;
 }
-
-/* ------ draw card effect ------- */
-/* .card[style*="opacity: 0"] {
-  transition: opacity 0.5s;
-} */
-/* .card[style*="opacity: 0"] {
-  animation: fadeIn 0.5s forwards;
-} */
-
-/* @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 100;
-  }
-} */
