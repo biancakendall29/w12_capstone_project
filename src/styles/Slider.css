@@ -1,10 +1,10 @@
 /* body {
-    background-color: #343434;
+    background-color: white;
     margin: 0;
     padding: 0;
     margin: auto;
-   }
-   div.items {
+   } */
+   /* div.items {
     white-space: nowrap;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -151,8 +151,13 @@
     box-shadow: 0px 0px 50px #FFFFFF;
    } */
 
-div.container {
+.slider-container {
     background-color: forestgreen;
+    position: absolute;
+    z-index: -2;
+    margin: auto;
+    padding: auto;
+    width: 100%;
 }
 
 div .items {
@@ -164,6 +169,8 @@ div .items {
     scroll-behavior: smooth;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    position: relative;
+    z-index: -1;
 }
 
 div.control-container {
@@ -177,16 +184,15 @@ box-sizing: border-box;
 .item {
     position: relative;
     align-self: center;
-    width: 300px;
+    width: 100px;
     height: 400px;
-    margin: 1rem;
-    cursor: pointer;
-    /* z-index: 1; */
+    margin-left: 20px;
+    margin-right: 140px;
 }
 
-.item > img:hover {
-    width: 250px;
-    height: 250px;
+link > .item:hover {
+    transform: scale(1.1);
+    /* background-color: blue; */
 }
 
 .item-title {
@@ -194,7 +200,18 @@ box-sizing: border-box;
     font-weight: 700;
     align-self: center;
     padding: 1rem;
+    cursor: pointer;
 }
+
+.item-title:hover {
+    color: purple;
+}
+
+.item > link > .item-title{
+    text-decoration: none;
+    color: black;
+}
+
 
 .item img.item-image {
     width: 200px;
@@ -208,7 +225,7 @@ box-sizing: border-box;
 #left-scroll-button {
     font-size: 3rem;
     position: absolute;
-    /* z-index: 2; */
+    /* z-index: 1; */
     transition: all 0.3s ease-in-out;
 }
 
@@ -219,7 +236,7 @@ box-sizing: border-box;
 #right-scroll-button {
     font-size: 3rem;
     position: absolute;
-    /* z-index: 2; */
+    /* z-index: 1; */
     transition: all 0.3s ease-in-out;
 }
 

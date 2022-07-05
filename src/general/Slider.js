@@ -13,18 +13,32 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
     carousel.items = document.getElementById('carousel-items');
     carousel.leftScroll = document.getElementById('left-scroll-button');
     carousel.rightScroll = document.getElementById('right-scroll-button');  
+    let items_count = document.getElementsByClassName('item');
+    let step_count = 0;
 
     const scroll = (element, step) => {
+        console.log(step);
         element.scrollLeft += step;
     }
 
     const leftScrollClick = () => {
         console.log("clicked");
-        scroll(carousel.items, -100);
+        scroll(carousel.items, -260);
+        console.log(items_count.length);
+        step_count--;
+        if(step_count <= 0) {
+            scroll(carousel.items, 260*items_count.length)
+            step_count = items_count.length;
+        }
     }
 
     const rightScrollClick = () => {
-        scroll(carousel.items, 100);
+        scroll(carousel.items, 260);
+        step_count++;
+        if(step_count >= items_count.length) {
+            scroll(carousel.items, -260*items_count.length)
+            step_count = 0;
+        }
     }
 
     const handleSessionStart = () => {
@@ -33,7 +47,7 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
     }
 
     return (
-        <div id="carousel" className="container">
+        <div id="carousel" className="slider-container">
             <div className="control-container">
           
                 <div id="left-scroll-button" className="left-scroll">
@@ -51,12 +65,13 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
         
         <div className="items" id="carousel-items">
 
-            <div className="item"> 
+            
                 <Link to={'/blackjack'} onClick={handleSessionStart}>
+                <div className="item"> 
                 <img className="item-image" alt="blackjackCover" src={blackjack} />
                 <span className="item-title">BlackJack</span>
+                </div>
                 </Link>
-            </div>
 
             <div className="item"> 
                 <img className="item-image" alt="pokerCover" src={poker} />
@@ -68,10 +83,10 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
                 <span className="item-title">Hearts</span>
             </div>
 
-            <div className="item"> 
+            {/* <div className="item"> 
                 <img className="item-image" alt="pokerCover" src={poker} />
                 <span className="item-title">Go Fish</span>
-            </div>
+            </div> */}
 
             <div className="item"> 
                 <img className="item-image" alt="rummyCover" src={rummy} />
@@ -96,11 +111,6 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
             <div className="item"> 
                 <img className="item-image" alt="pokerCover" src={blackjack} />
                 <span className="item-title">Solataire</span>
-            </div>
-
-            <div className="item"> 
-                <img className="item-image" alt="pokerCover" src={poker} />
-                <span className="item-title">Crazy Eights</span>
             </div>
 
             <div className="item" > 
