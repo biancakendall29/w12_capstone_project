@@ -22,17 +22,18 @@ const BlackjackContainer = ({user, setUser,sessionStart}) => {
     const [chipCount, setChipCount] = useState(1000);
     const [betAmount, setBetAmount] = useState(0);
     const [lockedBet, setLockedBet] = useState(0);
-    // const [save, setSave] = useState(
-    //     {
-    //         timestamp: 2022-06-29,
-    //         currentRound: 1,
-    //         playerMoney: 500,
-    //         deck: deck,
-    //         playerHand: "C10, SA",
-    //         dealerHand: "DK,DA",
-    //         roundResult: "push",
-    //     }
-    // )
+    const [roundCount, setRoundCount] = useState(0);
+    const [save, setSave] = useState(
+        {
+            timestamp: "2022-07-05",
+            currentRound: 0,
+            playerMoney: 0,
+            deck: '',
+            playerHand: '',
+            dealerHand: '',
+            roundResult: '',
+        }
+    )
 
     const newSession = {
         saves: [],
@@ -43,6 +44,7 @@ const BlackjackContainer = ({user, setUser,sessionStart}) => {
 
     const startRound = () => {
         if(lockedBet > 0){
+            setRoundCount(roundCount + 1)
             setPlayerCards([]);
             setPlayerCount(0);
             setDealerCards([]);
@@ -61,8 +63,28 @@ const BlackjackContainer = ({user, setUser,sessionStart}) => {
 
     const endRound = () => {
         setIsRoundDone(true);
+        let copiedSave = {...save}
         console.log("round end");
-        console.log(result);
+        copiedSave.roundResult = result;
+        copiedSave.playerMoney = chipCount;
+        copiedSave.currentRound = roundCount;
+        let playerHandString = ''
+        for(let i = 0; i < playerCards.length;i++){
+            playerHandString += `${playerCards[i].code},`
+        }
+        copiedSave.playerHand = playerHandString
+        let dealerHandString = ''
+        for(let i = 0; i < dealerCards.length;i++){
+            dealerHandString += `${dealerCards[i].code},`
+        }
+        copiedSave.dealerHand = dealerHandString
+        let deckstring = ''
+        for(let i = 0; i < deck.length;i++){
+            deckstring += `${deck[i].code},`
+        }
+        copiedSave.deck = deckstring;
+        console.log(copiedSave);
+        setSave(copiedSave);
         setLockedBet(0);
         payout(result);
     }
