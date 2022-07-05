@@ -1,6 +1,6 @@
 import Slider from "../Slider";
 
-const HomeContainer = ({ sessionStart, setSessionStart }) => {
+const HomeContainer = ({ sessionStart, setSessionStart, isLoggedIn }) => {
 
     return (
 
@@ -8,7 +8,7 @@ const HomeContainer = ({ sessionStart, setSessionStart }) => {
             <h1>Welcome</h1>
 
             <h3>Games</h3>
-            <Slider sessionStart={sessionStart} setSessionStart={setSessionStart} />
+            {isLoggedIn ? <Slider sessionStart={sessionStart} setSessionStart={setSessionStart} isLoggedIn={isLoggedIn} /> : <></>}
 
             <h3>About Us</h3>
             <p>House of Cardz is your one-stop-shop for all things card games! Test yourself against the dealer in Blackjack, get a group of friends and play Bridge (coming soon) together, 

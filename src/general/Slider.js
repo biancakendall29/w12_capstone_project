@@ -5,7 +5,7 @@ import rummy from "../img/S2.png"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from "react-icons/fa"
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
-const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
+const Slider = ({setSessionStart,sessionStart,setUser,user,users,isLoggedIn}) => {
 
     let carousel = {};
     carousel.e = document.getElementById('carousel');
