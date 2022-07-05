@@ -4,24 +4,27 @@
 
 /* Full-width inputs */
 .modal-form>input[type=text],
-input[type=password] {
+.password-container>input[type=password],
+.password-container>input[type=text] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  background-color: #f7f2ea;
 }
 
 /* Set a style for all buttons */
 .modal-form>button {
-  background-color: #04AA6D;
+  background-color: #2F9318;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
+  border-radius: 5px;
 }
 
 /* Add a hover effect for buttons */
@@ -66,21 +69,33 @@ input[type=password] {
 }
 
 .modal-toggle-link {
-  color: blue;
+  color: rgb(38, 0, 255);
   text-decoration: underline;
   cursor: pointer;
-
+}
+.modal-toggle-link:hover {
+  color: rgb(0, 136, 255);
 }
 
+.toggle-modal-text {
+  display: flex;
+  justify-content: center;
+}
 
+.toggle-modal-text > p {
+  margin: 0.3rem;
+}
 
 .ReactModal__Content {
   width: 30rem;
-  max-height:60%;
+  max-height:70%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5rem;
+  color:rgb(0, 0, 0);
   padding:0 !important;
+  background-color: #ffffff !important;
+  border-radius: 10px !important;
 }
 
 #modal-header {
@@ -97,9 +112,33 @@ input[type=password] {
   float: right;
 }
 
+.password-container {
+  width: 100%;
+}
+
+.password-and-button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.password-show {
+  background-color: #f1e7d8;
+  border:1px solid #ccc;
+  border-left: none;
+  height:50px;
+  width:50px;
+  margin-bottom: 8px;
+}
+
+.modal-form {
+  margin-top:2rem;
+}
 
 #modal-content {
   margin: 2rem;
+  margin-left:4rem;
+  margin-right:4rem;
 }
 
 .modal-title {
