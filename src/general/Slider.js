@@ -30,14 +30,6 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
     const handleSessionStart = () => {
         setSessionStart(true)
         console.log('session start');
-        let foundUser = users.filter(client => client.username === user.username && client.password === user.password);
-        if (foundUser.length === 1) {
-            setUser(foundUser[0]);
-            console.log("set user to " + foundUser[0].username);
-        }
-        else {
-            console.log("something weird happened");
-        }
     }
 
     return (

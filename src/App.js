@@ -44,8 +44,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users}/>}/>
           <Route path="/stats" element={<StatsContainer user={user}/>}/>
-          <Route path="/blackjack" element={<BlackjackContainer/>} />
-
+          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser}/> }/>
         </Routes>
       </Router>
 
