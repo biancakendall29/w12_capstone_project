@@ -27,7 +27,7 @@ function App() {
       setUsers(data)
       console.log("set users")
     })  
-  }, [])
+  }, [user, isLoggedIn, sessionStart])
 
   
   return (
@@ -39,11 +39,10 @@ function App() {
       {/* <div id="navbar">
           <div><Link to="/">Home</Link></div>
       </div> */}
-      <h1>House of Cardzzzzzz</h1>
-      <p>Gamblin is k00l</p>
+
         <Routes>
           <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart}/>}/>
-          <Route path="/stats" element={<StatsContainer/>}/>
+          <Route path="/stats" element={<StatsContainer user={user}/>}/>
           <Route path="/blackjack" element={<BlackjackContainer/>} />
         </Routes>
       </Router>

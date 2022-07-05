@@ -14,7 +14,8 @@ const NavBarDropdown = ({ user, setUser, setIsLoggedIn, isLoggedIn, handleClickS
 
             <div id="navbar-dropdown-container">
                 {isLoggedIn ?
-                    <div id="navbar-myaccount">
+                   
+                    <div id="navbar-myaccount"> 
                         <DropdownButton id="dropdown-item-button" title="MyAccount">
                             <Dropdown.ItemText>You are Signed in as {user.username}!</Dropdown.ItemText>
                             <Dropdown.Item as="button">My Games</Dropdown.Item>

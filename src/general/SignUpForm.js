@@ -1,5 +1,5 @@
 import "../styles/Modal.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, closeModal }) => {
 
@@ -16,7 +16,7 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
     const [usernameAlert, setUsernameAlert] = useState(false)
     const [emailAlert, setEmailAlert] = useState(false)
     const [usernameEmailAlert, setUsernameEmailAlert] = useState(false)
-    
+
 
     const togglePassword = () => {
         setShowPassword(!showPassword)
@@ -40,23 +40,24 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(stateUser)
             })
-            .then(() => {
-                setUser(stateUser);
-                console.log("set user to " + stateUser.username);
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setUser(data);
                 closeModal();
                 setIsLoggedIn(true);
             })
         }
-        else if(checkDuplicatesEmail.length !== 0 && checkDuplicatesUsername.length === 0) {
+        else if (checkDuplicatesEmail.length !== 0 && checkDuplicatesUsername.length === 0) {
             setEmailAlert(true)
             setUsernameAlert(false)
             setUsernameEmailAlert(false)
 
         }
-        else if(checkDuplicatesEmail.length === 0 && checkDuplicatesUsername.length !== 0) {
+        else if (checkDuplicatesEmail.length === 0 && checkDuplicatesUsername.length !== 0) {
             setEmailAlert(false)
             setUsernameAlert(true)
-            setUsernameEmailAlert(false)        
+            setUsernameEmailAlert(false)
         }
         else {
             setEmailAlert(false)

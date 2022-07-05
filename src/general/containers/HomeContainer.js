@@ -1,11 +1,13 @@
 import Slider from "../Slider";
 
 const HomeContainer = ({ sessionStart, setSessionStart }) => {
-  
-    return(
+
+    return (
 
         <>
-           <Slider sessionStart={sessionStart} setSessionStart={setSessionStart}/>
+            <h1>House of Cardzzzzzz</h1>
+            <p>Gamblin is k00l</p>
+            <Slider sessionStart={sessionStart} setSessionStart={setSessionStart} />
         </>
     )
 }

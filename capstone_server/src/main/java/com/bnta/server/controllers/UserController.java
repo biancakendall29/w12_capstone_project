@@ -18,8 +18,13 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping //INDEX localhost:8080/users
-    public ResponseEntity<List<User>> getUsers() {
-        return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<User>> getAllUsersAndFilters(@RequestParam(required = false, name="username") String username ) {
+        if (username != null) {
+            return new ResponseEntity<>(userRepository.findUserByUsername(username) , userRepository.findUserByUsername(username).isEmpty() ? HttpStatus.NOT_FOUND : HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
+        }
+
     }
 
     @GetMapping(value = "/{id}") //localhost:8080/users/1
