@@ -4,6 +4,7 @@ import poker from "../img/SQ.png"
 import hearts from "../img/H5.png"
 import rummy from "../img/S2.png"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from "react-icons/fa"
+import {BrowserRouter as Router, Link} from "react-router-dom";
 
 const Slider = () => {
 
@@ -26,6 +27,10 @@ const Slider = () => {
         scroll(carousel.items, 100);
     }
 
+    // const goToLink = () => {
+    //     <Link to="/blackjack" />
+    // }
+
 
     return (
         <div id="carousel" className="container">
@@ -46,9 +51,11 @@ const Slider = () => {
         
         <div className="items" id="carousel-items">
 
-            <div className="item"> 
+            <div className="item" > 
+                <Link to={'/blackjack'}>
                 <img className="item-image" alt="blackjackCover" src={blackjack} />
                 <span className="item-title">BlackJack</span>
+                </Link>
             </div>
 
             <div className="item"> 
@@ -105,7 +112,6 @@ const Slider = () => {
                 <img className="item-image" alt="pokerCover" src={rummy} />
                 <span className="item-title">BlackJack</span>
             </div>
-
         </div>
         </div>
     );

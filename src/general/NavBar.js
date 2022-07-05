@@ -54,7 +54,6 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers }) =
                         users={users} setUsers={setUsers} closeModal={closeModal} />}
                 <button onClick={closeModal}>X</button>
 
-
             </Modal>
             {/* <LogInModal isShowing={isShowing} toggle={toggle} /> */}
         </Router>
