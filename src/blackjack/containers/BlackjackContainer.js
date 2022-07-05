@@ -43,10 +43,10 @@ const BlackjackContainer = ({user, setUser}) => {
 
     const endRound = () => {
         setIsRoundDone(true);
-        payout(result);
         console.log("round end");
         console.log(result);
         setLockedBet(0);
+        payout(result);
     }
 
     const payout = (result) => {
@@ -70,6 +70,7 @@ const BlackjackContainer = ({user, setUser}) => {
             setUser(copiedUser)
         }
         if (result == "Dealer wins - BlackJack!" || result == "Dealer wins - player bust!" || result == "Dealer wins on points!") {
+            setChipCount(chipCount)
             console.log('dealer wins');
             copiedUser.blackjackLosses += 1
             setUser(copiedUser)
