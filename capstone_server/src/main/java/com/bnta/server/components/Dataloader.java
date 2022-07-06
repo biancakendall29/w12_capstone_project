@@ -30,7 +30,6 @@ public class Dataloader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-
         User user1 = new User("johndoe123", "johndoe@gmail.com", "JohnRules3");
         userRepository.saveAll(Arrays.asList(user1));
 

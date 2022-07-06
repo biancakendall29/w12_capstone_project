@@ -42,7 +42,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
         fetch('http://localhost:8080/users/' + user.id, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(putUser) // remove sessions and saves from the POST request
+            body: JSON.stringify(putUser)
         })
     }
 
