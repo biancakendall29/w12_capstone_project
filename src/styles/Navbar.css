@@ -6,21 +6,59 @@
     align-items: center;
     height: 100px;
     background-color: #EEE0CB;
-    color: #EEE0CB;
     font-size: 40px;
     border: black solid 1px;
+}
+
+#card-logo-1 {
+    height: 60px;
+    width: 45px;
+    
+    animation: rotation-2 3s infinite linear;
+
+    outline: black solid 1px;
+    border-radius: 4px;
+}
+
+@keyframes rotation-1 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+#card-logo-2 {
+    height: 60px;
+    width: 45px;
+    animation: rotation-1 3s infinite linear;
+
+    outline: black solid 1px;
+    border-radius: 4px;
+}
+
+@keyframes rotation-2 {
+    from {
+        transform: rotate(0deg);
+}
+    to{
+        transform: rotate(-359deg);
+    }
 }
 
 #website-banner {
     color: black;
     font-weight: 900;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 #navbar-home {
     background-color: forestgreen;
     height: 100px;
-    padding-top: 15px;
+    width: 280px;
+    text-align: center;
+    padding-top: 12px;
     padding-bottom: 15px;
     padding-left: 15px;
     padding-right: 15px;
@@ -34,48 +72,74 @@
     font-size: 20px;
     font-weight: 600;
     color: black;
-    background-color: #EEE0CB;
+    background-color: white;
     border: black solid 2px;
     border-radius: 4px;
     margin: 10px;
-    padding: 0.375rem 1rem;
+    padding: 0.5rem 2rem;
+}
 
+#navbar > #navbar-home > a:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+    border-radius: 30px;
+    transition-duration: 0.3s;
 }
 
 #navbar-dropdown-container {
+    display: flex;
     height: 100px;
+    width: 280px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     padding: 15px;
     background-color: forestgreen;
     border: black solid 1px;
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;    cursor: pointer;
+    border-bottom-left-radius: 10px;    
 }
 
 #navbar-signin-button {
     text-decoration: none;
     font-size: 20px;
-    font-weight: 600;
+    width: 170px;
+    font-weight: 700;
     color: black;
-    background-color: #EEE0CB;
+    background-color: white;
     border: black solid 2px;
     border-radius: 4px;
-    margin: 10px;
-    padding: 0.375rem 1rem;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+}
+
+#navbar-signin-button:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+    border-radius: 30px;
+    transition-duration: 0.3s;
 }
 
 #navbar-myaccount {
     display: flex;
     flex-direction: row;
     align-items: center;
-
-
 }
 
 #dropdown-item-button {
-    background-color: #EEE0CB ;
+    background-color: white ;
     font-size: 20px;
     font-weight: 600;
     color: black;
     margin: 10px;
     border: black solid 2px;
+}
+
+#dropdown-item-button:hover {
+    background-color: black;
+    color: white;
+    border: white solid 2px;
+    border-radius: 30px;
 }

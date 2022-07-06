@@ -89,9 +89,10 @@ div.control-container {
 }
 
 #left-scroll-button {
-    font-size: 3rem;
+    font-size: 5rem;
     position: absolute;
     transition: all 0.3s ease-in-out;
+    color: black;
 }
 
 #left-scroll-button:hover {
@@ -99,10 +100,10 @@ div.control-container {
 }
 
 #right-scroll-button {
-    font-size: 3rem;
+    font-size: 5rem;
     position: absolute;
-    /* z-index: 1; */
     transition: all 0.3s ease-in-out;
+    color: black;
 }
 
 #right-scroll-button:hover {
@@ -111,12 +112,12 @@ div.control-container {
 
 div.left-scroll {
     left: 0;
-    top: 60%
+    top: 50%
 }
 
 div.right-scroll {
     right: 0;
-    top: 60%
+    top: 50%
 }   
 
 .left-scroll > i {
@@ -140,5 +141,6 @@ div.right-scroll {
     font-weight: 600;
     text-align: center;
     padding: 0.5rem;
+    color: #EEE0CB;
 }
     

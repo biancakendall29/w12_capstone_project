@@ -1,14 +1,16 @@
-import Avatar from "react-avatar";
+import Avatar, { RedirectSource } from "react-avatar";
 import Dropdown from 'react-bootstrap/Dropdown'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 
 
 const NavBarDropdown = ({ user, setUser, setIsLoggedIn, isLoggedIn, handleClickSignIn }) => {
+    const navigate = useNavigate();
 
     const handleClickLogOut = () => {
         setIsLoggedIn(false)
         setUser(null)
+        navigate("/", {replace:true})
     }
     return (
 
