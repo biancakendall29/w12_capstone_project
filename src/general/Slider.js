@@ -8,6 +8,7 @@ import sevens from "../img/H3.png"
 import solataire from "../img/S10.png"
 import cheat from "../img/S6.png"
 import whist from "../img/HQ.png"
+import comingSoon from "../img/coming-soon.jpg"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from "react-icons/fa"
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
@@ -71,46 +72,55 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users,isLoggedIn}) =>
 
                 <div className="item"> 
                 <img className="item-image" alt="pokerCover" src={poker} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="item-title">Poker</p>
                 </div>
 
                 <div className="item"> 
                 <img className="item-image" alt="heartsCover" src={hearts} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="item-title">Hearts</p>
                 </div>
 
                 <div className="item"> 
                 <img className="item-image" alt="rummyCover" src={rummy} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="item-title">Rummy</p>
                 </div>
 
                 <div className="item"> 
                 <img className="item-image" alt="sevensCover" src={sevens} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="item-title">Sevens</p>
                 </div>
 
                 <div className="item" > 
                 <img className="item-image" alt="canasterCover" src={canaster} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="item-title">Canasta</p>
                 </div>
 
                 <div className="item"> 
                 <img className="item-image" alt="bridgeCover" src={bridge} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="item-title">Bridge</p>
                 </div>
 
                 <div className="item"> 
                 <img className="item-image" alt="saltaireCover" src={solataire} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="item-title">Solataire</p>
                 </div>
 
                 <div className="item" > 
                 <img className="item-image" alt="cheatCover" src={cheat} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="item-title">Cheat</p>
                 </div>
 
                 <div className="item" > 
                 <img className="item-image" alt="whistCover" src={whist} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="item-title">Whist</p>
                 </div>
                 </>
@@ -124,46 +134,55 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users,isLoggedIn}) =>
                 
                 <div className="item"> 
                 <img className="item-image" alt="pokerCover" src={poker} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="sign-in-message">Sign in to play Poker</p>
                 </div>
 
                 <div className="item"> 
                 <img className="item-image" alt="heartsCover" src={hearts} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="sign-in-message">Sign in to play Hearts</p>
                 </div>
 
                 <div className="item"> 
                 <img className="item-image" alt="rummyCover" src={rummy} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="sign-in-message">Sign in to play Rummy</p>
                 </div>
 
                 <div className="item"> 
                 <img className="item-image" alt="sevensCover" src={sevens} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="sign-in-message">Sign in to play Sevens</p>
                 </div>
 
                 <div className="item" > 
                 <img className="item-image" alt="canasterCover" src={canaster} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="sign-in-message">Sign in to play Canasta</p>
                 </div>
 
                 <div className="item"> 
                 <img className="item-image" alt="bridgeCover" src={bridge} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="sign-in-message">Sign in to play Bridge</p>
                 </div>
 
                 <div className="item"> 
                 <img className="item-image" alt="solatireCover" src={solataire} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="sign-in-message">Sign in to play Solataire</p>
                 </div>
 
                 <div className="item" > 
                 <img className="item-image" alt="cheatCover" src={cheat} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="sign-in-message">Sign in to play Cheat</p>
                 </div>
 
                 <div className="item" > 
                 <img className="item-image" alt="whistCover" src={whist} />
+                <img className="coming-soon" src={comingSoon}/>
                 <p className="sign-in-message">Sign in to play Whist</p>
                 </div>
 

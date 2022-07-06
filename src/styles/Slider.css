@@ -28,6 +28,22 @@ div.control-container {
     box-sizing: border-box;
 }
 
+.item .coming-soon {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 25px;
+    z-index: 2;
+    width: 150px;
+    height: 300px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    padding-top: 1rem;
+}
+.item:hover .coming-soon {
+    display: inline;
+}
+
 .item {
     position: relative;
     align-self: center;
@@ -35,6 +51,8 @@ div.control-container {
     height: 400px;
     margin-left: 20px;
     margin-right: 40px;
+    display: inline-block;
+    /* background: url("../img/card-back.png") no-repeat ; */
 }
 
 .item:hover {
