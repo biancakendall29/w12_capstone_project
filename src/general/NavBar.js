@@ -49,6 +49,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(putUser)
         })
+        .then(response => {if (!response.ok) throw new Error("putUser not populated")})
     }
 
     const handleOnMouseOver = (event) => {

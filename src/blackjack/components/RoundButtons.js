@@ -26,7 +26,7 @@ const RoundButtons = ({isRoundDone, setIsRoundDone, isDealerTurn, setIsDealerTur
             setShowPostButton(false)
             setIsRoundDone(true);
             setSessionStart(false)
-            console.log('session end');
+            console.log('session end!');
             console.log(JSON.stringify(putUser))
             fetch('http://localhost:8080/blackjack_saves', {
                 method: 'POST',

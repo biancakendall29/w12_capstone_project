@@ -57,7 +57,7 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
             setIsPlayerBust(false);
             drawPlayerCard(2);
             drawDealerCard(2);
-            console.log("round start");
+            // console.log("round start");
         } else {
             window.alert("Place a Bet")
         }
@@ -120,7 +120,7 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
             deckstring += `${deck[i].code},`
         }
         copiedSave.deck = deckstring;
-        console.log(copiedSave);
+        // console.log(copiedSave);
         setSave(copiedSave);
     },[user,sessionStart,playerCards,dealerCards,chipCount])
 
@@ -171,14 +171,14 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
 
 
     const drawDealerCard = (numOfCards = 1) => {
-        console.log(deck);
+        // console.log(deck);
         setDeck(deck => deck.slice(0,deck.length-(numOfCards)));
         const nextCards = deck.slice(deck.length-(numOfCards + 2), deck.length - 2); 
         setDealerCards(prevDealerCards => ([...prevDealerCards, ...nextCards]));
     }
 
     useEffect(() => {
-        console.log(deck.length);
+        // console.log(deck.length);
         if (deck.length < 30){
             console.log("deck < 30");
             setDeck(shuffle(createDeck()));

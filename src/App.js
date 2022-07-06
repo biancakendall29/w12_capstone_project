@@ -25,13 +25,13 @@ function App() {
   const [users, setUsers] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [sessionStart, setSessionStart] = useState(false);
-  const [putUser, setPutUser] = useState(
-    {
-      blackjackWins: 0,
-      blackjackLosses: 0,
-      blackjackPushes: 0,
-      blackjackBlackjacks: 0
-    })
+  const [putUser, setPutUser] = useState()
+    // {
+    //   blackjackWins: 0,
+    //   blackjackLosses: 0,
+    //   blackjackPushes: 0,
+    //   blackjackBlackjacks: 0
+    // })
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
