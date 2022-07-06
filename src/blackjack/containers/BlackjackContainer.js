@@ -64,29 +64,7 @@ const BlackjackContainer = ({user, setUser,sessionStart,putUser,setPutUser}) => 
 
     const endRound = () => {
         setIsRoundDone(true);
-        let copiedSave = {...save}
         console.log("round end");
-        copiedSave.roundResult = result;
-        copiedSave.playerMoney = chipCount;
-        copiedSave.currentRound = roundCount;
-        copiedSave.session = {id: sessionId}
-        let playerHandString = ''
-        for(let i = 0; i < playerCards.length;i++){
-            playerHandString += `${playerCards[i].code},`
-        }
-        copiedSave.playerHand = playerHandString
-        let dealerHandString = ''
-        for(let i = 0; i < dealerCards.length;i++){
-            dealerHandString += `${dealerCards[i].code},`
-        }
-        copiedSave.dealerHand = dealerHandString
-        let deckstring = ''
-        for(let i = 0; i < deck.length;i++){
-            deckstring += `${deck[i].code},`
-        }
-        copiedSave.deck = deckstring;
-        console.log(copiedSave);
-        setSave(copiedSave);
         setLockedBet(0);
         payout(result);
         fetch('http://localhost:8080/blackjack_saves', {
@@ -95,7 +73,7 @@ const BlackjackContainer = ({user, setUser,sessionStart,putUser,setPutUser}) => 
             body: JSON.stringify(save)
         })
         .then(response => response.json())
-        .then(data => console.log(data)) // move save to useEffect
+        .then(data => console.log(data))
     }
 
     const payout = (result) => {
@@ -125,6 +103,31 @@ const BlackjackContainer = ({user, setUser,sessionStart,putUser,setPutUser}) => 
             setUser(copiedUser)
         }
     }
+
+    useEffect(() => {
+        let copiedSave = {...save};
+        copiedSave.roundResult = result;
+        copiedSave.playerMoney = chipCount;
+        copiedSave.currentRound = roundCount;
+        copiedSave.session = {id: sessionId}
+        let playerHandString = ''
+        for(let i = 0; i < playerCards.length;i++){
+            playerHandString += `${playerCards[i].code},`
+        }
+        copiedSave.playerHand = playerHandString
+        let dealerHandString = ''
+        for(let i = 0; i < dealerCards.length;i++){
+            dealerHandString += `${dealerCards[i].code},`
+        }
+        copiedSave.dealerHand = dealerHandString
+        let deckstring = ''
+        for(let i = 0; i < deck.length;i++){
+            deckstring += `${deck[i].code},`
+        }
+        copiedSave.deck = deckstring;
+        console.log(copiedSave);
+        setSave(copiedSave);
+    },[user,sessionStart,playerCards,dealerCards,chipCount])
 
     useEffect(() => {
         let copiedPutUser = {...putUser}
@@ -163,7 +166,7 @@ const BlackjackContainer = ({user, setUser,sessionStart,putUser,setPutUser}) => 
             console.log('session id: ' + data.id);
             setSessionId(data.id)
         })
-    },[sessionStart]) //have session saves: [] update each round and PUT at end of session and get session id to know where to POST saves
+    },[sessionStart])
 
     const drawPlayerCard = (numOfCards = 1) => {
         setDeck(deck => deck.slice(0,deck.length-(numOfCards)));
