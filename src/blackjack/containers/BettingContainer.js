@@ -34,9 +34,11 @@ const BettingContainer = ({chipCount,setChipCount,betAmount,setBetAmount,lockedB
     return(
         <>
         <div className="bet_button_container">
-            <button className="bet_button" onClick={handleLockedBet}>Lock In Bet</button>
-            <button className="bet_button" onClick={clearBet}>Reset Bet</button>
             <h4>Bet Amount: {betAmount}</h4>
+            <div id="bet-buttons-div">
+                <button className="bet_button" onClick={handleLockedBet}>Lock In Bet</button>
+                <button className="bet_button" onClick={clearBet}>Reset Bet</button>
+            </div>
         </div>
         <div className="chip_container">
             <img className="chip_img" src={fiveChip} onClick={() => handleBet(5)} alt="5 chip"></img>

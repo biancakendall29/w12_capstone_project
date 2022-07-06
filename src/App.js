@@ -16,6 +16,7 @@ import './styles/Home.css';
 import './styles/Navbar.css'
 import './styles/Stats.css';
 import "./styles/Slider.css";
+import "./styles/Blackjack.css"
 
 
 function App() {

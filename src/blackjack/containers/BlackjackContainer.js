@@ -4,7 +4,7 @@ import PlayerContainer from "./PlayerContainer.js";
 import {createDeck, shuffle, displayImages} from "../../lib/utils.js";
 import RoundButtons from "../components/RoundButtons.js";
 import BettingContainer from "./BettingContainer.js";
-import "../../styles/Blackjack.css"
+
 
 
 const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,setPutUser}) => {
@@ -208,11 +208,15 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
     return(
         <>
         <div id="blackjackContainer">
-        <div id="top_chips">
-            <h2>Chip Count: {chipCount} </h2>
-            <h2 className="top_chips_locked_bet">Locked Bet: {lockedBet}</h2>
-            <h3>{isDealerTurn && !isRoundDone ? result : <></>}</h3>
-            {isDealerTurn && isRoundDone ? <h4>Last round: {result} </h4>: <></>}
+        <div id="top_box">
+            <div id="top_chips">
+                <h2>Chip Count: {chipCount} </h2>
+                <h2 className="top_chips_locked_bet">Locked Bet: {lockedBet}</h2> 
+            </div>
+            <div id="top_result">
+                <h2>{isDealerTurn && !isRoundDone ? result : <h2>Result: ?</h2>}</h2>
+                {/* {isDealerTurn && isRoundDone ? <h2>Last round: {result} </h2>: <></>} */}
+            </div>
         </div>
         {isRoundDone ? <></> : <>
         <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} 

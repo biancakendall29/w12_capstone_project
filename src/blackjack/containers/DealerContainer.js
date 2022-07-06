@@ -44,9 +44,9 @@ const DealerContainer = ({result, dealerCount, setDealerCount, dealerCards, setD
     }, [dealerCards])
 
     return (
-        <div id="dealer-container">
-        <DealerCards dealerCards={dealerCards} displayImages={displayImages} isDealerTurn={isDealerTurn}/>
+        <div id="dealer-container">        
         <h4 id="dealer_count">Dealer Count: {isDealerTurn ? dealerCount : "?"}</h4>
+        <DealerCards dealerCards={dealerCards} displayImages={displayImages} isDealerTurn={isDealerTurn}/>
         </div>
 
     )
