@@ -7,12 +7,12 @@ const StatsContainer = ({ user }) => {
     const [sessions, setSessions] = useState([]);
 
     useEffect(() => {
-      setSessions(user.sessions);
-    },[user])
+        setSessions(user.sessions);
+    }, [user])
 
     useEffect(() => {
-      console.log(sessions)
-    },[sessions])
+        console.log(sessions)
+    }, [sessions])
 
     const handleSelectGame = (event) => {
         console.log(event);
@@ -20,18 +20,32 @@ const StatsContainer = ({ user }) => {
         console.log(selectedGame);
     }
 
+    // const getSession = (el) => {
+    //     return <BlackjackSessionStats session={el} />
+    // }
 
+
+    // const sessionStats = () => {
+    //     console.log(sessions.length)
+    //     for (let i = 0; i < sessions.length; i++) {
+    //         let session = sessions[i]
+    //         getSession(session)
+    //     }
+    // }
     const sessionStats = () => {
-      for (let i = 0; i < sessions.length; i++) {
-        let session = sessions[i]
-        return <BlackjackSessionStats session={session}/>
-      }  
+        let sessionsList = [];
+        console.log(sessions.length)
+        for (let i = 0; i < sessions.length; i++) {
+            let session = sessions[i]
+            sessionsList.push((<BlackjackSessionStats session={session}/>))
+        }
+        return sessionsList;
     }
 
-    return(
+    return (
 
         <div id="stats-container">
-            <h1 id="stats-heading">Stats</h1> 
+            <h1 id="stats-heading">Stats</h1>
             <div id="stats-dropdown">
                 <label>Select a game to view stats: </label>
                 <select id="stats-select" value={selectedGame} onChange={handleSelectGame}>
@@ -42,20 +56,23 @@ const StatsContainer = ({ user }) => {
                     <option value="snap">Snap</option>
                 </select>
             </div>
-   
-            
 
-            {selectedGame==="blackjack" ? 
+
+
+            {selectedGame === "blackjack" ?
                 <>
-                <div className="total-stats">
-                    <BlackjackStats user={user}/>
-                </div>
-                <div className="session-stats">
-                    {sessionStats()}
-                </div>
-                
+                    <div className="stats">
+
+                        <div className="total-stats">
+                            <BlackjackStats user={user} />
+                        </div>
+                        <div className="session-stats">
+                            {sessionStats()}
+                        </div>
+
+                    </div>
                 </>
-            : <p>Play a game to add some stats!</p>}
+                : <p>Play a game to add some stats!</p>}
 
 
         </div>
