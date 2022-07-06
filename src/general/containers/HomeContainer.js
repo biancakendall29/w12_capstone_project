@@ -16,7 +16,7 @@ const HomeContainer = ({ sessionStart, setSessionStart, isLoggedIn }) => {
             </p>
 
 
-            <p id="feedback-form">Fill out our <a href="#">feedback form</a> to request new games/ improvements</p>
+            {/* <p id="feedback-form">Fill out our <a href="#">feedback form</a> to request new games/ improvements</p> */}
         </div>
     )
 }

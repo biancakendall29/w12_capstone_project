@@ -1,4 +1,4 @@
-import blackjack from "../img/CA.png"
+import blackjack from "../img/DA.png"
 import poker from "../img/SQ.png"
 import hearts from "../img/H5.png"
 import rummy from "../img/S2.png"
