@@ -6,6 +6,10 @@ import SignUpForm from "./SignUpForm";
 import Modal from "react-modal";
 import Avatar from "react-avatar";
 import NavBarDropdown from "./NavBarDropdown"
+import HA from "../img/HA.png";
+import SA from "../img/SA.png";
+
+
 
 
 
@@ -54,7 +58,9 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
                 <div id="navbar-home">
                     <Link to="/" onClick={handleSessionEnd}>Home</Link>
                 </div>
+                <img id="card-logo-1" src={HA} alt="An Ace of Hearts"/>
                 <h1 id="website-banner">House of Cardz</h1>
+                <img id="card-logo-2" src={SA} alt="An Ace of Spades" />
                 <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut} />
             </div>
 
