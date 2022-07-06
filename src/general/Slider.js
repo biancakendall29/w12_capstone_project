@@ -47,13 +47,16 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users,isLoggedIn}) =>
             <div className="control-container">
           
                 <div id="left-scroll-button" className="left-scroll">
-                        <i className="chevron-left" aria-hidden="true">
+                        <div id="chevron-left-fill"></div>
+                        <i className="chevron-left-cont" aria-hidden="true">
                         <FaArrowAltCircleLeft className="chevron-left" onClick={leftScrollClick}/>
                         </i>
                 </div>
 
                 <div id="right-scroll-button" className="right-scroll">
-                        <i className="chevron-right" aria-hidden="true">
+                        <div id="chevron-right-fill"></div>
+
+                        <i className="chevron-right-cont" aria-hidden="true">
                         <FaArrowAltCircleRight className="chevron-right" onClick={rightScrollClick}/>
                         </i>
                 </div>

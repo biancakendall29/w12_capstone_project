@@ -2,6 +2,7 @@
     background-image: url(../img/background.jpeg);
     padding: 3em;
     height:100%;
+    position: relative;
 }
 
 #player_count {
@@ -17,7 +18,7 @@
     margin-left: auto;
     margin-right:auto;
     margin-top: 20%;
-    margin-bottom: 1em;
+    margin-bottom: 2%;
     padding: 2em 0.5em;
     border: 1px solid #222;
 	background: #b3eca9;
@@ -36,6 +37,7 @@
     padding-left: 1em;
     cursor: pointer;
     opacity: 95%;
+    z-index: auto;
 }
 
 #play_buttons{
@@ -76,6 +78,7 @@
     text-align: center;
     margin: 0.5em auto;
     margin-bottom: 2em;
+    margin-top: 3rem;
     padding: 1em 1em;
     background-color: #eaedf1;
     vertical-align: middle;
@@ -91,7 +94,7 @@
     display: flex;
     font-weight: 500;
     font-size: 1.2em;
-    padding: 0.7em 1.4em 0.7em 1.1em;
+    padding: 0.7em 1.4em 0.7em 1.4em;
     color: #222;
     background: linear-gradient(0deg, #948d85 0%, #EEE0CB 43%);
     box-shadow: 0 0.7em 1.5em -0.5em #64796a98;
@@ -100,6 +103,7 @@
     cursor: pointer;
     margin: 0.5em auto;
     text-decoration: none;
+
 }
 
 #bet-buttons-div {
@@ -124,6 +128,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    z-index: auto;
 }
 
 #top_result {
@@ -159,4 +164,9 @@
 
 #top_chips.top_chips_locked_bet {
     text-align: right;
+}
+
+#blackjackContainer > .bet_button {
+    margin-bottom: 10rem;
+    overflow: hidden;
 }

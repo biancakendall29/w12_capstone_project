@@ -20,7 +20,7 @@ div .items {
     padding-top: 1rem;
     padding-bottom: 0rem;
     position: relative;
-    z-index: -1;
+    z-index: auto;
 }
 
 div.control-container {
@@ -29,7 +29,7 @@ div.control-container {
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    z-index: 99;
+    z-index: auto;
 
 }
 
@@ -38,7 +38,7 @@ div.control-container {
     position: absolute;
     top: 0;
     left: 19px;
-    z-index: 2;
+    z-index: auto;
     width: 115px;
     height: 230px;
     -o-object-fit: contain;
@@ -57,8 +57,10 @@ div.control-container {
     margin-left: 15px;
     margin-right: 30px;
     display: inline-block;
-    z-index: 100;
+    z-index: auto;
     /* background: url("../img/card-back.png") no-repeat ; */
+    transition: all 0.1s ease-in-out;
+
 }
 
 .item:hover {
@@ -90,6 +92,7 @@ div.control-container {
     box-shadow: 0px 0px 10px black;
     border-radius: 10px;
 
+
 }
 
 #left-scroll-button {
@@ -97,6 +100,7 @@ div.control-container {
     position: absolute;
     transition: all 0.3s ease-in-out;
     color: black;
+    z-index: 2;
 }
 
 #left-scroll-button:hover {
@@ -104,11 +108,29 @@ div.control-container {
     cursor: pointer;
 }
 
+
+#chevron-left-fill {
+    z-index: 0;
+    width: 60%;
+    height: 40%;
+    background-color: #d12d36;
+    position: absolute ;
+    transform: translate(120%, 90%);
+    transition: all 0.3s ease-in-out;
+
+}
+
+#left-scroll-button:hover #chevron-left-fill {
+    background-color: black;
+}
+
+
 #right-scroll-button {
     font-size: 4.25rem;
     position: absolute;
     transition: all 0.3s ease-in-out;
     color: black;
+    z-index: 2;
 }
 
 #right-scroll-button:hover {
@@ -116,6 +138,20 @@ div.control-container {
     cursor: pointer;
 }
 
+#chevron-right-fill {
+    z-index: 0;
+    width: 60%;
+    height: 40%;
+    background-color: #d12d36;
+    position: absolute ;
+    transform: translate(-50%, 90%);
+    transition: all 0.3s ease-in-out;
+
+}
+
+#right-scroll-button:hover #chevron-right-fill {
+    background-color: black;
+}
 div.left-scroll {
     left: 0;
     top: 50%
@@ -131,7 +167,7 @@ div.right-scroll {
     top: 50%;
     left: 50%;
     transform: translate(-35%, -55%);
-    z-index: 101;
+    z-index: auto;
 }
 
 .right-scroll > i {
@@ -139,8 +175,9 @@ div.right-scroll {
     top: 50%;
     right: 50%;
     transform: translate(-35%, -55%);
-    z-index: 101;
+    z-index: auto;
 }
+
 
 .sign-in-message {
     font-size: 1.15rem;

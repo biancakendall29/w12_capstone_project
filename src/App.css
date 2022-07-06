@@ -5,9 +5,10 @@
 
 /* #outer-div {
   background-color: #ADB2D3;
+  overflow: hidden;
+  height: 100%;
+} */
 
-}
-
-html {
+/* html {
   background-color: #ADB2D3;
 } */
