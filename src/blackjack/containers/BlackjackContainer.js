@@ -13,6 +13,7 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
     const [dealerCount, setDealerCount] = useState(0);
     const [playerCards, setPlayerCards] = useState([]);
     const [dealerCards, setDealerCards] = useState([]);
+    // const [deck, setDeck] = useState(shuffle(createDeck().concat(createDeck(),createDeck(),createDeck(),createDeck(),createDeck())));
     const [deck, setDeck] = useState(shuffle(createDeck()));
     const [isDealerTurn, setIsDealerTurn] = useState(false);
     const [isPlayerBust, setIsPlayerBust] = useState(false);

@@ -37,7 +37,7 @@ const StatsContainer = ({ user }) => {
         console.log(sessions.length)
         for (let i = 0; i < sessions.length; i++) {
             let session = sessions[i]
-            sessionsList.push((<BlackjackSessionStats session={session}/>))
+            sessionsList.push((<BlackjackSessionStats session={session} />))
         }
         return sessionsList;
     }
@@ -45,36 +45,38 @@ const StatsContainer = ({ user }) => {
     return (
 
         <div id="stats-container">
-            <h1 id="stats-heading">Stats</h1>
-            <div id="stats-dropdown">
-                <label>Select a game to view stats: </label>
-                <select id="stats-select" value={selectedGame} onChange={handleSelectGame}>
-                    <option value="blackjack">Blackjack</option>
-                    <option value="poker">Poker</option>
-                    <option value="hearts">Hearts</option>
-                    <option value="wist">Wist</option>
-                    <option value="snap">Snap</option>
-                </select>
+            <div id="stats-content">
+                <h1 id="stats-heading">My Stats</h1>
+                <div id="stats-dropdown">
+                    <label>Select a game to view stats: </label>
+                    <select id="stats-select" value={selectedGame} onChange={handleSelectGame}>
+                        <option value="blackjack">Blackjack</option>
+                        <option value="poker">Poker</option>
+                        <option value="hearts">Hearts</option>
+                        <option value="wist">Wist</option>
+                        <option value="snap">Snap</option>
+                    </select>
+                </div>
+
+
+
+                {selectedGame === "blackjack" ?
+                    <>
+                        <div className="stats">
+
+                            <div className="total-stats">
+                                <BlackjackStats user={user} />
+                            </div>
+                            <div className="session-stats">
+                                {sessionStats()}
+                            </div>
+
+                        </div>
+                    </>
+                    : <p>Play a game to add some stats!</p>}
+
+
             </div>
-
-
-
-            {selectedGame === "blackjack" ?
-                <>
-                    <div className="stats">
-
-                        <div className="total-stats">
-                            <BlackjackStats user={user} />
-                        </div>
-                        <div className="session-stats">
-                            {sessionStats()}
-                        </div>
-
-                    </div>
-                </>
-                : <p>Play a game to add some stats!</p>}
-
-
         </div>
     )
 }

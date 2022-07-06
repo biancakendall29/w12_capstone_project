@@ -94,11 +94,8 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
                         </>
                     }
                 </div>
-
-
             </Modal>
             {/* <LogInModal isShowing={isShowing} toggle={toggle} /> */}
-
         </>
     )
 }
