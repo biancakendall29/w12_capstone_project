@@ -34,12 +34,11 @@ public class Dataloader implements ApplicationRunner {
         User user1 = new User("johndoe123", "johndoe@gmail.com", "JohnRules3");
         userRepository.saveAll(Arrays.asList(user1));
 
-//        BlackjackSession blackjackSession1 = new BlackjackSession(false, LocalDate.of(2022,6,29),user1);
-//        blackjackSessionRepository.saveAll(Arrays.asList(blackjackSession1));
+        BlackjackSession blackjackSession1 = new BlackjackSession(false, LocalDate.of(2022,6,29),user1);
+        blackjackSessionRepository.saveAll(Arrays.asList(blackjackSession1));
 
-//        BlackjackSave save1 = new BlackjackSave(LocalDate.of(2022,6,29), 1, 500, "C2,C3,C4,C5,C6", "C10, SA", "DK,DA", "push", blackjackSession1);
-//        blackjackSaveRepository.saveAll(Arrays.asList(save1));
-
+        BlackjackSave save1 = new BlackjackSave(LocalDate.of(2022,6,29), 1, 500, "C2,C3,C4,C5,C6", "C10, SA", "DK,DA", "push", blackjackSession1);
+        blackjackSaveRepository.saveAll(Arrays.asList(save1));
 
     }
 }
