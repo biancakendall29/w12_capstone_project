@@ -4,6 +4,7 @@
     z-index: -2;
     margin-top: 1.5rem;
     padding: auto;
+    padding-top: 10px;
     width: 100%;
     outline: #d12d36 solid 5px;
 
@@ -83,13 +84,12 @@ div.control-container {
     color: black;
 }
 
-
-.item img.item-image {
+.item-image {
     width: 150px;
     height: 225px;
-    -o-object-fit: contain;
-    object-fit: contain;
-    padding-top: 0.75rem;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 10px;
+
 }
 
 #left-scroll-button {
