@@ -1,0 +1,51 @@
+#stats-container {
+    background-color: #0C7628;    
+    color: #EEE0CB;
+    padding: 2rem;
+    margin: 5rem;
+}
+
+#stats-dropdown {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+#stats-select {
+    margin: 2rem;
+    background-color: #ADB2D3;
+    color: #644276;
+    outline-color: #2F9318;
+    outline-width: 7px;
+    outline-style: solid;
+    border-radius: 20px;
+}
+
+#stats-heading {
+    text-align: center;
+    font-weight: 1000;
+    font-size: 60px;
+}
+
+#blackjack-heading {
+    text-align: center;
+    font-weight: 600;
+    font-size: 60px;
+    margin: 2rem;
+}
+
+#stats-body {
+    text-align: center;
+    font-size:30px;
+    background-color: #644276;
+    padding: 6rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    outline-color: #2F9318;
+    outline-width: 7px;
+    outline-style: solid;
+    border-radius: 200px;
+
+}
