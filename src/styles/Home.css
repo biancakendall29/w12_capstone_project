@@ -12,6 +12,7 @@
     font-size: 4rem;
     text-align: center;
     margin-bottom: 2rem;
+    margin-top: 2rem;
     font-weight: 700;
 }
 
@@ -20,7 +21,7 @@
     font-weight: 700;
     text-align: center;
     background-color: #EEE0CB;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 #home > h3#about-us {
@@ -39,11 +40,12 @@
     background-color: #2F9318;
     margin-left: 20%;
     margin-right: 20%;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 20px;
+    margin-bottom: 3rem;
+    color: #EEE0CB;
 }
 
-#feedback-form {
-    /* padding-top: 30rem; */
-    /* z-index: 1; */
-}
+/* #feedback-form {
+    margin-bottom: 3rem;
+} */
