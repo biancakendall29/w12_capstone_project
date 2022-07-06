@@ -67,6 +67,10 @@ div.control-container {
     transform: scale(1.1);
 }
 
+.item:hover .item-title{
+    color: #d12d36;
+}
+
 .item-title {
     font-size: 1.75rem;
     font-family: 'Marker Felt';
@@ -75,10 +79,6 @@ div.control-container {
     padding: 0.39rem;
     cursor: pointer;
     color: black;
-}
-
-.item-title:hover {
-    color: #d12d36;
 }
 
 #blackjack-link {
