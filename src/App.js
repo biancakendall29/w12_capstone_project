@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import Slider from './general/Slider';
 import StatsContainer from './general/containers/StatsContainer';
 import HomeContainer from './general/containers/HomeContainer';
-import './styles/Stats.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -15,9 +14,10 @@ import './styles/Modal.css';
 import './styles/Cards.css';
 import './styles/Home.css'
 import './styles/Navbar.css'
+import './styles/Stats.css';
 import './styles/Modal.css'
 import "./styles/Slider.css"
-
+import './index.css'
 
 
 function App() {
