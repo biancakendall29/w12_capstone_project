@@ -23,7 +23,7 @@ const BlackjackStats = ({ user }) => {
     const sessionStats = () => {
         let sessionsList = [];
         // console.log(sessions.length)
-        for (let i = 0; i < sessions.length; i++) {
+        for (let i = sessions.length-1; i >= 0; i--) {
             let session = sessions[i]
             sessionsList.push((<BlackjackSessionStats session={session} />))
         }
