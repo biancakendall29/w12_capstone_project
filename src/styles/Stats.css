@@ -1,5 +1,5 @@
 #stats-container {
-    color: #EEE0CB;
+    color: black;
     padding: 0rem;
     /* margin: 5rem; */
     background-color: rgb(255, 248, 240);
@@ -8,54 +8,62 @@
 }
 
 #stats-content {
-    background-color: #0c7628;
+    background-color: #ffffff;
     /* margin: 2rem; */
 }
 
 #stats-heading {
     text-align: center;
     font-weight: 1000;
-    font-size: 60px;
-    padding-top: 2rem;
+    font-size: 2.5rem;
+    /* padding-top: 2rem; */
+    margin-top: 2rem;
+    padding:1rem;
+    background-color: #eee0cb;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 #stats-dropdown {
     text-align: center;
-    font-size: 50px;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
 #stats-select {
-    margin: 2rem;
-    background-color: #ADB2D3;
+    margin: 1rem;
+    padding:3px;
+    padding-left:7px;
+    background-color: #eee0cb;
     color: #644276;
-    outline-color: #2F9318;
+    /* outline-color: #2F9318;
     outline-width: 7px;
-    outline-style: solid;
-    border-radius: 20px;
+    outline-style: solid; */
+    border-radius: 15px;
 }
 
 
+#stats-body {
+    text-align: left;
+    font-size:20px;
+    width: 100%;
+    background-color: #eee0cb;
+    border: 1px solid black;
+    
+}
+
+#blackjack-stats-body {
+   width:50%;
+   margin-top: 1rem;
+   margin-bottom: 3rem;
+   margin-left: auto;
+   margin-right: auto;
+}
 
 #blackjack-heading {
     text-align: center;
     font-weight: 600;
-    font-size: 60px;
+    font-size: 30px;
     margin: 2rem;
 }
 
-#stats-body {
-    text-align: center;
-    font-size:30px;
-    background-color: #644276;
-    padding: 6rem;
-    margin-left: 6rem;
-    margin-right: 6rem;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    outline-color: #2F9318;
-    outline-width: 7px;
-    outline-style: solid;
-    border-radius: 200px;
-
-}

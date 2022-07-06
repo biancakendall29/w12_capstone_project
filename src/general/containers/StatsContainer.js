@@ -48,7 +48,7 @@ const StatsContainer = ({ user }) => {
             <div id="stats-content">
                 <h1 id="stats-heading">My Stats</h1>
                 <div id="stats-dropdown">
-                    <label>Select a game to view stats: </label>
+                    <label>Select game: </label>
                     <select id="stats-select" value={selectedGame} onChange={handleSelectGame}>
                         <option value="blackjack">Blackjack</option>
                         <option value="poker">Poker</option>
