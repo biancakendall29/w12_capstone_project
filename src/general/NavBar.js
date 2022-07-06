@@ -43,7 +43,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
     const handleSessionEnd = () => {
         setSessionStart(false)
         console.log('session end');
-        console.log(JSON.stringify(putUser))
+        // console.log(JSON.stringify(putUser))
         fetch('http://localhost:8080/users/' + user.id, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -53,7 +53,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
     }
 
     const handleOnMouseOver = (event) => {
-      console.log("mouse over dropdown");
+    //   console.log("mouse over dropdown");
       fetch("http://localhost:8080/users")
       .then(response => response.json())
       .then(data => setUsers(data))

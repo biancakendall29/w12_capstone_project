@@ -19,7 +19,7 @@ const DealerContainer = ({result, dealerCount, setDealerCount, dealerCards, setD
 
         else if(isDealerTurn && dealerCount < 17 && !isDealerBust && !isPlayerBust && !(playerCount===21 && playerCards.length===2)) {
             drawDealerCard(1);
-            console.log("dealercount:" + dealerCount);
+            // console.log("dealercount:" + dealerCount);
         }
 
         else if(isDealerTurn && dealerCount > 21) {

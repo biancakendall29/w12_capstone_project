@@ -21,15 +21,15 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users,isLoggedIn}) =>
     let step_count = 0;
 
     const scroll = (el, step) => {
-        console.log(step);
-        console.log(el);
+        // console.log(step);
+        // console.log(el);
         el.scrollBy(step, 0);
     }
 
     const leftScrollClick = () => {
-        console.log("clicked");
+        // console.log("clicked");
         scroll(carouselItems, -160);
-        console.log(items_count.length);
+        // console.log(items_count.length);
     }
 
     const rightScrollClick = () => {

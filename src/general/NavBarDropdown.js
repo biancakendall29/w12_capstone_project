@@ -24,7 +24,7 @@ const NavBarDropdown = ({ user, setUser, setIsLoggedIn, isLoggedIn, handleClickS
                         <Link to="/stats"><Dropdown.Item as="button">Cool Stats</Dropdown.Item></Link>
                         <Dropdown.Item onClick={handleClickLogOut} as="button">Logout</Dropdown.Item>
                     </DropdownButton>
-                    <Avatar name={user.username} round={true} color={(Avatar.getRandomColor(user.username), ['#EEE0CB'])} size='60' textSizeRatio={1.75} fgColor='black' style={{
+                    <Avatar name={user.username} round={true} color={Avatar.getRandomColor(user.username, ['#EEE0CB'])} size='60' textSizeRatio={1.75} fgColor='black' style={{
                         outline: '2px solid black',
                         margin: '2px'
                     }} />

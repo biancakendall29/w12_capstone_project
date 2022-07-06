@@ -5,9 +5,9 @@ const StatsContainer = ({ user }) => {
     let [selectedGame, setSelectedGame] = useState("blackjack");
 
     const handleSelectGame = (event) => {
-        console.log(event);
+        // console.log(event);
         setSelectedGame(() => event.target.value);
-        console.log(selectedGame);
+        // console.log(selectedGame);
     }
 
 

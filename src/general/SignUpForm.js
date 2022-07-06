@@ -43,7 +43,7 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     setUser(data);
                     closeModal();
                     setIsLoggedIn(true);

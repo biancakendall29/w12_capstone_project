@@ -29,7 +29,7 @@ const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, se
 
   const handleLoginSubmit = (event) => {
     event.preventDefault()
-    console.log(user)
+    // console.log(user)
     let foundUser = users.filter(client => client.username === stateUser.username && client.password === stateUser.password);
     if (foundUser.length === 1) {
       setUser(foundUser[0]);

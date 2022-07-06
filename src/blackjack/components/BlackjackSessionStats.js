@@ -17,7 +17,7 @@ const BlackjackSessionStats = ({session}) => {
       points.push(saves[i].playerMoney);
     }
     setRoundPoints(points);
-    console.log(saves)
+    // console.log(saves)
   },[saves])
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const BlackjackSessionStats = ({session}) => {
     }
 
     ])
-    console.log(roundPoints);
+    // console.log(roundPoints);
   },[roundPoints])
   
 

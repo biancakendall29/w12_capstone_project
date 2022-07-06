@@ -8,9 +8,9 @@ const BlackjackStats = ({ user }) => {
         setSessions(user.sessions);
     }, [user])
 
-    useEffect(() => {
-        console.log(sessions)
-    }, [sessions])
+    // useEffect(() => {
+    //     console.log(sessions)
+    // }, [sessions])
 
     let totalHandsPlayed = user.blackjackWins + user.blackjackLosses + user.blackjackPushes + user.blackjackBlackjacks
 
@@ -22,7 +22,7 @@ const BlackjackStats = ({ user }) => {
 
     const sessionStats = () => {
         let sessionsList = [];
-        console.log(sessions.length)
+        // console.log(sessions.length)
         for (let i = 0; i < sessions.length; i++) {
             let session = sessions[i]
             sessionsList.push((<BlackjackSessionStats session={session} />))
