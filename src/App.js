@@ -26,6 +26,13 @@ function App() {
   const [users, setUsers] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [sessionStart, setSessionStart] = useState(false);
+  const [putUser, setPutUser] = useState(
+    {
+        blackjackWins: 0,
+        blackjackLosses: 0,
+        blackjackPushes: 0,
+        blackjackBlackjacks: 0
+})
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
@@ -44,12 +51,13 @@ function App() {
       <Router>
       <NavBar user={user} setUser={setUser} isLoggedIn={isLoggedIn} 
               setIsLoggedIn={setIsLoggedIn} users={users} 
-              setUsers={setUsers} setSessionStart={setSessionStart}/>
+              setUsers={setUsers} setSessionStart={setSessionStart}
+              setPutUser={setPutUser} putUser={putUser}/>
 
         <Routes>
           <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users} isLoggedIn={isLoggedIn}/>}/>
           <Route path="/stats" element={<StatsContainer user={user}/>}/>
-          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser} sessionStart={sessionStart}/> }/>
+          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser} sessionStart={sessionStart} setPutUser={setPutUser} putUser={putUser}/> }/>
         </Routes>
       </Router>
 

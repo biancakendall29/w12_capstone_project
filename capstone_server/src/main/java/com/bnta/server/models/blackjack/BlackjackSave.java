@@ -59,7 +59,7 @@ public class BlackjackSave {
         this.session = session;
     }
 
-    protected BlackjackSave() {};
+    public BlackjackSave() {};
 
     public Long getId() {
         return id;

@@ -20,7 +20,6 @@ const PlayerContainer = ({playerCount, setPlayerCount, playerCards, setIsPlayerB
     }
 
     useEffect(() => {
-
     let arr = [];
     for (let i=0; i<playerCards.length; i++) {
         arr.push(playerCards[i].weight);
