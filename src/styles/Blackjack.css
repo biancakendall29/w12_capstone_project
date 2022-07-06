@@ -7,7 +7,7 @@
     width: 35%;
     color: #222;
     z-index: 10;
-    background-color: rgba(248, 250, 248, 0.849);
+    background-color: #EEE0CB;
     padding: 2px;
     border-radius: 4px;
     box-shadow: 0 0 20px;
@@ -31,15 +31,14 @@
     margin: auto;
     margin-bottom: 1em;
     padding: 2em 0.5em;
+    border: 1px solid #222;
 	background: #b3eca9;
 	color: #306517;
-    border: #222;
-	border-color: #2d2d2d;
-    border-radius: 4px;
+    border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    box-shadow: 0 0 20px;
+    box-shadow: inset 0px 5px 25px 0px rgba(0,0,0,0.75);
 }
 
 .chip_img {
@@ -48,6 +47,7 @@
     max-width: 8em;
     padding-left: 1em;
     cursor: pointer;
+    opacity: 95%;
 }
 
 #play_buttons{
@@ -55,8 +55,8 @@
     flex-direction: row;
     justify-content: flex-start;
     align-content: flex-start;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 25%;
+    padding-right: 25%;
 }
 
 .play_button {
@@ -67,8 +67,8 @@
     font-size: 1em;
     padding: 0.7em 1.4em 0.7em 1.1em;
     color: #222;
-    background: linear-gradient(0deg, rgba(20,160,60,1) 0%, rgba(100,250,110,1) 100%);
-    box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+    background: linear-gradient(0deg, #948d85 0%, #EEE0CB 43%);
+    box-shadow: 0 0.7em 1.5em -0.5em #64796a98;
     letter-spacing: 0.05em;
     border-radius: 20em;
     cursor: pointer;
@@ -76,11 +76,11 @@
 }
 
 .play_button:hover {
-    box-shadow: 0 0.5em 1.5em -0.5em #0c652698;
+    box-shadow: 0 0.5em 1.5em -0.5em #1d282098;
 }
 
 .play_button:active {
-    box-shadow: 0 0.3em 1em -0.5em #0c652698;
+    box-shadow: 0 0.5em 1.5em -0.5em #1d282098;
 }
 
 .bet_button_container {
@@ -91,7 +91,7 @@
     padding: 1em 1em;
     background-color: #eaedf1;
     vertical-align: middle;
-    box-shadow: 0 0 10px;
+    box-shadow: 0 0 15px;
     border-radius: 4px;
 }
 
@@ -102,12 +102,11 @@
 .bet_button {
     display: flex;
     font-weight: 500;
-    font-size: 1em;
+    font-size: 1.2em;
     padding: 0.7em 1.4em 0.7em 1.1em;
     color: #222;
-    background: linear-gradient(0deg, rgba(20,160,60,1) 0%, rgba(100,250,110,1) 100%);
-    border: none;
-    box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+    background: linear-gradient(0deg, #948d85 0%, #EEE0CB 43%);
+    box-shadow: 0 0.7em 1.5em -0.5em #64796a98;
     letter-spacing: 0.05em;
     border-radius: 20em;
     cursor: pointer;
@@ -116,9 +115,9 @@
 }
 
 .bet_button:hover {
-    box-shadow: 0 0.5em 1.5em -0.5em #0c652698;
+    box-shadow: 0 0.5em 1.5em -0.5em #1d282098;
 }
 
 .bet_button:active {
-    box-shadow: 0 0.3em 1em -0.5em #0c652698;
+    box-shadow: 0 0.5em 1.5em -0.5em #1d282098;
 }

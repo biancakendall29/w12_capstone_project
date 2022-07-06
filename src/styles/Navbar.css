@@ -8,6 +8,9 @@
     background-color: #EEE0CB;
     font-size: 40px;
     border: black solid 1px;
+    box-shadow: -10px 0px 20px rgba(0,0,0,0.4);
+    z-index: 10;
+    position:relative;
 }
 
 #card-logo-1 {

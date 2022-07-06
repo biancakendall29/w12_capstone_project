@@ -13,6 +13,7 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
     const [dealerCount, setDealerCount] = useState(0);
     const [playerCards, setPlayerCards] = useState([]);
     const [dealerCards, setDealerCards] = useState([]);
+    // const [deck, setDeck] = useState(shuffle(createDeck().concat(createDeck(),createDeck(),createDeck(),createDeck(),createDeck())));
     const [deck, setDeck] = useState(shuffle(createDeck()));
     const [isDealerTurn, setIsDealerTurn] = useState(false);
     const [isPlayerBust, setIsPlayerBust] = useState(false);
@@ -213,14 +214,15 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
             <h3>{isDealerTurn && !isRoundDone ? result : <></>}</h3>
             {isDealerTurn && isRoundDone ? <h4>Last round: {result} </h4>: <></>}
         </div>
-        {isRoundDone ? <></> : <><PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
-                        setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
-                        setIsDealerTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} 
-                        displayImages = {displayImages} chipCount={chipCount} setChipCount={setChipCount} lockedBet={lockedBet} setLockedBet={setLockedBet}/>
+        {isRoundDone ? <></> : <>
         <DealerContainer dealerCards={dealerCards} setDealerCards={setDealerCards} 
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
-                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/></>}
+                        isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/>
+                        <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
+                        setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
+                        setIsDealerTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} 
+                        displayImages = {displayImages} chipCount={chipCount} setChipCount={setChipCount} lockedBet={lockedBet} setLockedBet={setLockedBet}/></>}
         {isRoundDone ? <BettingContainer chipCount={chipCount} setChipCount={setChipCount} betAmount={betAmount} setBetAmount={setBetAmount} lockedBet={lockedBet} setLockedBet={setLockedBet}/> : <></>}
         <RoundButtons isRoundDone={isRoundDone} setIsRoundDone={setIsRoundDone} isDealerTurn={isDealerTurn} setIsDealerTurn={setIsDealerTurn} endRound={endRound} startRound={startRound} showPostButton={showPostButton} setShowPostButton={setShowPostButton} 
         save={save} setSessionStart={setSessionStart} user={user} putUser={putUser}/>

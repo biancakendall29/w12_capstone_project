@@ -97,3 +97,12 @@ Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection wa
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:678)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
 	... 17 more
+2022-07-06 16:53:07 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DECK CHARACTER VARYING(255)": "'C5,D2,C8,S10,D9,S7,SA,D9,C10,S2,DK,SA,C9,H5,C3,D7,D2,D7,CJ,H4,H9,S4,HA,HJ,S9,CA... (941)"; SQL statement:
+insert into blackjack_saves (id, current_round, dealer_hand, deck, player_hand, player_money, round_result, blackjack_sessions_id, save_timestamp) values (default, ?, ?, ?, ?, ?, ?, ?, ?) [22001-214]
+2022-07-06 16:53:13 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DECK CHARACTER VARYING(255)": "'C5,D2,C8,S10,D9,S7,SA,D9,C10,S2,DK,SA,C9,H5,C3,D7,D2,D7,CJ,H4,H9,S4,HA,HJ,S9,CA... (926)"; SQL statement:
+insert into blackjack_saves (id, current_round, dealer_hand, deck, player_hand, player_money, round_result, blackjack_sessions_id, save_timestamp) values (default, ?, ?, ?, ?, ?, ?, ?, ?) [22001-214]
+2022-07-06 16:53:23 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DECK CHARACTER VARYING(255)": "'C5,D2,C8,S10,D9,S7,SA,D9,C10,S2,DK,SA,C9,H5,C3,D7,D2,D7,CJ,H4,H9,S4,HA,HJ,S9,CA... (911)"; SQL statement:
+insert into blackjack_saves (id, current_round, dealer_hand, deck, player_hand, player_money, round_result, blackjack_sessions_id, save_timestamp) values (default, ?, ?, ?, ?, ?, ?, ?, ?) [22001-214]
