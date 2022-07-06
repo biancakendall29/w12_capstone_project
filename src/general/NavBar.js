@@ -70,7 +70,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
                 <h1 id="website-banner">House of Cardz</h1>
                 <img id="card-logo-2" src={SA} alt="An Ace of Spades" />
                 <div onMouseOver={handleOnMouseOver}>
-                    <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut} />
+                    <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut} setSessionStart={setSessionStart} />
 
                 </div>
             </div>

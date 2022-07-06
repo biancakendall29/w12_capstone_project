@@ -4,12 +4,13 @@ import DropdownButton from 'react-bootstrap/DropdownButton'
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 
 
-const NavBarDropdown = ({ user, setUser, setIsLoggedIn, isLoggedIn, handleClickSignIn }) => {
+const NavBarDropdown = ({ user, setUser, setIsLoggedIn, isLoggedIn, handleClickSignIn, setSessionStart }) => {
     const navigate = useNavigate();
 
     const handleClickLogOut = () => {
         navigate("/", { replace: true })
         setIsLoggedIn(false)
+        setSessionStart(false)
         setUser(null)
     }
     return (
