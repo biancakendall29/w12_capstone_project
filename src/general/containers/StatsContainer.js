@@ -25,6 +25,7 @@ const StatsContainer = ({ user }) => {
                         <option value="wist">Wist</option>
                         <option value="snap">Snap</option>
                     </select>
+                    <div id="stats-dropdown-filler"></div>
                 </div>
 
 

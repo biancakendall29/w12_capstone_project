@@ -11,7 +11,7 @@ const BlackjackStats = ({ user }) => {
     useEffect(() => {
         console.log(sessions)
     }, [sessions])
-    
+
     let totalHandsPlayed = user.blackjackWins + user.blackjackLosses + user.blackjackPushes + user.blackjackBlackjacks
 
     let userWinPercentage = (((user.blackjackWins + user.blackjackBlackjacks) / totalHandsPlayed) * 100);
@@ -34,7 +34,7 @@ const BlackjackStats = ({ user }) => {
         <>
 
             <div id="stats-body">
-                <h3 id="blackjack-heading">Blackjack</h3>
+                {/* <h3 id="blackjack-heading">Blackjack</h3> */}
                 <div id='blackjack-stats-body'>
                     <div id="blackjack-stats-stats">
                         <p><b>Win Percentage: {userWinPercentage.toFixed(1)}%</b></p>
