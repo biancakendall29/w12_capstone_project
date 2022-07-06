@@ -10,29 +10,29 @@ const NavBarDropdown = ({ user, setUser, setIsLoggedIn, isLoggedIn, handleClickS
     const handleClickLogOut = () => {
         setIsLoggedIn(false)
         setUser(null)
-        navigate("/", {replace:true})
+        navigate("/", { replace: true })
     }
     return (
 
-            <div id="navbar-dropdown-container">
-                {isLoggedIn ?
-                   
-                    <div id="navbar-myaccount"> 
-                        <DropdownButton id="dropdown-item-button" title="MyAccount">
-                            <Dropdown.ItemText>You are Signed in as {user.username}!</Dropdown.ItemText>
-                            <Dropdown.Item as="button">My Games</Dropdown.Item>
-                            <Link to="/stats"><Dropdown.Item as="button">Cool Stats</Dropdown.Item></Link>
-                            <Dropdown.Item onClick={handleClickLogOut} as="button">Logout</Dropdown.Item>
-                        </DropdownButton>
-                        <Avatar name={user.username} round={true} color={(Avatar.getRandomColor(user.username), ['#EEE0CB']) } size='60' textSizeRatio={1.75} fgColor='black'  style={{
-             outline: '2px solid black',
-             margin: '2px'
-          }}/>
-                    </div>
-                    :
-                    <div id="navbar-signin-button" onClick={handleClickSignIn}>Sign in</div>}
+        <div id="navbar-dropdown-container">
+            {isLoggedIn ?
 
-            </div>
+                <div id="navbar-myaccount">
+                    <DropdownButton id="dropdown-item-button" title="MyAccount">
+                        <Dropdown.ItemText>You are Signed in as {user.username}!</Dropdown.ItemText>
+                        <Dropdown.Item as="button">My Games</Dropdown.Item>
+                        <Link to="/stats"><Dropdown.Item as="button">Cool Stats</Dropdown.Item></Link>
+                        <Dropdown.Item onClick={handleClickLogOut} as="button">Logout</Dropdown.Item>
+                    </DropdownButton>
+                    <Avatar name={user.username} round={true} color={(Avatar.getRandomColor(user.username), ['#EEE0CB'])} size='60' textSizeRatio={1.75} fgColor='black' style={{
+                        outline: '2px solid black',
+                        margin: '2px'
+                    }} />
+                </div>
+                :
+                <div id="navbar-signin-button" onClick={handleClickSignIn}>Sign in</div>}
+
+        </div>
 
     )
 }
