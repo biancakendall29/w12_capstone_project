@@ -7,10 +7,6 @@ const HomeContainer = ({ sessionStart, setSessionStart, isLoggedIn }) => {
         <div id="home">
             <h1>Welcome</h1>
 
-           
-            {/* {isLoggedIn ? <Slider sessionStart={sessionStart} setSessionStart={setSessionStart} isLoggedIn={isLoggedIn} /> : <></>}
-             */}
-
             <h3>Games</h3>
             <Slider sessionStart={sessionStart} setSessionStart={setSessionStart} isLoggedIn={isLoggedIn} />
 
@@ -20,7 +16,7 @@ const HomeContainer = ({ sessionStart, setSessionStart, isLoggedIn }) => {
             </p>
 
 
-            <p id="feedback-form">fill out our <a href="#">feedback form</a> to request new games/ improvements</p>
+            <p id="feedback-form">Fill out our <a href="#">feedback form</a> to request new games/ improvements</p>
         </div>
     )
 }
