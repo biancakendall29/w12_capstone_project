@@ -1,6 +1,7 @@
+import { useState } from "react"
+import { eventWrapper } from "@testing-library/user-event/dist/utils"
+import { Eye, EyeSlash } from "react-bootstrap-icons"
 
-import { useState } from "react";
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 
 const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, closeModal }) => {
@@ -31,36 +32,45 @@ const LoginForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, se
     console.log(user)
     let foundUser = users.filter(client => client.username === stateUser.username && client.password === stateUser.password);
     if (foundUser.length === 1) {
-        setUser(foundUser[0]);
-        console.log("set user to " + foundUser[0].username);
-        closeModal();
-        setIsLoggedIn(true);
+      setUser(foundUser[0]);
+      console.log("set user to " + foundUser[0].username);
+      closeModal();
+      setIsLoggedIn(true);
     }
     else {
-        // alert("Username or password are incorrect")
-        setIsLoginAlertShowing(true)
+      // alert("Username or password are incorrect")
+      setIsLoginAlertShowing(true)
     }
-}
+  }
 
   return (
     <>
       <form className="modal-form" onSubmit={handleLoginSubmit}>
         <label htmlFor="username"><b>Username: </b></label>
-        <input type="text" placeholder="Enter Username" name="username"
+        <input type="text" placeholder="Username" name="username"
           onChange={handleInputChange} value={stateUser.username} required />
-        <label htmlFor="password"><b>Password: </b></label>
-        <input type={showPassword ? "text":"password"} placeholder="Enter Password" name="password"
-          onChange={handleInputChange} value={stateUser.password} required />
-        <div className='password-checkbox-container'>
+        <div className="password-and-button-container">
+          <div className="password-container">
+
+            <label htmlFor="password"><b>Password: </b></label>
+            <input type={showPassword ? "text" : "password"} placeholder="Password" name="password"
+              onChange={handleInputChange} value={stateUser.password} required />
+          </div>
+          <label for='show-password-button' />
+          <button name='show-password-button' className='password-show' type="button" onClick={togglePassword}>{showPassword ? <Eye /> : <EyeSlash />}</button>
+        </div>
+        {/* <div className='password-checkbox-container'>
           <label htmlFor="password-checkbox">Show password? </label>
           <input type="checkbox" id="password-checkbox" checked={showPassword} onChange={togglePassword} />
-        </div>
+        </div> */}
         {isLoginAlertShowing ? <div className="alert alert-danger" role="alert">Username or password is incorrect.</div> : <></>}
-        <button type="submit">Login</button>
+        <button type="submit"><b>Login</b></button>
 
       </form>
 
-      <div className="toggle-modal-text"> Don't have an account? <p className="modal-toggle-link" onClick={toggle}>Sign up</p> </div>
+      <hr/>
+
+      <div className="toggle-modal-text"><p> Don't have an account?</p> <p className="modal-toggle-link" onClick={toggle}>Sign up</p> </div>
 
     </>
   );

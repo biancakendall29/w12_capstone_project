@@ -1,30 +1,48 @@
-import "../styles/Slider.css"
 import blackjack from "../img/CA.png"
 import poker from "../img/SQ.png"
 import hearts from "../img/H5.png"
 import rummy from "../img/S2.png"
+import bridge from "../img/D9.png"
+import canaster from "../img/CJ.png"
+import sevens from "../img/H3.png"
 import {FaArrowAltCircleRight, FaArrowAltCircleLeft} from "react-icons/fa"
 import {BrowserRouter as Router, Link} from "react-router-dom";
 
-const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
+const Slider = ({setSessionStart,sessionStart,setUser,user,users,isLoggedIn}) => {
 
-    let carousel = {};
-    carousel.e = document.getElementById('carousel');
-    carousel.items = document.getElementById('carousel-items');
-    carousel.leftScroll = document.getElementById('left-scroll-button');
-    carousel.rightScroll = document.getElementById('right-scroll-button');  
+    // let carousel = {};
+    // carousel.e = document.getElementById('carousel');
+    let carouselItems = {};
+    // carouselItems = document.getElementById('carousel-items');
+    carouselItems = document.querySelector('.items');
+    let items_count = document.getElementsByClassName('item');
+    let step_count = 0;
 
-    const scroll = (element, step) => {
-        element.scrollLeft += step;
+    const scroll = (el, step) => {
+        console.log(step);
+        console.log(el);
+        // el.scrollLeft += step;
+        el.scrollBy(step, 0);
     }
 
     const leftScrollClick = () => {
         console.log("clicked");
-        scroll(carousel.items, -100);
+        scroll(carouselItems, -260);
+        console.log(items_count.length);
+        // step_count--;
+        // if(step_count <= 0) {
+        //     scroll(document.getElementById('carousel-items'), 260*items_count.length)
+        //     step_count = items_count.length;
+        // }
     }
 
     const rightScrollClick = () => {
-        scroll(carousel.items, 100);
+        scroll(carouselItems, 260);
+        // step_count++;
+        // if(step_count >= items_count.length) {
+        //     scroll(document.getElementById('carousel-items'), -260*items_count.length)
+        //     step_count = 0;
+        // }
     }
 
     const handleSessionStart = () => {
@@ -33,7 +51,7 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
     }
 
     return (
-        <div id="carousel" className="container">
+        <div id="carousel" className="slider-container">
             <div className="control-container">
           
                 <div id="left-scroll-button" className="left-scroll">
@@ -51,12 +69,13 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
         
         <div className="items" id="carousel-items">
 
-            <div className="item"> 
-                <Link to={'/blackjack'} onClick={handleSessionStart}>
+            
+                <Link id="blackjack-link" to={'/blackjack'} onClick={handleSessionStart}>
+                <div className="item"> 
                 <img className="item-image" alt="blackjackCover" src={blackjack} />
                 <span className="item-title">BlackJack</span>
+                </div>
                 </Link>
-            </div>
 
             <div className="item"> 
                 <img className="item-image" alt="pokerCover" src={poker} />
@@ -69,22 +88,17 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
             </div>
 
             <div className="item"> 
-                <img className="item-image" alt="pokerCover" src={poker} />
-                <span className="item-title">Go Fish</span>
-            </div>
-
-            <div className="item"> 
                 <img className="item-image" alt="rummyCover" src={rummy} />
                 <span className="item-title">Rummy</span>
             </div>
 
             <div className="item"> 
-                <img className="item-image" alt="pokerCover" src={blackjack} />
+                <img className="item-image" alt="sevensCover" src={sevens} />
                 <span className="item-title">Sevens</span>
             </div>
 
             <div className="item" > 
-                <img className="item-image" alt="pokerCover" src={poker} />
+                <img className="item-image" alt="canasterCover" src={canaster} />
                 <span className="item-title">Canaster</span>
             </div>
 
@@ -96,11 +110,6 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users}) => {
             <div className="item"> 
                 <img className="item-image" alt="pokerCover" src={blackjack} />
                 <span className="item-title">Solataire</span>
-            </div>
-
-            <div className="item"> 
-                <img className="item-image" alt="pokerCover" src={poker} />
-                <span className="item-title">Crazy Eights</span>
             </div>
 
             <div className="item" > 

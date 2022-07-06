@@ -7,7 +7,7 @@ import BettingContainer from "./BettingContainer.js";
 import "../../styles/Blackjack.css"
 
 
-const BlackjackContainer = ({user, setUser}) => {
+const BlackjackContainer = ({user, setUser,sessionStart,putUser,setPutUser}) => {
 
     const [playerCount, setPlayerCount] = useState(0);
     const [dealerCount, setDealerCount] = useState(0);
@@ -22,9 +22,30 @@ const BlackjackContainer = ({user, setUser}) => {
     const [chipCount, setChipCount] = useState(1000);
     const [betAmount, setBetAmount] = useState(0);
     const [lockedBet, setLockedBet] = useState(0);
+    const [roundCount, setRoundCount] = useState(0);
+    const [sessionId, setSessionId] = useState(1);
+    const [save, setSave] = useState(
+        {
+            timestamp: "2022-07-05",
+            currentRound: 0,
+            playerMoney: 0,
+            deck: '',
+            playerHand: '',
+            dealerHand: '',
+            roundResult: '',
+            session: {id: sessionId}
+        }
+    )
+
+    const newSession = {
+        timestamp: "2022-07-05",
+        user: { id: user.id},
+        sessionFinished: false
+    }
 
     const startRound = () => {
         if(lockedBet > 0){
+            setRoundCount(roundCount + 1)
             setPlayerCards([]);
             setPlayerCount(0);
             setDealerCards([]);
@@ -44,9 +65,15 @@ const BlackjackContainer = ({user, setUser}) => {
     const endRound = () => {
         setIsRoundDone(true);
         console.log("round end");
-        console.log(result);
         setLockedBet(0);
         payout(result);
+        fetch('http://localhost:8080/blackjack_saves', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(save)
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
     }
 
     const payout = (result) => {
@@ -78,6 +105,40 @@ const BlackjackContainer = ({user, setUser}) => {
     }
 
     useEffect(() => {
+        let copiedSave = {...save};
+        copiedSave.roundResult = result;
+        copiedSave.playerMoney = chipCount;
+        copiedSave.currentRound = roundCount;
+        copiedSave.session = {id: sessionId}
+        let playerHandString = ''
+        for(let i = 0; i < playerCards.length;i++){
+            playerHandString += `${playerCards[i].code},`
+        }
+        copiedSave.playerHand = playerHandString
+        let dealerHandString = ''
+        for(let i = 0; i < dealerCards.length;i++){
+            dealerHandString += `${dealerCards[i].code},`
+        }
+        copiedSave.dealerHand = dealerHandString
+        let deckstring = ''
+        for(let i = 0; i < deck.length;i++){
+            deckstring += `${deck[i].code},`
+        }
+        copiedSave.deck = deckstring;
+        console.log(copiedSave);
+        setSave(copiedSave);
+    },[user,sessionStart,playerCards,dealerCards,chipCount])
+
+    useEffect(() => {
+        let copiedPutUser = {...putUser}
+        copiedPutUser.blackjackWins = user.blackjackWins;
+        copiedPutUser.blackjackLosses = user.blackjackLosses;
+        copiedPutUser.blackjackPushes = user.blackjackPushes;
+        copiedPutUser.blackjackBlackjacks = user.blackjackBlackjacks;
+        setPutUser(copiedPutUser)
+    },[user,sessionStart,playerCards])
+
+    useEffect(() => {
         let count = 0;
         for (let i = 0; i < dealerCards.length; i++) {
             count += dealerCards[i].weight;
@@ -93,6 +154,19 @@ const BlackjackContainer = ({user, setUser}) => {
         setPlayerCount(count); 
     },[playerCards])
 
+    useEffect(() => {
+        console.log('session posted');
+        fetch('http://localhost:8080/blackjack_sessions',{
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newSession)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('session id: ' + data.id);
+            setSessionId(data.id)
+        })
+    },[sessionStart])
 
     const drawPlayerCard = (numOfCards = 1) => {
         setDeck(deck => deck.slice(0,deck.length-(numOfCards)));

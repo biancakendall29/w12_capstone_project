@@ -1,18 +1,23 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "./styles/Modal.css";
-import './App.css';
-import './index.css';
 import BlackjackContainer from './blackjack/containers/BlackjackContainer';
 import NavBar from './general/NavBar';
 import {BrowserRouter as Router, Routes, Route, Link, withRouter} from "react-router-dom";
-import './styles/Modal.css';
 import ReactModalLogin from "react-modal-login";
 import { useEffect, useState } from 'react';
-import './styles/Cards.css';
 import Slider from './general/Slider';
 import StatsContainer from './general/containers/StatsContainer';
 import HomeContainer from './general/containers/HomeContainer';
 import './styles/Stats.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import "./styles/Modal.css"
+import './styles/Modal.css';
+import './styles/Cards.css';
+import './styles/Home.css'
+import './styles/Navbar.css'
+import './styles/Modal.css'
+import "./styles/Slider.css"
+
 
 
 function App() {
@@ -21,6 +26,13 @@ function App() {
   const [users, setUsers] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [sessionStart, setSessionStart] = useState(false);
+  const [putUser, setPutUser] = useState(
+    {
+        blackjackWins: 0,
+        blackjackLosses: 0,
+        blackjackPushes: 0,
+        blackjackBlackjacks: 0
+})
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
@@ -39,15 +51,13 @@ function App() {
       <Router>
       <NavBar user={user} setUser={setUser} isLoggedIn={isLoggedIn} 
               setIsLoggedIn={setIsLoggedIn} users={users} 
-              setUsers={setUsers} setSessionStart={setSessionStart}/>
-      {/* <div id="navbar">
-          <div><Link to="/">Home</Link></div>
-      </div> */}
+              setUsers={setUsers} setSessionStart={setSessionStart}
+              setPutUser={setPutUser} putUser={putUser}/>
 
         <Routes>
-          <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users}/>}/>
+          <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users} isLoggedIn={isLoggedIn}/>}/>
           <Route path="/stats" element={<StatsContainer user={user}/>}/>
-          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser}/> }/>
+          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser} sessionStart={sessionStart} setPutUser={setPutUser} putUser={putUser}/> }/>
         </Routes>
       </Router>
 
