@@ -46,7 +46,7 @@ function App() {
 
   useEffect(() => {
     console.log("set user")
-    if (user !== undefined) {
+    if (user !== undefined && user !== null) {
       setUser((el) => {
         let foundUser = users.filter(client => client.id === el.id);
         return foundUser[0]

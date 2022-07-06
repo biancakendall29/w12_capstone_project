@@ -8,9 +8,9 @@ const NavBarDropdown = ({ user, setUser, setIsLoggedIn, isLoggedIn, handleClickS
     const navigate = useNavigate();
 
     const handleClickLogOut = () => {
+        navigate("/", { replace: true })
         setIsLoggedIn(false)
         setUser(null)
-        // navigate("/", { replace: true })
     }
     return (
 
