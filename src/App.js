@@ -1,6 +1,6 @@
 import BlackjackContainer from './blackjack/containers/BlackjackContainer';
 import NavBar from './general/NavBar';
-import {BrowserRouter as Router, Routes, Route, Link, withRouter} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, withRouter } from "react-router-dom";
 import ReactModalLogin from "react-modal-login";
 import { useEffect, useState } from 'react';
 import Slider from './general/Slider';
@@ -28,36 +28,47 @@ function App() {
   const [sessionStart, setSessionStart] = useState(false);
   const [putUser, setPutUser] = useState(
     {
-        blackjackWins: 0,
-        blackjackLosses: 0,
-        blackjackPushes: 0,
-        blackjackBlackjacks: 0
-})
+      blackjackWins: 0,
+      blackjackLosses: 0,
+      blackjackPushes: 0,
+      blackjackBlackjacks: 0
+    })
 
   useEffect(() => {
     fetch("http://localhost:8080/users")
-    // .then(response => console.log(response.json()))
-    .then(response => response.json())
-    .then(data => {
-      setUsers(data)
-      console.log("set users")
-    })  
-  }, [user, isLoggedIn, sessionStart])
+      // .then(response => console.log(response.json()))
+      .then(response => response.json())
+      .then(data => {
+        setUsers(data)
+        console.log("set users")
+      })
+
+  }, [ isLoggedIn, sessionStart])
+
+  useEffect(() => {
+    console.log("set user")
+    if (user !== undefined) {
+      setUser((el) => {
+        let foundUser = users.filter(client => client.id === el.id);
+        return foundUser[0]
+      }
+      )
+    }
+  }, [users, sessionStart])
 
 
-  
   return (
     <div id='outer-div'>
       <Router>
-      <NavBar user={user} setUser={setUser} isLoggedIn={isLoggedIn} 
-              setIsLoggedIn={setIsLoggedIn} users={users} 
-              setUsers={setUsers} setSessionStart={setSessionStart}
-              setPutUser={setPutUser} putUser={putUser}/>
+        <NavBar user={user} setUser={setUser} isLoggedIn={isLoggedIn}
+          setIsLoggedIn={setIsLoggedIn} users={users}
+          setUsers={setUsers} setSessionStart={setSessionStart}
+          setPutUser={setPutUser} putUser={putUser} />
 
         <Routes>
-          <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users} isLoggedIn={isLoggedIn}/>}/>
-          <Route path="/stats" element={<StatsContainer user={user}/>}/>
-          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser} sessionStart={sessionStart} setSessionStart={setSessionStart} setPutUser={setPutUser} putUser={putUser}/> }/>
+          <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users} isLoggedIn={isLoggedIn} />} />
+          <Route path="/stats" element={<StatsContainer user={user} />} />
+          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser} sessionStart={sessionStart} setSessionStart={setSessionStart} setPutUser={setPutUser} putUser={putUser} />} />
         </Routes>
       </Router>
 

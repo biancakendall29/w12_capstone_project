@@ -26,6 +26,7 @@ div.control-container {
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
+    z-index: 99;
 }
 
 .item .coming-soon {
@@ -52,6 +53,7 @@ div.control-container {
     margin-left: 20px;
     margin-right: 40px;
     display: inline-block;
+    z-index: 100;
     /* background: url("../img/card-back.png") no-repeat ; */
 }
 
@@ -87,34 +89,37 @@ div.control-container {
 }
 
 #left-scroll-button {
-    font-size: 3rem;
+    font-size: 5rem;
     position: absolute;
     transition: all 0.3s ease-in-out;
+    color: black;
 }
 
 #left-scroll-button:hover {
     color: #d12d36;
+    cursor: pointer;
 }
 
 #right-scroll-button {
-    font-size: 3rem;
+    font-size: 5rem;
     position: absolute;
-    /* z-index: 1; */
     transition: all 0.3s ease-in-out;
+    color: black;
 }
 
 #right-scroll-button:hover {
     color: #d12d36;
+    cursor: pointer;
 }
 
 div.left-scroll {
     left: 0;
-    top: 60%
+    top: 50%
 }
 
 div.right-scroll {
     right: 0;
-    top: 60%
+    top: 50%
 }   
 
 .left-scroll > i {
@@ -122,7 +127,7 @@ div.right-scroll {
     top: 50%;
     left: 50%;
     transform: translate(-35%, -55%);
-    /* z-index: 3; */
+    z-index: 101;
 }
 
 .right-scroll > i {
@@ -130,7 +135,7 @@ div.right-scroll {
     top: 50%;
     right: 50%;
     transform: translate(-35%, -55%);
-    /* z-index: 3; */
+    z-index: 101;
 }
 
 .sign-in-message {
@@ -138,5 +143,6 @@ div.right-scroll {
     font-weight: 600;
     text-align: center;
     padding: 0.5rem;
+    color: #EEE0CB;
 }
     
