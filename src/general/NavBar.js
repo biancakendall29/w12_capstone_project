@@ -44,12 +44,15 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
         setSessionStart(false)
         console.log('session end');
         // console.log(JSON.stringify(putUser))
-        fetch('http://localhost:8080/users/' + user.id, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(putUser)
+        if (putUser !== undefined && putUser !== null) {
+            fetch('http://localhost:8080/users/' + user.id, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(putUser)        
+            .then(response => {if (!response.ok) throw new Error("putUser not populated")})
         })
-        .then(response => {if (!response.ok) throw new Error("putUser not populated")})
+        }
+
     }
 
     const handleOnMouseOver = (event) => {
@@ -70,7 +73,10 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
                 <h1 id="website-banner">House of Cardz</h1>
                 <img id="card-logo-2" src={SA} alt="An Ace of Spades" />
                 <div onMouseOver={handleOnMouseOver}>
-                    <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut} setSessionStart={setSessionStart} />
+                    <NavBarDropdown 
+                        user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} 
+                        handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut} 
+                        setSessionStart={setSessionStart} setPutUser={setPutUser} />
 
                 </div>
             </div>
@@ -83,13 +89,15 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
                     {isLogin ?
                         <>
                             <h2 className="modal-title">Login</h2>
-                            <LoginForm toggle={toggle} user={user} setUser={setUser}
+                            <LoginForm 
+                                toggle={toggle} user={user} setUser={setUser}
                                 isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
                                 users={users} setUsers={setUsers} closeModal={closeModal} />
                         </>
                         : <>
                             <h2 className='modal-title'>Sign up</h2>
-                            <SignUpForm toggle={toggle} user={user} setUser={setUser}
+                            <SignUpForm 
+                                toggle={toggle} user={user} setUser={setUser}
                                 isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
                                 users={users} setUsers={setUsers} closeModal={closeModal} />
                         </>

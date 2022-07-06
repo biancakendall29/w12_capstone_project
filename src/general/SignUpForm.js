@@ -81,7 +81,7 @@ const SignUpForm = ({ toggle, user, setUser, isLoggedIn, setIsLoggedIn, users, s
                         <input type={showPassword ? "text" : "password"} placeholder="Password" name="password"
                             onChange={handleInputChange} value={stateUser.password} required />
                     </div>
-                    <label for='show-password-button' />
+                    <label htmlFor='show-password-button' />
                     <button name='show-password-button' className='password-show' type="button" onClick={togglePassword}>{showPassword ? <Eye /> : <EyeSlash />}</button>
                 </div>
                 {usernameAlert ? <div className="alert alert-danger" role="alert">Username already taken.</div> : <></>}
