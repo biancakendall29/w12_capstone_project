@@ -23,7 +23,7 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
     const [chipCount, setChipCount] = useState(1000);
     const [betAmount, setBetAmount] = useState(0);
     const [lockedBet, setLockedBet] = useState(0);
-    const [roundCount, setRoundCount] = useState(1);
+    const [roundCount, setRoundCount] = useState(0);
     const [sessionId, setSessionId] = useState(1);
     const [showPostButton, setShowPostButton] = useState(false);
     const [save, setSave] = useState(
@@ -73,7 +73,7 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
 
     const payout = (result) => {
         let copiedUser = { ...user}
-        if(result == "Player wins on points!" || result == "Player wins - dealer bust!"){
+        if(result == "Player wins on points!" || result == "Player wins - dealer bust!" || result == "Player wins - Blackjack!"){  //added to this
             setChipCount(chipCount + (lockedBet*2));
             console.log("Player Wins, chips should double");
             copiedUser.blackjackWins += 1
