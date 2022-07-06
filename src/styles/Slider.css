@@ -95,6 +95,7 @@ div.control-container {
 
 #left-scroll-button:hover {
     color: #d12d36;
+    cursor: pointer;
 }
 
 #right-scroll-button {
@@ -106,6 +107,7 @@ div.control-container {
 
 #right-scroll-button:hover {
     color: #d12d36;
+    cursor: pointer;
 }
 
 div.left-scroll {
