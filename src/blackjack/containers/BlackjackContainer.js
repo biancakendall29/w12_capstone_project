@@ -70,16 +70,6 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
         setShowPostButton(true);
     }
 
-    // useEffect(() => {
-    //     fetch('http://localhost:8080/blackjack_saves', {
-    //         method: 'POST',
-    //         headers: { "Content-Type": "application/json" },
-    //         body: JSON.stringify(save)
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => console.log(data))
-    // },[roundCount])
-
     const payout = (result) => {
         let copiedUser = { ...user}
         if(result == "Player wins on points!" || result == "Player wins - dealer bust!"){

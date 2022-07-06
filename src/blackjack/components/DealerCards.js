@@ -39,13 +39,6 @@ const DealerCards = ({ dealerCards, displayImages, isDealerTurn }) => {
             }
         }
 
-        // for (let i = 2; i < element.length; i++) {
-
-
-
-
-        // }
-
     }, [dealerCards])
 
     return (
