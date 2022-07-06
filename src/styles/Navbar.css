@@ -20,6 +20,8 @@
 #navbar-home {
     background-color: forestgreen;
     height: 100px;
+    width: 280px;
+    text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 15px;
@@ -44,6 +46,8 @@
 
 #navbar-dropdown-container {
     height: 100px;
+    width: 280px;
+    text-align: center;
     padding: 15px;
     background-color: forestgreen;
     border: black solid 1px;
