@@ -18,10 +18,14 @@
     font-size: 2.5rem;
     /* padding-top: 2rem; */
     margin-top: 2rem;
+    margin-bottom: 0rem;
     padding:1rem;
-    background-color: #eee0cb;
+    background-color: forestgreen;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    color: #eee0cb;
+   
+    
 }
 
 #stats-dropdown {
@@ -34,8 +38,9 @@
     margin: 1rem;
     padding:3px;
     padding-left:7px;
-    background-color: #eee0cb;
-    color: #644276;
+    /* background-color: #eee0cb; */
+    border: 0;
+    color: rgb(27, 107, 27);
     /* outline-color: #2F9318;
     outline-width: 7px;
     outline-style: solid; */
@@ -44,20 +49,37 @@
 
 
 #stats-body {
-    text-align: left;
+    text-align: right;
     font-size:20px;
     width: 100%;
     background-color: #eee0cb;
-    border: 1px solid black;
+    border: 5px solid #d12d36;
+    border-left:none;
+    border-right:none;
     
 }
 
 #blackjack-stats-body {
-   width:50%;
+   width:100%;
    margin-top: 1rem;
    margin-bottom: 3rem;
    margin-left: auto;
    margin-right: auto;
+   display:flex;
+   flex-direction: row;
+   justify-content: center;
+}
+
+#blackjack-stats-stats {
+    width:40%;
+}
+
+#blackjack-stats-stats p {
+    margin:0;
+}
+
+.stats-leaderboard {
+    width: 40%;
 }
 
 #blackjack-heading {
