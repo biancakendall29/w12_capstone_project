@@ -43,6 +43,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
     const handleSessionEnd = () => {
         setSessionStart(false)
         console.log('session end');
+        console.log(JSON.stringify(putUser))
         fetch('http://localhost:8080/users/' + user.id, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -50,6 +51,12 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
         })
     }
 
+    const handleOnMouseOver = (event) => {
+      console.log("mouse over dropdown");
+      fetch("http://localhost:8080/users")
+      .then(response => response.json())
+      .then(data => setUsers(data))
+    }
 
     return (
 
@@ -61,7 +68,10 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
                 <img id="card-logo-1" src={HA} alt="An Ace of Hearts"/>
                 <h1 id="website-banner">House of Cardz</h1>
                 <img id="card-logo-2" src={SA} alt="An Ace of Spades" />
-                <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut} />
+                <div onMouseOver={handleOnMouseOver}>
+                    <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut} />
+
+                </div>
             </div>
 
             <Modal isOpen={isModalShowing} onRequestClose={closeModal} ariaHideApp={false} data-backdrop="static">

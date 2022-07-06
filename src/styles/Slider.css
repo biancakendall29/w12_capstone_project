@@ -26,6 +26,7 @@ div.control-container {
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
+    z-index: 99;
 }
 
 .item .coming-soon {
@@ -52,6 +53,7 @@ div.control-container {
     margin-left: 20px;
     margin-right: 40px;
     display: inline-block;
+    z-index: 100;
     /* background: url("../img/card-back.png") no-repeat ; */
 }
 
@@ -125,7 +127,7 @@ div.right-scroll {
     top: 50%;
     left: 50%;
     transform: translate(-35%, -55%);
-    /* z-index: 3; */
+    z-index: 101;
 }
 
 .right-scroll > i {
@@ -133,7 +135,7 @@ div.right-scroll {
     top: 50%;
     right: 50%;
     transform: translate(-35%, -55%);
-    /* z-index: 3; */
+    z-index: 101;
 }
 
 .sign-in-message {

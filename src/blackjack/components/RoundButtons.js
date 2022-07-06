@@ -27,6 +27,7 @@ const RoundButtons = ({isRoundDone, setIsRoundDone, isDealerTurn, setIsDealerTur
             setIsRoundDone(true);
             setSessionStart(false)
             console.log('session end');
+            console.log(JSON.stringify(putUser))
             fetch('http://localhost:8080/blackjack_saves', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
@@ -34,11 +35,14 @@ const RoundButtons = ({isRoundDone, setIsRoundDone, isDealerTurn, setIsDealerTur
             })
             .then(response => response.json())
             .then(data => console.log(data))
+            
             fetch('http://localhost:8080/users/' + user.id, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(putUser)
             })
+
+
         }
         
         if(!isRoundDone && isDealerTurn && !showPostButton){
