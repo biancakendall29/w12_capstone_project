@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import Slider from './general/Slider';
 import StatsContainer from './general/containers/StatsContainer';
 import HomeContainer from './general/containers/HomeContainer';
-import './styles/Stats.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -15,9 +14,10 @@ import './styles/Modal.css';
 import './styles/Cards.css';
 import './styles/Home.css'
 import './styles/Navbar.css'
+import './styles/Stats.css';
 import './styles/Modal.css'
 import "./styles/Slider.css"
-
+import './index.css'
 
 
 function App() {
@@ -57,7 +57,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomeContainer sessionStart={sessionStart} setSessionStart={setSessionStart} user={user} setUser={setUser} users={users} isLoggedIn={isLoggedIn}/>}/>
           <Route path="/stats" element={<StatsContainer user={user}/>}/>
-          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser} sessionStart={sessionStart} setPutUser={setPutUser} putUser={putUser}/> }/>
+          <Route path="/blackjack" element={<BlackjackContainer user={user} setUser={setUser} sessionStart={sessionStart} setSessionStart={setSessionStart} setPutUser={setPutUser} putUser={putUser}/> }/>
         </Routes>
       </Router>
 

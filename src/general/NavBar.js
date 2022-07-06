@@ -42,7 +42,7 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
         fetch('http://localhost:8080/users/' + user.id, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(putUser) // remove sessions and saves from the POST request
+            body: JSON.stringify(putUser)
         })
     }
 
@@ -51,7 +51,10 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
 
         <>
             <div id="navbar">
-                <Link to="/" onClick={handleSessionEnd}>Home</Link>
+                <div id="navbar-home">
+                    <Link to="/" onClick={handleSessionEnd}>Home</Link>
+                </div>
+                <h1 id="website-banner">House of Cardz</h1>
                 <NavBarDropdown user={user} setUser={setUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} handleClickSignIn={handleClickSignIn} handleClickLogOut={handleClickLogOut} />
             </div>
 

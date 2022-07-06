@@ -1,8 +1,8 @@
 .slider-container {
-    background-color: forestgreen;
+    background-color: #2F9318;
     position: absolute;
     z-index: -2;
-    margin: auto;
+    margin-top: 2rem;
     padding: auto;
     width: 100%;
 }
@@ -21,46 +21,55 @@ div .items {
 }
 
 div.control-container {
-    height: 200px;
+    height: 250px;
     position: absolute;
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
 }
 
+.item .coming-soon {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 25px;
+    z-index: 2;
+    width: 150px;
+    height: 300px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    padding-top: 1rem;
+}
+.item:hover .coming-soon {
+    display: inline;
+}
+
 .item {
     position: relative;
     align-self: center;
-    width: 100px;
+    width: 200px;
     height: 400px;
     margin-left: 20px;
-    margin-right: 140px;
-}
-
-#blackjack-link:hover {
-    transform: scale(1.1);
+    margin-right: 40px;
+    display: inline-block;
+    /* background: url("../img/card-back.png") no-repeat ; */
 }
 
 .item:hover {
     transform: scale(1.1);
 }
 
-.item > span {
-    align-self: center;
-    width: 100%;
-}
-
 .item-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem;
     cursor: pointer;
     color: black;
 }
 
 .item-title:hover {
-    color: purple;
+    color: #d12d36;
 }
 
 #blackjack-link {
@@ -75,18 +84,16 @@ div.control-container {
     -o-object-fit: contain;
     object-fit: contain;
     padding-top: 1rem;
-    padding-left: 10%;
 }
 
 #left-scroll-button {
     font-size: 3rem;
     position: absolute;
-    /* z-index: 1; */
     transition: all 0.3s ease-in-out;
 }
 
 #left-scroll-button:hover {
-    color: grey;
+    color: #d12d36;
 }
 
 #right-scroll-button {
@@ -97,7 +104,7 @@ div.control-container {
 }
 
 #right-scroll-button:hover {
-    color: grey;
+    color: #d12d36;
 }
 
 div.left-scroll {
@@ -124,5 +131,12 @@ div.right-scroll {
     right: 50%;
     transform: translate(-35%, -55%);
     /* z-index: 3; */
+}
+
+.sign-in-message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5rem;
 }
     

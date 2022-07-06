@@ -30,7 +30,6 @@ public class Dataloader implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-
         User user1 = new User("johndoe123", "johndoe@gmail.com", "JohnRules3");
         userRepository.saveAll(Arrays.asList(user1));
 
@@ -47,6 +46,8 @@ public class Dataloader implements ApplicationRunner {
         blackjackSaveRepository.saveAll(Arrays.asList(save1, save2, save3, save4, save5, save6, save7));
 
 
+        BlackjackSave save1 = new BlackjackSave(LocalDate.of(2022,6,29), 1, 500, "C2,C3,C4,C5,C6", "C10, SA", "DK,DA", "push", blackjackSession1);
+        blackjackSaveRepository.saveAll(Arrays.asList(save1));
 
     }
 }

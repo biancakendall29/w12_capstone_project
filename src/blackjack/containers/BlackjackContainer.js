@@ -7,7 +7,7 @@ import BettingContainer from "./BettingContainer.js";
 import "../../styles/Blackjack.css"
 
 
-const BlackjackContainer = ({user, setUser,sessionStart,putUser,setPutUser}) => {
+const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,setPutUser}) => {
 
     const [playerCount, setPlayerCount] = useState(0);
     const [dealerCount, setDealerCount] = useState(0);
@@ -22,8 +22,9 @@ const BlackjackContainer = ({user, setUser,sessionStart,putUser,setPutUser}) => 
     const [chipCount, setChipCount] = useState(1000);
     const [betAmount, setBetAmount] = useState(0);
     const [lockedBet, setLockedBet] = useState(0);
-    const [roundCount, setRoundCount] = useState(0);
+    const [roundCount, setRoundCount] = useState(1);
     const [sessionId, setSessionId] = useState(1);
+    const [showPostButton, setShowPostButton] = useState(false);
     const [save, setSave] = useState(
         {
             timestamp: "2022-07-05",
@@ -45,7 +46,6 @@ const BlackjackContainer = ({user, setUser,sessionStart,putUser,setPutUser}) => 
 
     const startRound = () => {
         if(lockedBet > 0){
-            setRoundCount(roundCount + 1)
             setPlayerCards([]);
             setPlayerCount(0);
             setDealerCards([]);
@@ -63,17 +63,11 @@ const BlackjackContainer = ({user, setUser,sessionStart,putUser,setPutUser}) => 
     }
 
     const endRound = () => {
-        setIsRoundDone(true);
+        payout(result);
         console.log("round end");
         setLockedBet(0);
-        payout(result);
-        fetch('http://localhost:8080/blackjack_saves', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(save)
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
+        setRoundCount(roundCount + 1);
+        setShowPostButton(true);
     }
 
     const payout = (result) => {
@@ -228,7 +222,8 @@ const BlackjackContainer = ({user, setUser,sessionStart,putUser,setPutUser}) => 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
                         isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/></>}
         {isRoundDone ? <BettingContainer chipCount={chipCount} setChipCount={setChipCount} betAmount={betAmount} setBetAmount={setBetAmount} lockedBet={lockedBet} setLockedBet={setLockedBet}/> : <></>}
-        <RoundButtons isRoundDone={isRoundDone} setIsRoundDone={setIsRoundDone} isDealerTurn={isDealerTurn} setIsDealerTurn={setIsDealerTurn} endRound={endRound} startRound={startRound}/>
+        <RoundButtons isRoundDone={isRoundDone} setIsRoundDone={setIsRoundDone} isDealerTurn={isDealerTurn} setIsDealerTurn={setIsDealerTurn} endRound={endRound} startRound={startRound} showPostButton={showPostButton} setShowPostButton={setShowPostButton} 
+        save={save} setSessionStart={setSessionStart} user={user} putUser={putUser}/>
         </div>
         </>
     )
