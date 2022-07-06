@@ -46,8 +46,5 @@ public class Dataloader implements ApplicationRunner {
         blackjackSaveRepository.saveAll(Arrays.asList(save1, save2, save3, save4, save5, save6, save7));
 
 
-        BlackjackSave save1 = new BlackjackSave(LocalDate.of(2022,6,29), 1, 500, "C2,C3,C4,C5,C6", "C10, SA", "DK,DA", "push", blackjackSession1);
-        blackjackSaveRepository.saveAll(Arrays.asList(save1));
-
     }
 }
