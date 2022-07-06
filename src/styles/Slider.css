@@ -2,9 +2,11 @@
     background-color: #2F9318;
     position: absolute;
     z-index: -2;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: auto;
     width: 100%;
+    outline: #d12d36 solid 5px;
+
 }
 
 div .items {
@@ -14,32 +16,33 @@ div .items {
     overflow: hidden;
     align-items: center;
     scroll-behavior: smooth;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 0rem;
     position: relative;
     z-index: -1;
 }
 
 div.control-container {
-    height: 250px;
+    height: 187px;
     position: absolute;
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
     z-index: 99;
+
 }
 
 .item .coming-soon {
     display: none;
     position: absolute;
     top: 0;
-    left: 25px;
+    left: 19px;
     z-index: 2;
-    width: 150px;
-    height: 300px;
+    width: 115px;
+    height: 230px;
     -o-object-fit: contain;
     object-fit: contain;
-    padding-top: 1rem;
+    padding-top: 0.75rem;
 }
 .item:hover .coming-soon {
     display: inline;
@@ -48,10 +51,10 @@ div.control-container {
 .item {
     position: relative;
     align-self: center;
-    width: 200px;
-    height: 400px;
-    margin-left: 20px;
-    margin-right: 40px;
+    width: 150px;
+    height: 300px;
+    margin-left: 15px;
+    margin-right: 30px;
     display: inline-block;
     z-index: 100;
     /* background: url("../img/card-back.png") no-repeat ; */
@@ -62,10 +65,11 @@ div.control-container {
 }
 
 .item-title {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 1.75rem;
+    font-family: 'Marker Felt';
+    font-weight: 300;
     text-align: center;
-    padding: 0.5rem;
+    padding: 0.39rem;
     cursor: pointer;
     color: black;
 }
@@ -81,15 +85,15 @@ div.control-container {
 
 
 .item img.item-image {
-    width: 200px;
-    height: 300px;
+    width: 150px;
+    height: 225px;
     -o-object-fit: contain;
     object-fit: contain;
-    padding-top: 1rem;
+    padding-top: 0.75rem;
 }
 
 #left-scroll-button {
-    font-size: 5rem;
+    font-size: 4.25rem;
     position: absolute;
     transition: all 0.3s ease-in-out;
     color: black;
@@ -101,7 +105,7 @@ div.control-container {
 }
 
 #right-scroll-button {
-    font-size: 5rem;
+    font-size: 4.25rem;
     position: absolute;
     transition: all 0.3s ease-in-out;
     color: black;
@@ -139,10 +143,10 @@ div.right-scroll {
 }
 
 .sign-in-message {
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     font-weight: 600;
     text-align: center;
-    padding: 0.5rem;
-    color: #EEE0CB;
+    padding: 0.4rem;
+    color: white;
 }
     

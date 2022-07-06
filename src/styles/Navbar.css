@@ -4,15 +4,15 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
+    height: 75px;
     background-color: #EEE0CB;
     font-size: 40px;
     border: black solid 1px;
 }
 
 #card-logo-1 {
-    height: 60px;
-    width: 45px;
+    height: 45px;
+    width: 30px;
     
     animation: rotation-2 3s infinite linear;
 
@@ -30,8 +30,8 @@
   }
 
 #card-logo-2 {
-    height: 60px;
-    width: 45px;
+    height: 45px;
+    width: 30px;
     animation: rotation-1 3s infinite linear;
 
     outline: black solid 1px;
@@ -49,35 +49,41 @@
 
 #website-banner {
     color: black;
-    font-weight: 900;
-    font-size: 40px;
+    font-weight: 300;
+    font-size: 50px;
+    font-family: 'Copperplate';
 }
 
 #navbar-home {
+    display: flex;
+    justify-content: center;
     background-color: forestgreen;
-    height: 100px;
+    height: 75px;
     width: 280px;
     text-align: center;
-    padding-top: 12px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
     border: black solid 1px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
-#navbar > #navbar-home > a {
-    text-decoration: none;
+#navbar-home > a {
     font-size: 20px;
     font-weight: 600;
-    color: black;
     background-color: white;
     border: black solid 2px;
     border-radius: 4px;
-    margin: 10px;
-    padding: 0.5rem 2rem;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 7px 40px;
+    
+
+
+    text-decoration: none;
+    color: black;
 }
+
 
 #navbar > #navbar-home > a:hover {
     background-color: black;
@@ -89,7 +95,7 @@
 
 #navbar-dropdown-container {
     display: flex;
-    height: 100px;
+    height: 75px;
     width: 280px;
     text-align: center;
     align-items: center;

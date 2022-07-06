@@ -9,15 +9,13 @@ import HomeContainer from './general/containers/HomeContainer';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import "./styles/Modal.css"
+import './index.css'
 import './styles/Modal.css';
 import './styles/Cards.css';
-import './styles/Home.css'
+import './styles/Home.css';
 import './styles/Navbar.css'
 import './styles/Stats.css';
-import './styles/Modal.css'
-import "./styles/Slider.css"
-import './index.css'
+import "./styles/Slider.css";
 
 
 function App() {

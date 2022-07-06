@@ -5,7 +5,7 @@ const HomeContainer = ({ sessionStart, setSessionStart, isLoggedIn }) => {
     return (
 
         <div id="home">
-            <h1>Welcome</h1>
+            <h1>Welcome! Please sign in, then pick a game...</h1>
 
             <h3>Games</h3>
             <Slider sessionStart={sessionStart} setSessionStart={setSessionStart} isLoggedIn={isLoggedIn} />
