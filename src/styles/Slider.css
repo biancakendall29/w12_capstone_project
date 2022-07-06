@@ -1,8 +1,8 @@
 .slider-container {
-    background-color: forestgreen;
+    background-color: #2F9318;
     position: absolute;
     z-index: -2;
-    margin: auto;
+    margin-top: 2rem;
     padding: auto;
     width: 100%;
 }
@@ -21,7 +21,7 @@ div .items {
 }
 
 div.control-container {
-    height: 200px;
+    height: 250px;
     position: absolute;
     width: 100%;
     overflow: hidden;
@@ -31,10 +31,10 @@ div.control-container {
 .item {
     position: relative;
     align-self: center;
-    width: 100px;
+    width: 200px;
     height: 400px;
     margin-left: 20px;
-    margin-right: 140px;
+    margin-right: 40px;
 }
 
 #blackjack-link:hover {
@@ -54,7 +54,7 @@ div.control-container {
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem;
     cursor: pointer;
     color: black;
 }
@@ -75,7 +75,6 @@ div.control-container {
     -o-object-fit: contain;
     object-fit: contain;
     padding-top: 1rem;
-    padding-left: 10%;
 }
 
 #left-scroll-button {
@@ -124,5 +123,12 @@ div.right-scroll {
     right: 50%;
     transform: translate(-35%, -55%);
     /* z-index: 3; */
+}
+
+.sign-in-message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5rem;
 }
     

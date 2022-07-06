@@ -1,3 +1,35 @@
 #home > a {
     color: blue;
 }
+
+#home {
+    position: absolute;
+    z-index:-2;
+}
+
+#home > h1 {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+#home > h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+#home > h3#about-us {
+    position: relative;
+    z-index: -2;
+    margin-top: 35rem;
+}
+
+#home > p {
+    z-index: -2;
+}
+
+#feedback-form {
+    /* padding-top: 30rem; */
+    /* z-index: 1; */
+}

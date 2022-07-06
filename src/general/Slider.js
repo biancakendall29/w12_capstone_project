@@ -10,10 +10,8 @@ import {BrowserRouter as Router, Link} from "react-router-dom";
 
 const Slider = ({setSessionStart,sessionStart,setUser,user,users,isLoggedIn}) => {
 
-    // let carousel = {};
-    // carousel.e = document.getElementById('carousel');
+
     let carouselItems = {};
-    // carouselItems = document.getElementById('carousel-items');
     carouselItems = document.querySelector('.items');
     let items_count = document.getElementsByClassName('item');
     let step_count = 0;
@@ -21,34 +19,24 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users,isLoggedIn}) =>
     const scroll = (el, step) => {
         console.log(step);
         console.log(el);
-        // el.scrollLeft += step;
         el.scrollBy(step, 0);
     }
 
     const leftScrollClick = () => {
         console.log("clicked");
-        scroll(carouselItems, -260);
+        scroll(carouselItems, -160);
         console.log(items_count.length);
-        // step_count--;
-        // if(step_count <= 0) {
-        //     scroll(document.getElementById('carousel-items'), 260*items_count.length)
-        //     step_count = items_count.length;
-        // }
     }
 
     const rightScrollClick = () => {
-        scroll(carouselItems, 260);
-        // step_count++;
-        // if(step_count >= items_count.length) {
-        //     scroll(document.getElementById('carousel-items'), -260*items_count.length)
-        //     step_count = 0;
-        // }
+        scroll(carouselItems, 160);
     }
 
     const handleSessionStart = () => {
         setSessionStart(true)
         console.log('session start');
     }
+
 
     return (
         <div id="carousel" className="slider-container">
@@ -69,57 +57,63 @@ const Slider = ({setSessionStart,sessionStart,setUser,user,users,isLoggedIn}) =>
         
         <div className="items" id="carousel-items">
 
-            
+            {isLoggedIn ?
                 <Link id="blackjack-link" to={'/blackjack'} onClick={handleSessionStart}>
                 <div className="item"> 
                 <img className="item-image" alt="blackjackCover" src={blackjack} />
-                <span className="item-title">BlackJack</span>
+                <p className="item-title">BlackJack</p>
                 </div>
                 </Link>
+                :
+                 <div className="item"> 
+                    <img className="item-image" alt="blackjackCover" src={blackjack} />
+                    <p className="sign-in-message">Sign in to play blackjack</p>
+                </div>
+            }     
 
             <div className="item"> 
                 <img className="item-image" alt="pokerCover" src={poker} />
-                <span className="item-title">Poker</span>
+                <p className="item-title">Poker</p>
             </div>
 
             <div className="item"> 
                 <img className="item-image" alt="heartsCover" src={hearts} />
-                <span className="item-title">Hearts</span>
+                <p className="item-title">Hearts</p>
             </div>
 
             <div className="item"> 
                 <img className="item-image" alt="rummyCover" src={rummy} />
-                <span className="item-title">Rummy</span>
+                <p className="item-title">Rummy</p>
             </div>
 
             <div className="item"> 
                 <img className="item-image" alt="sevensCover" src={sevens} />
-                <span className="item-title">Sevens</span>
+                <p className="item-title">Sevens</p>
             </div>
 
             <div className="item" > 
                 <img className="item-image" alt="canasterCover" src={canaster} />
-                <span className="item-title">Canaster</span>
+                <p className="item-title">Canasta</p>
             </div>
 
             <div className="item"> 
                 <img className="item-image" alt="pokerCover" src={poker} />
-                <span className="item-title">Bridge</span>
+                <p className="item-title">Bridge</p>
             </div>
 
             <div className="item"> 
                 <img className="item-image" alt="pokerCover" src={blackjack} />
-                <span className="item-title">Solataire</span>
+                <p className="item-title">Solataire</p>
             </div>
 
             <div className="item" > 
                 <img className="item-image" alt="pokerCover" src={poker} />
-                <span className="item-title">Cheat</span>
+                <p className="item-title">Cheat</p>
             </div>
 
             <div className="item" > 
                 <img className="item-image" alt="pokerCover" src={rummy} />
-                <span className="item-title">BlackJack</span>
+                <p className="item-title">BlackJack</p>
             </div>
         </div>
         </div>
