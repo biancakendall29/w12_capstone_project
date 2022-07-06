@@ -1,3 +1,49 @@
-#home > a {
-    color: blue;
+#home > p > a {
+    color: #EEE0CB;
+    font-weight: 500;
+}
+
+#home {
+    position: absolute;
+    z-index:-2;
+}
+
+#home > h1 {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+#home > h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    background-color: #EEE0CB;
+    padding: 1rem;
+}
+
+#home > h3#about-us {
+    position: relative;
+    z-index: -2;
+    margin-top: 35rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#home > p {
+    z-index: -2;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: center;
+    background-color: #2F9318;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+#feedback-form {
+    /* padding-top: 30rem; */
+    /* z-index: 1; */
 }
