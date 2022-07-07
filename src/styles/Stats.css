@@ -94,31 +94,53 @@
     width: 40%;
 }
 
-#blackjack-heading {
+.total-stats {
     text-align: center;
-    font-weight: 600;
-    font-size: 30px;
-    margin: 2rem;
 }
+.total-stats > h2{
+    color:rgb(27, 107, 27);
+    text-decoration: underline;
+    margin-top:0.5rem;
+}
+
 
 .session-stats-list {
     display:grid;
     grid-template-columns: repeat(2, auto);
+    
 }
 
 .session-stats {
-    /* width: 45%; */
+    width: 80%;
+    margin: 1rem;
     margin-left: auto;
     margin-right:auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1rem;
 
-}
-
-.session-stats-body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 }
 
-.session-stats-graph {
-    /* width: 100%; */
+.session-stats-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    margin-right:1rem;
+    /* justify-content: center;
+    align-items: right; */
+    text-align: right;
 }
+
+.session-stats p {
+    margin:0.5rem;
+}
+
+.vl{
+    border-left: 1px solid rgba(34,139,34,0.5);
+    padding-left:1rem;
+}
+

@@ -64,9 +64,19 @@ const BlackjackSessionStats = ({ session }) => {
         // height: '400px',
       },
       xaxis: {
-        categories: roundNums
+        categories: roundNums,
+        title: {text:"round number"},
+        
       },
-      tooltip: { enabled: false }
+      yaxis : {
+        labels: {show:true,},
+        title: {text:"points"},
+        min:0,
+        forceNiceScale:true,
+      },
+      tooltip: { enabled: false },
+      stroke: {show:true, width: 2, colors: 'forestgreen'},
+      markers: {size: 4, colors: '#fff', strokeColors:'forestgreen'}
     })
     setSeries([{
       name: "series-1",
@@ -80,21 +90,21 @@ const BlackjackSessionStats = ({ session }) => {
 
   return (
     <div className="session-stats">
-      <div className="session-stats-header">
-        {/* <p>header</p> */}
-      </div>
-      <div className="session-stats-body">
+      {/* <div className="session-stats-header">
+        <p>header</p>
+      </div> */}
         <div className="session-stats-content">
           <p>Total hands played: {sessionState.wins + sessionState.losses + sessionState.pushes}</p>
           <p>Hands won: {sessionState.wins}</p>
           <p>Hands lost: {sessionState.losses}</p>
           <p>Pushes: {sessionState.pushes}</p>
           <p>Blackjacks: {sessionState.blackjacks}</p>
-        </div>
-        <div className="session-stats-graph">
-          {<Chart options={options} series={series} width={200} height={200} type="line" />}
-        </div>
-      </div>
+        </div>         
+        <div className="vl"/>
+       {<Chart options={options} series={series} width={300} height={230} type="line" />}
+
+        {/* <div className="session-stats-graph">
+        </div> */}
 
     </div>
 
