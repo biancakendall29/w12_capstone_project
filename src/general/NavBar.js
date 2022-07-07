@@ -48,9 +48,10 @@ const NavBar = ({ user, setUser, isLoggedIn, setIsLoggedIn, users, setUsers, set
             fetch('http://localhost:8080/users/' + user.id, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(putUser)        
+                body: JSON.stringify(putUser)
+             })   
             .then(response => {if (!response.ok) throw new Error("putUser not populated")})
-        })
+        
         }
 
     }

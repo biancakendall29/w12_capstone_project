@@ -60,7 +60,8 @@ const BlackjackSessionStats = ({ session }) => {
         zoom: { enabled: false },
         background: "#fff",
         selection: { enabled: false },
-        width: "100%"
+        // width: '400px',
+        // height: '400px',
       },
       xaxis: {
         categories: roundNums
@@ -80,7 +81,7 @@ const BlackjackSessionStats = ({ session }) => {
   return (
     <div className="session-stats">
       <div className="session-stats-header">
-        <p>header</p>
+        {/* <p>header</p> */}
       </div>
       <div className="session-stats-body">
         <div className="session-stats-content">
@@ -91,7 +92,7 @@ const BlackjackSessionStats = ({ session }) => {
           <p>Blackjacks: {sessionState.blackjacks}</p>
         </div>
         <div className="session-stats-graph">
-          {<Chart options={options} series={series} type="line" height={400} />}
+          {<Chart options={options} series={series} width={200} height={200} type="line" />}
         </div>
       </div>
 

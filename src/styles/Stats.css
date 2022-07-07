@@ -101,8 +101,13 @@
     margin: 2rem;
 }
 
+.session-stats-list {
+    display:grid;
+    grid-template-columns: repeat(2, auto);
+}
+
 .session-stats {
-    width: 95%;
+    /* width: 45%; */
     margin-left: auto;
     margin-right:auto;
 
@@ -112,9 +117,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 40%;
 }
 
 .session-stats-graph {
-    width: 50%;
+    /* width: 100%; */
 }
