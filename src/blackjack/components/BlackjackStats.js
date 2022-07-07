@@ -12,7 +12,7 @@ const BlackjackStats = ({ user }) => {
     //     console.log(sessions)
     // }, [sessions])
 
-    let totalHandsPlayed = user.blackjackWins + user.blackjackLosses + user.blackjackPushes /* + user.blackjackBlackjacks */
+    let totalHandsPlayed = user.blackjackWins + user.blackjackLosses + user.blackjackPushes; /* + user.blackjackBlackjacks */
 
     let userWinPercentage = (((user.blackjackWins /*  + user.blackjackBlackjacks*/) / totalHandsPlayed) * 100);
 

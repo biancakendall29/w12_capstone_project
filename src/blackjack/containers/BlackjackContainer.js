@@ -223,7 +223,9 @@ const BlackjackContainer = ({user, setUser,sessionStart,setSessionStart,putUser,
                         dealerCount={dealerCount} setDealerCount={setDealerCount} 
                         deck={deck} isDealerBust={isDealerBust} setIsDealerBust={setIsDealerBust}
                         isDealerTurn={isDealerTurn} isPlayerBust={isPlayerBust} drawDealerCard={drawDealerCard} displayImages={displayImages} playerCount={playerCount} playerCards={playerCards} result={result}/>
-                        <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
+        <div id="divider"></div>
+        
+        <PlayerContainer playerCards={playerCards} playerCount={playerCount} setPlayerCount={setPlayerCount} 
                         setIsPlayerBust={setIsPlayerBust} setPlayerCards={setPlayerCards} deck={deck}
                         setIsDealerTurn={setIsDealerTurn} drawPlayerCard={drawPlayerCard} isPlayerBust={isPlayerBust} isDealerTurn={isDealerTurn} 
                         displayImages = {displayImages} chipCount={chipCount} setChipCount={setChipCount} lockedBet={lockedBet} setLockedBet={setLockedBet}/></>}

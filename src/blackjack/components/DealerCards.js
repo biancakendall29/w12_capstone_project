@@ -23,7 +23,7 @@ const DealerCards = ({ dealerCards, displayImages, isDealerTurn }) => {
         for (let i = 0; i < element.length; i++) {
             let len = element.length - 1;
             let position = 5 * 1.1 ** len * (2 * i - len) / len;
-            let positionStyle = `left: calc(${position}rem + 50% - 5.5rem)`
+            let positionStyle = `left: calc(${position}rem + 50% - 5rem)`
             element[i].setAttribute("style", positionStyle)
 
             if (element[i].getAttribute("data-flip") === "no" && i >= 2) {

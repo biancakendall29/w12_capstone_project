@@ -11,7 +11,7 @@ const PlayerCards = ({ playerCards, displayImages }) => {
             let position =  5 * 1.1**len * (2*i - len) / len;            
             // let len = element.length;
             // let position =  11 * (i - (len-1)/2) * 1.1**(len-2) / (len-1);            
-            element[i].setAttribute("style", `left: calc(${position}rem + 50% - 5.5rem)`)
+            element[i].setAttribute("style", `left: calc(${position}rem + 50% - 5rem)`)
         }
 
         setTimeout(() => {
