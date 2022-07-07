@@ -52,7 +52,7 @@ const BlackjackStats = ({ user }) => {
                     </div>
                 </div>
             </div>
-            <div className="session-stats">
+            <div className="session-stats-list">
                 {sessionStats()}
             </div>
         </>
